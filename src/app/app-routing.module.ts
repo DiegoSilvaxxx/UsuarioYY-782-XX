@@ -23,7 +23,13 @@ const routes: Routes = [
   },
   { path: 'lista-de-clientes', loadChildren: './lista-de-clientes/lista-de-clientes.module#ListaDeClientesPageModule' },
   { path: 'cadastro-de-cliente', loadChildren: './cadastro-de-cliente/cadastro-de-cliente.module#CadastroDeClientePageModule' },
-  { path: 'cliente-view', loadChildren: './cliente-view/cliente-view.module#ClienteViewPageModule' }
+  { path: 'cliente-view', loadChildren: './cliente-view/cliente-view.module#ClienteViewPageModule' },
+ 
+  { path: 'cadastro-de-prato', loadChildren: './cadastro-de-prato/cadastro-de-prato.module#CadastroDePratoPageModule' },
+  { path: 'prato-view', loadChildren: './prato-view/prato-view.module#PratoViewPageModule' },
+  { path: 'lista-de-pratos', loadChildren: './lista-de-pratos/lista-de-pratos.module#ListaDePratosPageModule' },
+
+
 ];
 
 @NgModule({

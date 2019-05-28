@@ -36,7 +36,17 @@ export class AppComponent {
       title: 'Cadastro de Clientes',
       url: '/cadastro-de-cliente',
       icon: 'book'
-    }
+    },
+    {
+      title: 'Cadastrar Prato',
+      url: '/cadastro-de-prato',
+      icon: 'clipboard'
+    },
+    {
+      title: 'Cardápio',
+      url: '/lista-de-pratos',
+      icon: 'pizza'
+    },
   ];
 // 
   constructor(

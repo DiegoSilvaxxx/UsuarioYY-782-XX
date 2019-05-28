@@ -38,6 +38,7 @@ export class ListPage implements OnInit {
   cadastrar(){
     
     this.router.navigate(['/lista-de-clientes', { id: '12' }]);
+   
      
    }
   // add back when alpha.4 is out

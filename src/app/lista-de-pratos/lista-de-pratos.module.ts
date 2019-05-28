@@ -2,25 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
-import { ReactiveFormsModule } from '@angular/forms';
 
-import { CadastroDeClientePage } from './cadastro-de-cliente.page';
+import { IonicModule } from '@ionic/angular';
+
+import { ListaDePratosPage } from './lista-de-pratos.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CadastroDeClientePage
+    component: ListaDePratosPage
   }
 ];
+
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
     FormsModule,
-    ReactiveFormsModule,
+    IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CadastroDeClientePage]
+  declarations: [ListaDePratosPage]
 })
-export class CadastroDeClientePageModule {}
+export class ListaDePratosPageModule {}

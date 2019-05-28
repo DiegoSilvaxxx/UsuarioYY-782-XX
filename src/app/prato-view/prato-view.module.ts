@@ -5,22 +5,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { CadastroDeClientePage } from './cadastro-de-cliente.page';
+import { PratoViewPage } from './prato-view.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CadastroDeClientePage
+    component: PratoViewPage
   }
 ];
+
 @NgModule({
   imports: [
     CommonModule,
-    IonicModule,
     FormsModule,
+    IonicModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CadastroDeClientePage]
+  declarations: [PratoViewPage]
 })
-export class CadastroDeClientePageModule {}
+export class PratoViewPageModule {}
