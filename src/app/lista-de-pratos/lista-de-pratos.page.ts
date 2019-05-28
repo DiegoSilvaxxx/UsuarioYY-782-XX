@@ -14,7 +14,7 @@ import { Prato } from '../model/prato';
 })
 export class ListaDePratosPage implements OnInit {
 
-  listaDePratos : Prato[] = [];
+  ListaDePratos : Prato[] = [];
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: true};
 
@@ -38,7 +38,7 @@ export class ListaDePratosPage implements OnInit {
             let c = new Prato();
             c.setDados(doc.data());
             c.id = doc.id;
-            this.listaDePratos.push(c);
+            this.ListaDePratos.push(c);
         });
     });
   }
@@ -48,7 +48,7 @@ export class ListaDePratosPage implements OnInit {
     var ref = firebase.firestore().collection("prato");
     ref.doc(obj.id).delete()
       .then(()=>{
-        this.listaDePratos = [];
+        this.ListaDePratos = [];
         this.getList();
       }).catch(()=>{
         console.log('Erro ao atualizar');
