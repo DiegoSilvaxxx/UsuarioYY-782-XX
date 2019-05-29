@@ -9,15 +9,18 @@
 
 <ion-content>
   <ion-card  *ngFor="let prato of ListaDePratos">
-      <ion-card-header>
-        
+    
+    <ion-card-header>
+      
         <ion-card-title>{{prato?.nome}}</ion-card-title>
         <ion-card-subtitle>{{prato?.descricao}}</ion-card-subtitle>
         <ion-card-subtitle>{{prato?.valor}}</ion-card-subtitle>
+     
       </ion-card-header>
 
       <ion-icon name="share-alt" (click)="viewPrato(prato)"  size="large"></ion-icon>
       <ion-icon name="trash" (click)="remove(prato)"  size="large"></ion-icon>
+      <ion-button expand="full" fill="outline">Fazer Pedido</ion-button>
 
     </ion-card>
    
