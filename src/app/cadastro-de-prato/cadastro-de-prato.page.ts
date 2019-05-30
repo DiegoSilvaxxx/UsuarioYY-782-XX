@@ -37,7 +37,8 @@ export class CadastroDePratoPage implements OnInit {
       .then(() =>{
         console.log('Cadastrado com sucesso');
         this.router.navigate(['/list']);
-      }).catch(()=>{
+      }).catch(err=>{
+        console.log(err);
         console.log('Erro ao cadastrar');
       })
   }

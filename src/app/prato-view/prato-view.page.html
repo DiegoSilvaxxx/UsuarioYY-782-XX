@@ -4,6 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content padding>
+
+    <img src="{{imagem}}">
+
+    <ion-item>
+        <input type="file" (change)="enviaArquivo($event)"/>
+    </ion-item>
+
 <ion-content>
   <form [formGroup]="formGroup">
     <ion-list>

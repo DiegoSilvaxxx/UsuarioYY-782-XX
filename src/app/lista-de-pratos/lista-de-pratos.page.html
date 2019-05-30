@@ -1,28 +1,40 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Cardápio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card  *ngFor="let prato of ListaDePratos">
-    
-    <ion-card-header>
-      
-        <ion-card-title>{{prato?.nome}}</ion-card-title>
-        <ion-card-subtitle>{{prato?.descricao}}</ion-card-subtitle>
-        <ion-card-subtitle>{{prato?.valor}}</ion-card-subtitle>
-     
-      </ion-card-header>
 
-      <ion-icon name="share-alt" (click)="viewPrato(prato)"  size="large"></ion-icon>
-      <ion-icon name="trash" (click)="remove(prato)"  size="large"></ion-icon>
-      <ion-button expand="full" fill="outline">Fazer Pedido</ion-button>
 
-    </ion-card>
-   
-    
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6" *ngFor="let prato of ListaDePratos">
+        <ion-card>
+          <ion-card-header>
+            <img src="{{prato?.imagem}}">
+            <ion-card-title>{{prato?.nome}}</ion-card-title>
+            <ion-card-subtitle>{{prato?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle>{{prato?.valor}}</ion-card-subtitle>
+
+          </ion-card-header>
+
+          <ion-icon name="share-alt" (click)="viewPrato(prato)" size="large"></ion-icon>
+          <ion-icon name="trash" (click)="remove(prato)" size="large"></ion-icon>
+          <ion-button expand="full" fill="outline">Fazer Pedido</ion-button>
+
+        </ion-card>
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
 </ion-content>

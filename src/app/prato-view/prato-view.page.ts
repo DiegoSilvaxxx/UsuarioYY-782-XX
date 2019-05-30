@@ -19,7 +19,7 @@ export class PratoViewPage implements OnInit {
   id : string;
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: true};
-
+  imagem;
   formGroup : FormGroup; // <----
   
 
@@ -28,6 +28,7 @@ export class PratoViewPage implements OnInit {
     public router : Router,
     public nav : NavController) {// <----
       this.id = this.activatedRoute.snapshot.paramMap.get('prato');
+      console.log(this.id)
       this.form(); // <----
   }
 
@@ -40,6 +41,7 @@ export class PratoViewPage implements OnInit {
   }
 
   ngOnInit() {
+    this.downloadFoto();
     this.obterPrato();
   }
 
@@ -67,4 +69,33 @@ export class PratoViewPage implements OnInit {
       })
   }
 
-}
+  enviaArquivo(event){
+    let imagem = event.srcElement.files[0];
+    //console.log(imagem.name);
+    let ref = firebase.storage().ref()
+                  .child(`pratos/${this.id}.jpg`);
+    
+    ref.put(imagem).then(url=>{
+      console.log("Enviado com sucesso!");
+      this.downloadFoto();
+    })
+  
+  }
+  
+  downloadFoto(){
+    let ref = firebase.storage().ref()
+      .child(`pratos/${this.prato.id}.jpg`);
+  
+      ref.getDownloadURL().then( url=>{ 
+        this.imagem = url;
+      })
+  }
+  
+  
+  
+  
+  
+  }
+
+
+

@@ -4,6 +4,7 @@ export class Prato{
     nome : string;
     descricao : string;
     valor : string;
+    imagem : string;
 
     constructor(){   
     }

@@ -17,6 +17,7 @@ export class ListaDePratosPage implements OnInit {
   ListaDePratos : Prato[] = [];
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: true};
+  
 
   constructor(public router : Router, public loadingController: LoadingController) {
     
@@ -32,13 +33,19 @@ export class ListaDePratosPage implements OnInit {
   }
 
   getList() {
+
     var ref = firebase.firestore().collection("prato");
     ref.get().then(query => {
         query.forEach(doc => {
+
             let c = new Prato();
             c.setDados(doc.data());
             c.id = doc.id;
-            this.ListaDePratos.push(c);
+            let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then( url=>{ 
+              c.imagem = url;
+              this.ListaDePratos.push(c);
+            })
+
         });
     });
   }
@@ -65,6 +72,8 @@ export class ListaDePratosPage implements OnInit {
 
    
   }
+
+  
 
   
 }
