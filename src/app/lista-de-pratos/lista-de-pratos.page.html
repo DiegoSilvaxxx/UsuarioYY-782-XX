@@ -1,11 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Cardápio</ion-title>
+  <ion-toolbar color="danger">
+    <div>
+      <ion-title>NutriXeque</ion-title>
+    </div>
+
+    <ion-icon slot="start" name="arrow-back" class="css"></ion-icon>
+    <ion-icon slot="start" name="contact" class="css"></ion-icon>
+
+    <ion-icon slot="end" name="cart" class="css"></ion-icon>
+    <ion-icon slot="end" name="search" class="css"></ion-icon>
+    <ion-icon slot="end" name="more" class="css"></ion-icon>
+
   </ion-toolbar>
+
 </ion-header>
+
 
 <ion-content>
 
@@ -23,11 +32,12 @@
 
           </ion-card-header>
 
+          <ion-button color="dark">Pedido</ion-button>
           <ion-icon name="share-alt" (click)="viewPrato(prato)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(prato)" size="large"></ion-icon>
-          <ion-button expand="full" fill="outline">Fazer Pedido</ion-button>
 
         </ion-card>
+
       </ion-col>
 
 
