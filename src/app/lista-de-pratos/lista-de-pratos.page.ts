@@ -27,10 +27,14 @@ export class ListaDePratosPage implements OnInit {
     this.getList();
   }
 
-  viewPrato(obj : Prato){
-    this.router.navigate(['/prato-view', { 'prato': obj.id }]);
-    this.presentLoading();
+  viewPratoVegano(){
+    this.router.navigate(['/lista-de-pratos-vegano']);
   }
+
+  viewPratoVegetariano(){
+    this.router.navigate(['/lista-de-pratos-vegetariano']);
+  }
+  
 
   getList() {
 

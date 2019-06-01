@@ -28,6 +28,10 @@ const routes: Routes = [
   { path: 'cadastro-de-prato', loadChildren: './cadastro-de-prato/cadastro-de-prato.module#CadastroDePratoPageModule' },
   { path: 'prato-view', loadChildren: './prato-view/prato-view.module#PratoViewPageModule' },
   { path: 'lista-de-pratos', loadChildren: './lista-de-pratos/lista-de-pratos.module#ListaDePratosPageModule' },
+  { path: 'lista-de-pratos-vegano', loadChildren: './lista-de-pratos-vegano/lista-de-pratos-vegano.module#ListaDePratosVeganoPageModule' },
+  { path: 'lista-de-pratos-vegetariano', loadChildren: './lista-de-pratos-vegetariano/lista-de-pratos-vegetariano.module#ListaDePratosVegetarianoPageModule' },
+
+
 
 
 ];

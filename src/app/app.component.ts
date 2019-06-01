@@ -46,7 +46,11 @@ export class AppComponent {
       title: 'Cardápio',
       url: '/lista-de-pratos',
       icon: 'pizza'
-    },
+    }
+   
+    
+  
+    
   ];
 // 
   constructor(
