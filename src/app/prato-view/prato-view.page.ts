@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Prato} from '../model/prato';
+import { Prato } from '../model/prato';
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NavController } from '@ionic/angular';
@@ -15,28 +15,28 @@ import { NavController } from '@ionic/angular';
 })
 export class PratoViewPage implements OnInit {
 
-  prato : Prato = new Prato();
-  id : string;
+  prato: Prato = new Prato();
+  id: string;
   firestore = firebase.firestore();
-  settings = {timestampsInSnapshots: true};
+  settings = { timestampsInSnapshots: true };
   imagem;
-  formGroup : FormGroup; // <----
-  
+  formGroup: FormGroup; // <----
 
-  constructor(public  activatedRoute: ActivatedRoute, 
-    public formBuilder : FormBuilder,
-    public router : Router,
-    public nav : NavController) {// <----
-      this.id = this.activatedRoute.snapshot.paramMap.get('prato');
-      console.log(this.id)
-      this.form(); // <----
+
+  constructor(public activatedRoute: ActivatedRoute,
+    public formBuilder: FormBuilder,
+    public router: Router,
+    public nav: NavController) {// <----
+    this.id = this.activatedRoute.snapshot.paramMap.get('prato');
+    console.log(this.id)
+    this.form(); // <----
   }
 
-  form(){// <----
+  form() {// <----
     this.formGroup = this.formBuilder.group({
-      nome : [this.prato.nome],
-      descricao : [this.prato.descricao],
-      valor : [this.prato.valor],
+      nome: [this.prato.nome],
+      descricao: [this.prato.descricao],
+      valor: [this.prato.valor],
     });
   }
 
@@ -45,57 +45,57 @@ export class PratoViewPage implements OnInit {
     this.obterPrato();
   }
 
-  obterPrato(){
+  obterPrato() {
     var ref = firebase.firestore().collection("prato").doc(this.id);
-  
+
     ref.get().then(doc => {
-        this.prato.setDados(doc.data());
-        this.form();
-        
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
+      this.prato.setDados(doc.data());
+      this.form();
+
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
     });
-    
+
   }
 
-  atualizar(){
+  atualizar() {
     let ref = this.firestore.collection('prato')
     ref.doc(this.id).set(this.formGroup.value)
-      .then(() =>{
+      .then(() => {
         console.log('Atualizado com sucesso');
         this.nav.navigateRoot('/lista-de-pratos');
-      }).catch(()=>{
+      }).catch(() => {
         console.log('Erro ao Atualizar');
       })
   }
 
-  enviaArquivo(event){
+  enviaArquivo(event) {
     let imagem = event.srcElement.files[0];
     //console.log(imagem.name);
     let ref = firebase.storage().ref()
-                  .child(`pratos/${this.id}.jpg`);
-    
-    ref.put(imagem).then(url=>{
+      .child(`pratos/${this.id}.jpg`);
+
+    ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");
       this.downloadFoto();
     })
-  
+
   }
-  
-  downloadFoto(){
+
+  downloadFoto() {
     let ref = firebase.storage().ref()
       .child(`pratos/${this.prato.id}.jpg`);
-  
-      ref.getDownloadURL().then( url=>{ 
-        this.imagem = url;
-      })
+
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    })
   }
-  
-  
-  
-  
-  
-  }
+
+
+
+
+
+}
 
 
 

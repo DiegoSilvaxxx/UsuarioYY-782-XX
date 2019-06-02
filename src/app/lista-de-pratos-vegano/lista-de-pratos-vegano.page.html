@@ -1,10 +1,82 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>ListaDePratosVegano</ion-title>
+  <ion-toolbar color="dark">
+    <div>
+      <ion-title>NutriXeque</ion-title>
+    </div>
+    <ion-icon slot="end" name="cart" class="css"></ion-icon>
+    <ion-icon slot="end" name="search" class="css"></ion-icon>
+
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-icon (click)="Home()" slot="start" name="arrow-back" class="css"></ion-icon>
+    <ion-icon slot="start" name="contact" class="css"></ion-icon>
+
+
   </ion-toolbar>
+
+
 </ion-header>
 
+
 <ion-content>
+
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button (click)="PratoView()">
+        <img src="../../assets/imagens/baixa.png" class="logo">
+        <ion-label>BaixaCaloria</ion-label>
+
+      </ion-tab-button>
+
+      <ion-tab-button (click)="viewPratoVegano()">
+        <img src="../../assets/imagens/vegano.png" class="logo">
+        <ion-label>Vegano</ion-label>
+        <ion-progress-bar></ion-progress-bar>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="viewPratoVegetariano()">
+        <img src="../../assets/imagens/vegetariano2.png" class="logo">
+        <ion-label>Vegetariano</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+
+
+  </ion-tabs>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="6" *ngFor="let pratovegano of ListaDePratosVegano">
+        <ion-card>
+          <ion-card-header>
+            <img src="{{pratovegano?.imagem}}">
+            <ion-card-title>{{pratovegano?.nome}}</ion-card-title>
+            <ion-card-subtitle>{{pratovegano?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle>{{pratovegano?.valor}}</ion-card-subtitle>
+
+          </ion-card-header>
+
+          <div>
+            <ion-button color="dark">Pedido</ion-button>
+          </div>
+          <ion-icon name="share-alt" (click)="viewPratoVegano(pratovegano)" size="large"></ion-icon>
+          <ion-icon name="trash" (click)="remove(pratovegano)" size="large"></ion-icon>
+
+        </ion-card>
+
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
 
 
 </ion-content>

@@ -34,6 +34,9 @@ export class ListPage implements OnInit {
 
   ngOnInit() {
   }
+  Home(){
+    this.router.navigate(['/lista-de-pratos']);
+  }
 
   cadastrar(){
     

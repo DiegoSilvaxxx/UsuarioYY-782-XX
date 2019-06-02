@@ -46,10 +46,21 @@ export class AppComponent {
       title: 'Cardápio',
       url: '/lista-de-pratos',
       icon: 'pizza'
-    }
+    },
    
-    
-  
+    {
+      title: 'Cadastrar PratoVegano',
+      url: '/cadastro-de-prato-vegano',
+      icon: 'clipboard'
+    },
+   
+    {
+      title: 'Cadastrar PratoVegetariano',
+      url: '/cadastro-de-prato-vegetariano',
+      icon: 'clipboard'
+    },
+   
+   
     
   ];
 // 
