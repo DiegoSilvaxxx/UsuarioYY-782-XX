@@ -39,7 +39,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  ListaDePratos() {
+  ViewPratoVegetariano() {
     this.router.navigate(['/view-prato-vegetariano'])
   }
 

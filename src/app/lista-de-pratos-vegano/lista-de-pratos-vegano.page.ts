@@ -40,7 +40,7 @@ export class ListaDePratosVeganoPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  ListaDePratos() {
+  ViewPratoVegano() {
     this.router.navigate(['/view-prato-vegano']);
 
   }
