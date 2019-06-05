@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { PratoVegano} from '../model/pratovegano';
+import { PratoVegano } from '../model/pratovegano';
 
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -15,28 +15,28 @@ import { NavController } from '@ionic/angular';
 })
 export class ViewPratoVeganoPage implements OnInit {
 
-  pratovegano : PratoVegano = new PratoVegano();
-  id : string;
+  pratovegano: PratoVegano = new PratoVegano();
+  id: string;
   firestore = firebase.firestore();
-  settings = {timestampsInSnapshots: true};
+  settings = { timestampsInSnapshots: true };
   imagem;
-  formGroup : FormGroup; // <----
-  
+  formGroup: FormGroup; // <----
 
-  constructor(public  activatedRoute: ActivatedRoute, 
-    public formBuilder : FormBuilder,
-    public router : Router,
-    public nav : NavController) {// <----
-      this.id = this.activatedRoute.snapshot.paramMap.get('pratovegano');
-      console.log(this.id)
-      this.form(); // <----
+
+  constructor(public activatedRoute: ActivatedRoute,
+    public formBuilder: FormBuilder,
+    public router: Router,
+    public nav: NavController) {// <----
+    this.id = this.activatedRoute.snapshot.paramMap.get('pratovegano');
+    console.log(this.id)
+    this.form(); // <----
   }
 
-  form(){// <----
+  form() {// <----
     this.formGroup = this.formBuilder.group({
-      nome : [this.pratovegano.nome],
-      descricao : [this.pratovegano.descricao],
-      valor : [this.pratovegano.valor],
+      nome: [this.pratovegano.nome],
+      descricao: [this.pratovegano.descricao],
+      valor: [this.pratovegano.valor],
     });
   }
 
@@ -45,57 +45,57 @@ export class ViewPratoVeganoPage implements OnInit {
     this.obterPratoVegano();
   }
 
-  obterPratoVegano(){
+  obterPratoVegano() {
     var ref = firebase.firestore().collection("pratovegano").doc(this.id);
-  
+
     ref.get().then(doc => {
-        this.pratovegano.setDados(doc.data());
-        this.form();
-        
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
+      this.pratovegano.setDados(doc.data());
+      this.form();
+
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
     });
-    
+
   }
 
-  atualizar(){
+  atualizar() {
     let ref = this.firestore.collection('pratovegano')
     ref.doc(this.id).set(this.formGroup.value)
-      .then(() =>{
+      .then(() => {
         console.log('Atualizado com sucesso');
         this.nav.navigateRoot('/lista-de-pratos-vegano');
-      }).catch(()=>{
+      }).catch(() => {
         console.log('Erro ao Atualizar');
       })
   }
 
-  enviaArquivo(event){
+  enviaArquivo(event) {
     let imagem = event.srcElement.files[0];
     //console.log(imagem.name);
     let ref = firebase.storage().ref()
-                  .child(`pratos/${this.id}.jpg`);
-    
-    ref.put(imagem).then(url=>{
+      .child(`pratos/${this.id}.jpg`);
+
+    ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");
       this.downloadFoto();
     })
-  
+
   }
-  
-  downloadFoto(){
+
+  downloadFoto() {
     let ref = firebase.storage().ref()
       .child(`pratos/${this.pratovegano.id}.jpg`);
-  
-      ref.getDownloadURL().then( url=>{ 
-        this.imagem = url;
-      })
+
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    })
   }
-  
-  
-  
-  
-  
-  }
+
+
+
+
+
+}
 
 
 

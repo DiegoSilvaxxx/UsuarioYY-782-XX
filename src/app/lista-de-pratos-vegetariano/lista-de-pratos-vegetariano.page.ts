@@ -39,6 +39,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
+  ListaDePratos() {
+    this.router.navigate(['/view-prato-vegetariano'])
+  }
 
 
   getList() {
@@ -50,13 +53,13 @@ export class ListaDePratosVegetarianoPage implements OnInit {
         let c = new PratoVegetariano();
         c.setDados(doc.data());
         c.id = doc.id;
-        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-          c.imagem = url;
-          this.ListaDePratosVegetariano.push(c);
-        })
+        // let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+        //   c.imagem = url;
+        this.ListaDePratosVegetariano.push(c);
+      })
 
-      });
     });
+    //  });
   }
 
 

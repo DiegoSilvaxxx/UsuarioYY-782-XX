@@ -40,6 +40,10 @@ export class ListaDePratosVeganoPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
+  ListaDePratos() {
+    this.router.navigate(['/view-prato-vegano']);
+
+  }
 
 
 
@@ -52,13 +56,13 @@ export class ListaDePratosVeganoPage implements OnInit {
         let c = new PratoVegano();
         c.setDados(doc.data());
         c.id = doc.id;
-        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-          c.imagem = url;
-          this.ListaDePratosVegano.push(c);
-        })
+        // let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+        // c.imagem = url;
+        this.ListaDePratosVegano.push(c);
+      })
 
-      });
     });
+    // });
   }
 
 

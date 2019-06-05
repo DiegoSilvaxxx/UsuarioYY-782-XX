@@ -14,57 +14,61 @@ import { Prato } from '../model/prato';
 })
 export class ListaDePratosPage implements OnInit {
 
-  ListaDePratos : Prato[] = [];
+  ListaDePratos: Prato[] = [];
   firestore = firebase.firestore();
-  settings = {timestampsInSnapshots: true};
-  
+  settings = { timestampsInSnapshots: true };
 
-  constructor(public router : Router, public loadingController: LoadingController) {
-    
+
+  constructor(public router: Router, public loadingController: LoadingController) {
+
   }
 
   ngOnInit() {
     this.getList();
   }
 
-  viewPratoVegano(){
+  viewPratoVegano() {
     this.router.navigate(['/lista-de-pratos-vegano']);
   }
 
-  viewPratoVegetariano(){
+  viewPratoVegetariano() {
     this.router.navigate(['/lista-de-pratos-vegetariano']);
   }
-  Home(){
+  Home() {
     this.router.navigate(['/list']);
   }
-  
+  viewPrato() {
+    this.router.navigate(['/prato-view']);
+
+  }
+
 
   getList() {
 
     var ref = firebase.firestore().collection("prato");
     ref.get().then(query => {
-        query.forEach(doc => {
+      query.forEach(doc => {
 
-            let c = new Prato();
-            c.setDados(doc.data());
-            c.id = doc.id;
-            let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then( url=>{ 
-              c.imagem = url;
-              this.ListaDePratos.push(c);
-            })
+        let c = new Prato();
+        c.setDados(doc.data());
+        c.id = doc.id;
+        //   let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then( url=>{ 
+        //   c.imagem = url;
+        this.ListaDePratos.push(c);
+      })
 
-        });
     });
+    // });
   }
 
 
-  remove(obj : Prato){
+  remove(obj: Prato) {
     var ref = firebase.firestore().collection("prato");
     ref.doc(obj.id).delete()
-      .then(()=>{
+      .then(() => {
         this.ListaDePratos = [];
         this.getList();
-      }).catch(()=>{
+      }).catch(() => {
         console.log('Erro ao atualizar');
       })
   }
@@ -77,10 +81,10 @@ export class ListaDePratosPage implements OnInit {
     });
     await loading.present();
 
-   
+
   }
 
-  
 
-  
+
+
 }
