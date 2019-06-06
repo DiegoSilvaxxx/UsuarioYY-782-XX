@@ -21,31 +21,31 @@ export class ListaDePratosPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
-  pedido : Pedido;
+  pedido: Pedido;
 
 
-  constructor(public router: Router, 
-    public loadingController: LoadingController, 
-    public storageServ : StorageService) {
-   
+  constructor(public router: Router,
+    public loadingController: LoadingController,
+    public storageServ: StorageService) {
+
 
   }
 
   ngOnInit() {
     this.getList();
   }
-  addCarrinho(prato : Prato) {
+  addCarrinho(prato: Prato) {
     this.pedido = this.storageServ.getCart();
 
     let i = new Item();
     i.prato = prato;
     i.quantidade = 1;
 
-    if (this.pedido==null) {
+    if (this.pedido == null) {
       this.pedido = new Pedido();
-      this.pedido.itens = []; 
+      this.pedido.itens = [];
     }
-   
+
     this.pedido.itens.push(i);
 
     this.storageServ.setCart(this.pedido);
@@ -61,8 +61,8 @@ export class ListaDePratosPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  viewPrato(prato : Prato) {
-    this.router.navigate(['/prato-view', {'prato': prato.id}]);
+  viewPrato(prato: Prato) {
+    this.router.navigate(['/prato-view', { 'prato': prato.id }]);
 
   }
 

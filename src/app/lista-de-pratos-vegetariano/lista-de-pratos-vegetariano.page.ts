@@ -5,6 +5,9 @@ import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PratoVegetariano } from '../model/pratovegetariano';
+import { PedidoVegetariano } from '../model/pedidovegetariano';
+import { StorageService3 } from '../service/storage.service3';
+import { ItemVegetariano } from '../model/itemvegetariano';
 
 @Component({
   selector: 'app-lista-de-pratos-vegetariano',
@@ -17,13 +20,34 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
+  pedidovegetariano: PedidoVegetariano;
 
-  constructor(public router: Router, public loadingController: LoadingController) {
+
+
+  constructor(public router: Router,
+    public loadingController: LoadingController,
+    public storageServ: StorageService3) {
 
   }
 
   ngOnInit() {
     this.getList();
+  }
+  addCarrinho(pratovegetariano: PratoVegetariano) {
+    this.pedidovegetariano = this.storageServ.getCart();
+
+    let iv = new ItemVegetariano();
+    iv.pratovegetariano = pratovegetariano;
+    iv.quantidade = 1;
+
+    if (this.pedidovegetariano == null) {
+      this.pedidovegetariano = new PedidoVegetariano();
+      this.pedidovegetariano.itens = [];
+    }
+
+    this.pedidovegetariano.itens.push(iv);
+
+    this.storageServ.setCart(this.pedidovegetariano);
   }
 
   viewPratoVegano() {
@@ -36,11 +60,13 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   PratoView() {
     this.router.navigate(['/lista-de-pratos']);
   }
+
   Home() {
     this.router.navigate(['/list']);
   }
-  ViewPratoVegetariano() {
-    this.router.navigate(['/view-prato-vegetariano'])
+
+  ViewPratoVegetariano(pratovegetariano: PratoVegetariano) {
+    this.router.navigate(['/view-prato-vegetariano', { 'pratovegetariano': pratovegetariano.id }]);
   }
 
 

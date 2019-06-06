@@ -37,7 +37,9 @@ const routes: Routes = [
   { path: 'view-prato-vegetariano', loadChildren: './view-prato-vegetariano/view-prato-vegetariano.module#ViewPratoVegetarianoPageModule' },
   { path: 'cadastro-de-prato-vegetariano', loadChildren: './cadastro-de-prato-vegetariano/cadastro-de-prato-vegetariano.module#CadastroDePratoVegetarianoPageModule' },
   
-  { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
+  { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },  { path: 'carrinho-vegano', loadChildren: './carrinho-vegano/carrinho-vegano.module#CarrinhoVeganoPageModule' },
+  { path: 'carrinho-vegetariano', loadChildren: './carrinho-vegetariano/carrinho-vegetariano.module#CarrinhoVegetarianoPageModule' },
+
 
 
 

@@ -5,6 +5,10 @@ import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PratoVegano } from '../model/pratovegano'
+import { PedidoVegano } from '../model/pedidovegano';
+import { StorageServiceVegano } from '../service/storage.servicevegano';
+import { ItemVegano } from '../model/itemvegano';
+
 
 
 @Component({
@@ -18,13 +22,33 @@ export class ListaDePratosVeganoPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
+  pedidovegano: PedidoVegano;
 
-  constructor(public router: Router, public loadingController: LoadingController) {
+
+  constructor(public router: Router,
+    public loadingController: LoadingController,
+    public storageServ: StorageServiceVegano) {
 
   }
 
   ngOnInit() {
     this.getList();
+  }
+  addCarrinhoVegano(pratovegano: PratoVegano) {
+    this.pedidovegano = this.storageServ.getCart();
+
+    let iv = new ItemVegano();
+    iv.pratovegano = pratovegano;
+    iv.quantidade = 1;
+
+    if (this.pedidovegano == null) {
+      this.pedidovegano = new PedidoVegano();
+      this.pedidovegano.itens = [];
+    }
+
+    this.pedidovegano.itens.push(iv);
+
+    this.storageServ.setCart(this.pedidovegano);
   }
 
   viewPratoVegano() {
@@ -40,8 +64,8 @@ export class ListaDePratosVeganoPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  ViewPratoVegano() {
-    this.router.navigate(['/view-prato-vegano']);
+  ViewPratoVegano(pratovegano: PratoVegano) {
+    this.router.navigate(['/view-prato-vegano', { 'pratovegano': pratovegano.id }]);
 
   }
 

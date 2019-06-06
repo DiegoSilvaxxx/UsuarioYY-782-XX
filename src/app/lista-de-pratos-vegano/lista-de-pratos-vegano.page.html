@@ -62,7 +62,7 @@
           </ion-card-header>
 
           <div>
-            <ion-button color="dark">Pedido</ion-button>
+            <ion-button (click)="addCarrinhoVegano(pratovegano)" color="dark">Pedido</ion-button>
           </div>
           <ion-icon name="share-alt" (click)="ViewPratoVegano(pratovegano)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(pratovegano)" size="large"></ion-icon>

@@ -15,6 +15,8 @@ import {AngularFirestoreModule } from 'angularfire2/firestore';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageService } from './service/storage.service';
+import { StorageServiceVegano } from './service/storage.servicevegano';
+import { StorageService3 } from './service/storage.service3';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +34,8 @@ import { StorageService } from './service/storage.service';
     SplashScreen,
     AngularFireAuth,
     StorageService,
+    StorageServiceVegano,
+    StorageService3,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
