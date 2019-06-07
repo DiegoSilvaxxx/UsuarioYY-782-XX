@@ -55,14 +55,13 @@
         <ion-card>
           <ion-card-header>
             <img src="{{pratovegano?.imagem}}">
-            <ion-card-title>{{pratovegano?.nome}}</ion-card-title>
+            <ion-card-title class="titleconfig">{{pratovegano?.nome}}</ion-card-title>
             <ion-card-subtitle>{{pratovegano?.descricao}}</ion-card-subtitle>
             <ion-card-subtitle>{{pratovegano?.valor}}</ion-card-subtitle>
-
           </ion-card-header>
 
           <div>
-            <ion-button (click)="addCarrinhoVegano(pratovegano)" color="dark">Pedido</ion-button>
+            <ion-button (click)="addCarrinho(pratovegano)" color="dark">Pedido</ion-button>
           </div>
           <ion-icon name="share-alt" (click)="ViewPratoVegano(pratovegano)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(pratovegano)" size="large"></ion-icon>

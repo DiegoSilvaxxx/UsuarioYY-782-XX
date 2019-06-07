@@ -9,14 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { firebaseConfig } from '../environments/firebase.config';
-import {AngularFireModule } from '@angular/fire';
-import {AngularFireAuth } from 'angularfire2/auth';
-import {AngularFirestoreModule } from 'angularfire2/firestore';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage';
 import { StorageService } from './service/storage.service';
-import { StorageServiceVegano } from './service/storage.servicevegano';
-import { StorageService3 } from './service/storage.service3';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,10 +33,8 @@ import { StorageService3 } from './service/storage.service3';
     SplashScreen,
     AngularFireAuth,
     StorageService,
-    StorageServiceVegano,
-    StorageService3,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

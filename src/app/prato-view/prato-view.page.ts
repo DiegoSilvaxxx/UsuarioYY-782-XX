@@ -71,7 +71,7 @@ export class PratoViewPage implements OnInit {
 
   enviaArquivo(event) {
     let imagem = event.srcElement.files[0];
-    //console.log(imagem.name);
+    console.log(imagem.name);
     let ref = firebase.storage().ref()
       .child(`pratos/${this.id}.jpg`);
 

@@ -4,10 +4,11 @@ import * as firebase from 'firebase';
 import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+
 import { PratoVegano } from '../model/pratovegano'
-import { PedidoVegano } from '../model/pedidovegano';
-import { StorageServiceVegano } from '../service/storage.servicevegano';
-import { ItemVegano } from '../model/itemvegano';
+import { StorageService } from '../service/storage.service';
+import { Pedido } from '../model/pedido';
+import { Item } from '../model/item';
 
 
 
@@ -22,33 +23,33 @@ export class ListaDePratosVeganoPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
-  pedidovegano: PedidoVegano;
+  pedido: Pedido;
 
 
   constructor(public router: Router,
     public loadingController: LoadingController,
-    public storageServ: StorageServiceVegano) {
+    public storageServ: StorageService) {
 
   }
 
   ngOnInit() {
     this.getList();
   }
-  addCarrinhoVegano(pratovegano: PratoVegano) {
-    this.pedidovegano = this.storageServ.getCart();
+  addCarrinho(pratovegano: PratoVegano) {
+    this.pedido = this.storageServ.getCart();
 
-    let iv = new ItemVegano();
-    iv.pratovegano = pratovegano;
-    iv.quantidade = 1;
+    let i = new Item();
+    i.pratovegano = pratovegano;
+    i.quantidade = 1;
 
-    if (this.pedidovegano == null) {
-      this.pedidovegano = new PedidoVegano();
-      this.pedidovegano.itens = [];
+    if (this.pedido == null) {
+      this.pedido = new Pedido();
+      this.pedido.itens = [];
     }
 
-    this.pedidovegano.itens.push(iv);
+    this.pedido.itens.push(i);
 
-    this.storageServ.setCart(this.pedidovegano);
+    this.storageServ.setCart(this.pedido);
   }
 
   viewPratoVegano() {
@@ -80,13 +81,13 @@ export class ListaDePratosVeganoPage implements OnInit {
         let c = new PratoVegano();
         c.setDados(doc.data());
         c.id = doc.id;
-        // let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-        // c.imagem = url;
-        this.ListaDePratosVegano.push(c);
-      })
+        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+          c.imagem = url;
+          this.ListaDePratosVegano.push(c);
+        })
 
+      });
     });
-    // });
   }
 
 

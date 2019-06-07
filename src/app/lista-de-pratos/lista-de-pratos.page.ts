@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-
 import * as firebase from 'firebase';
 import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Prato } from '../model/prato';
+
 import { Pedido } from '../model/pedido';
 import { StorageService } from '../service/storage.service';
 import { Item } from '../model/item';
@@ -76,13 +76,13 @@ export class ListaDePratosPage implements OnInit {
         let c = new Prato();
         c.setDados(doc.data());
         c.id = doc.id;
-        //   let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then( url=>{ 
-        //   c.imagem = url;
-        this.ListaDePratos.push(c);
-      })
+        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+          c.imagem = url;
+          this.ListaDePratos.push(c);
+        })
 
+      });
     });
-    // });
   }
 
 

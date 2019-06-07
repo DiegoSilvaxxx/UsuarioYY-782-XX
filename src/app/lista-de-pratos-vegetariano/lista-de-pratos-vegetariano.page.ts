@@ -5,9 +5,10 @@ import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PratoVegetariano } from '../model/pratovegetariano';
-import { PedidoVegetariano } from '../model/pedidovegetariano';
-import { StorageService3 } from '../service/storage.service3';
-import { ItemVegetariano } from '../model/itemvegetariano';
+
+import { Pedido } from '../model/pedido';
+import { StorageService } from '../service/storage.service';
+import { Item } from '../model/item';
 
 @Component({
   selector: 'app-lista-de-pratos-vegetariano',
@@ -20,13 +21,13 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
-  pedidovegetariano: PedidoVegetariano;
+  pedido: Pedido;
 
 
 
   constructor(public router: Router,
     public loadingController: LoadingController,
-    public storageServ: StorageService3) {
+    public storageServ: StorageService) {
 
   }
 
@@ -34,20 +35,20 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     this.getList();
   }
   addCarrinho(pratovegetariano: PratoVegetariano) {
-    this.pedidovegetariano = this.storageServ.getCart();
+    this.pedido = this.storageServ.getCart();
 
-    let iv = new ItemVegetariano();
-    iv.pratovegetariano = pratovegetariano;
-    iv.quantidade = 1;
+    let i = new Item();
+    i.pratovegetariano = pratovegetariano;
+    i.quantidade = 1;
 
-    if (this.pedidovegetariano == null) {
-      this.pedidovegetariano = new PedidoVegetariano();
-      this.pedidovegetariano.itens = [];
+    if (this.pedido == null) {
+      this.pedido = new Pedido();
+      this.pedido.itens = [];
     }
 
-    this.pedidovegetariano.itens.push(iv);
+    this.pedido.itens.push(i);
 
-    this.storageServ.setCart(this.pedidovegetariano);
+    this.storageServ.setCart(this.pedido);
   }
 
   viewPratoVegano() {
@@ -79,13 +80,13 @@ export class ListaDePratosVegetarianoPage implements OnInit {
         let c = new PratoVegetariano();
         c.setDados(doc.data());
         c.id = doc.id;
-        // let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-        //   c.imagem = url;
-        this.ListaDePratosVegetariano.push(c);
-      })
+        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+          c.imagem = url;
+          this.ListaDePratosVegetariano.push(c);
+        })
 
+      });
     });
-    //  });
   }
 
 
