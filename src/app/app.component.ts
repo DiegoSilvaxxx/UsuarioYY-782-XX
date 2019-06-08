@@ -13,19 +13,14 @@ import { Router } from '@angular/router';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'List',
+      title: 'home',
       url: '/list',
-      icon: 'list'
+      icon: 'home'
     },
     {
       title: 'Logoff',
       url: '/logoff',
-      icon: 'logoff'
+      icon: 'md-exit'
     },
     {
       title: 'Lista de Clientes',
@@ -47,53 +42,53 @@ export class AppComponent {
       url: '/lista-de-pratos',
       icon: 'pizza'
     },
-   
+
     {
       title: 'Cadastrar PratoVegano',
       url: '/cadastro-de-prato-vegano',
       icon: 'clipboard'
     },
-   
+
     {
       title: 'Cadastrar PratoVegetariano',
       url: '/cadastro-de-prato-vegetariano',
       icon: 'clipboard'
     },
-   
-   
-    
+
+
+
   ];
-// 
+  // 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private firebaseauth : AngularFireAuth,
-    private router : Router
+    private firebaseauth: AngularFireAuth,
+    private router: Router
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    
+
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
 
     this.firebaseauth.authState
-    .subscribe(
-      user => {
-        if (user) {
-          this.router.navigate(['/list']);
+      .subscribe(
+        user => {
+          if (user) {
+            this.router.navigate(['/list']);
           } else {
             this.router.navigate(['/home']);
           }
-      },
-      () => {
-        this.router.navigate(['/list']);
-      }
-    );
+        },
+        () => {
+          this.router.navigate(['/list']);
+        }
+      );
 
   }
 }

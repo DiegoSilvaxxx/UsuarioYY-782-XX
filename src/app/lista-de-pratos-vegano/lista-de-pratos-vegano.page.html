@@ -2,7 +2,9 @@
   <ion-toolbar color="dark">
 
     <div class="div2">
-      <ion-title><img src="../../assets/imagens/logo2.png" class="logo3"></ion-title>
+      <ion-title>
+        <img src="../../assets/imagens/logo2.png" class="logo3">
+      </ion-title>
     </div>
 
     <ion-icon slot="end" name="cart" class="css"></ion-icon>
@@ -61,7 +63,8 @@
           </ion-card-header>
 
           <div>
-            <ion-button (click)="addCarrinho(pratovegano)" color="dark">Pedido</ion-button>
+            <ion-button (click)="addCarrinho(prato)" color="dark">
+              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido</ion-button>
           </div>
           <ion-icon name="share-alt" (click)="ViewPratoVegano(pratovegano)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(pratovegano)" size="large"></ion-icon>
