@@ -19,6 +19,32 @@
 
   </ion-toolbar>
 
+  <ion-slides pager="true" autoplay="true" style="width: 300px; height: 200px;" [options]="slideOpts">
+    <ion-slide>
+      <ion-img src="../assets/imagens/vg1.jpg"></ion-img>
+      <h5 class="ion-slide">Cardápio, vegetariano para o dia a dia</h5>
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/vg2.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/vg3.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/vg4.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/vg6.jpg"></ion-img>
+    </ion-slide>
+
+  </ion-slides>
+  <ion-searchbar></ion-searchbar>
+
 
 </ion-header>
 
@@ -28,7 +54,7 @@
   <ion-tabs>
     <ion-tab-bar slot="top">
       <ion-tab-button (click)="PratoView()">
-        
+
         <img src="../../assets/imagens/baixa.png" class="logo">
         <ion-label>BaixaCaloria</ion-label>
 
@@ -64,7 +90,8 @@
 
           <div>
             <ion-button (click)="addCarrinho(prato)" color="dark">
-              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido</ion-button>
+              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido
+            </ion-button>
           </div>
 
           <ion-icon name="share-alt" (click)="ViewPratoVegetariano(pratovegetariano)" size="large"></ion-icon>

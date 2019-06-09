@@ -21,6 +21,33 @@
 
   </ion-toolbar>
 
+  <ion-slides pager="true" autoplay="true" style="width: 300px; height: 200px;" [options]="slideOpts">
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/v1.jpg"></ion-img>
+      <h5 class="ion-slide">Alimentos Veganos </h5>
+
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/v3.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/v4.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/v5.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/v6.jpg"></ion-img>
+    </ion-slide>
+
+  </ion-slides>
+  <ion-searchbar></ion-searchbar>
+
 
 </ion-header>
 
@@ -32,7 +59,6 @@
       <ion-tab-button (click)="PratoView()">
         <img src="../../assets/imagens/baixa.png" class="logo">
         <ion-label>BaixaCaloria</ion-label>
-
       </ion-tab-button>
 
       <ion-tab-button (click)="viewPratoVegano()">
@@ -64,7 +90,8 @@
 
           <div>
             <ion-button (click)="addCarrinho(prato)" color="dark">
-              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido</ion-button>
+              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido
+            </ion-button>
           </div>
           <ion-icon name="share-alt" (click)="ViewPratoVegano(pratovegano)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(pratovegano)" size="large"></ion-icon>
