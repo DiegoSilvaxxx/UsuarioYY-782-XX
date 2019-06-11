@@ -7,7 +7,7 @@
       </ion-title>
     </div>
 
-    <ion-icon slot="end" name="cart" class="css"></ion-icon>
+    <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
     <ion-icon slot="end" name="search" class="css"></ion-icon>
 
     <ion-buttons slot="end">
@@ -44,7 +44,6 @@
     </ion-slide>
 
   </ion-slides>
-  <ion-searchbar></ion-searchbar>
 
 </ion-header>
 <ion-progress-bar color="secondary" value="2.5"></ion-progress-bar>
@@ -52,6 +51,14 @@
 
 
 <ion-content>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+
 
   <ion-tabs>
     <ion-tab-bar slot="top">
@@ -95,6 +102,8 @@
               <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido
             </ion-button>
           </div>
+
+
 
           <ion-icon name="share-alt" (click)="viewPrato(prato)" size="large"></ion-icon>
           <ion-icon name="trash" (click)="remove(prato)" size="large"></ion-icon>

@@ -28,14 +28,17 @@ export class ListaDePratosPage implements OnInit {
     public loadingController: LoadingController,
     public storageServ: StorageService) {
 
-
+    this.pedido = this.storageServ.getCart();
   }
+
+
 
   ngOnInit() {
     this.getList();
   }
   addCarrinho(prato: Prato) {
     this.pedido = this.storageServ.getCart();
+    let add = true;
 
     let i = new Item();
     i.prato = prato;
@@ -45,8 +48,12 @@ export class ListaDePratosPage implements OnInit {
       this.pedido = new Pedido();
       this.pedido.itens = [];
     }
-
-    this.pedido.itens.push(i);
+    this.pedido.itens.forEach(p => {
+      if (p.prato.id = prato.id) {
+        add = false;
+      }
+    });
+    if (add == true) this.pedido.itens.push(i);
 
     this.storageServ.setCart(this.pedido);
   }
@@ -64,6 +71,9 @@ export class ListaDePratosPage implements OnInit {
   viewPrato(prato: Prato) {
     this.router.navigate(['/prato-view', { 'prato': prato.id }]);
 
+  }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
   }
 
 

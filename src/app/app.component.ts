@@ -55,6 +55,12 @@ export class AppComponent {
       icon: 'clipboard'
     },
 
+    {
+      title: 'Carrinho',
+      url: '/carrinho',
+      icon: 'cart'
+    },
+
 
 
   ];
