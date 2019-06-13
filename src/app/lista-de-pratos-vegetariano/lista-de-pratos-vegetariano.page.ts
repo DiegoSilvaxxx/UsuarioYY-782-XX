@@ -6,9 +6,11 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { PratoVegetariano } from '../model/pratovegetariano';
 
-import { Pedido } from '../model/pedido';
+
 import { StorageService } from '../service/storage.service';
+import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
+
 
 @Component({
   selector: 'app-lista-de-pratos-vegetariano',
@@ -24,18 +26,25 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   pedido: Pedido;
 
 
-
   constructor(public router: Router,
     public loadingController: LoadingController,
     public storageServ: StorageService) {
+
+    this.pedido = this.storageServ.getCart();
 
   }
 
   ngOnInit() {
     this.getList();
+    console.log(this.ListaDePratosVegetariano);
   }
+
   addCarrinho(pratovegetariano: PratoVegetariano) {
+
+
+
     this.pedido = this.storageServ.getCart();
+    let add = true;
 
     let i = new Item();
     i.pratovegetariano = pratovegetariano;
@@ -44,11 +53,28 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     if (this.pedido == null) {
       this.pedido = new Pedido();
       this.pedido.itens = [];
+    } else {
+
+
+      this.pedido.itens.forEach(p => {
+        console.log(p)
+
+        if (p.pratovegetariano != undefined) {
+          if (p.pratovegetariano.id = pratovegetariano.id) {
+            add = false;
+          }
+        }
+
+        if (add == true) this.pedido.itens.push(i);
+
+        this.storageServ.setCart(this.pedido);
+
+      });
+
     }
 
-    this.pedido.itens.push(i);
 
-    this.storageServ.setCart(this.pedido);
+
   }
 
   viewPratoVegano() {
@@ -61,14 +87,17 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   PratoView() {
     this.router.navigate(['/lista-de-pratos']);
   }
-
   Home() {
     this.router.navigate(['/list']);
   }
-
-  ViewPratoVegetariano(pratovegetariano: PratoVegetariano) {
-    this.router.navigate(['/view-prato-vegetariano', { 'pratovegetariano': pratovegetariano.id }]);
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
   }
+  ViewPratoVegetariano(pratovegetariano: PratoVegetariano) {
+    this.router.navigate(['/view-prato-vegano', { 'pratovegetariano': pratovegetariano.id }]);
+
+  }
+
 
 
   getList() {
@@ -80,8 +109,10 @@ export class ListaDePratosVegetarianoPage implements OnInit {
         let c = new PratoVegetariano();
         c.setDados(doc.data());
         c.id = doc.id;
+
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;
+
           this.ListaDePratosVegetariano.push(c);
         })
 

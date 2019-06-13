@@ -7,7 +7,7 @@
       </ion-title>
     </div>
 
-    <ion-icon slot="end" name="cart" class="css"></ion-icon>
+    <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
     <ion-icon slot="end" name="search" class="css"></ion-icon>
 
 
@@ -54,6 +54,13 @@
 
 <ion-content>
 
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="cart"></ion-icon>
+          <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+        </ion-fab-button>
+      </ion-fab>
+   
   <ion-tabs>
     <ion-tab-bar slot="top">
       <ion-tab-button (click)="PratoView()">
@@ -84,12 +91,12 @@
           <ion-card-header>
             <img src="{{pratovegano?.imagem}}">
             <ion-card-title class="titleconfig">{{pratovegano?.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pratovegano?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle>{{pratovegano?.descricao}} - {{pratovegano?.id}}</ion-card-subtitle>
             <ion-card-subtitle>{{pratovegano?.valor}}</ion-card-subtitle>
           </ion-card-header>
 
           <div>
-            <ion-button (click)="addCarrinho(prato)" color="dark">
+            <ion-button (click)="addCarrinho(pratovegano)" color="dark">
               <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido
             </ion-button>
           </div>

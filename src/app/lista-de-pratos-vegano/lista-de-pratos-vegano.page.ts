@@ -30,13 +30,21 @@ export class ListaDePratosVeganoPage implements OnInit {
     public loadingController: LoadingController,
     public storageServ: StorageService) {
 
+    this.pedido = this.storageServ.getCart();
+
   }
 
   ngOnInit() {
     this.getList();
+    console.log(this.ListaDePratosVegano);
   }
+
   addCarrinho(pratovegano: PratoVegano) {
+
+
+
     this.pedido = this.storageServ.getCart();
+    let add = true;
 
     let i = new Item();
     i.pratovegano = pratovegano;
@@ -45,11 +53,28 @@ export class ListaDePratosVeganoPage implements OnInit {
     if (this.pedido == null) {
       this.pedido = new Pedido();
       this.pedido.itens = [];
+    }else{
+    
+
+      this.pedido.itens.forEach(p => {
+        console.log(p)
+
+        if (p.pratovegano != undefined) {
+          if (p.pratovegano.id = pratovegano.id) {
+            add = false;
+          }
+        }
+
+        if (add == true) this.pedido.itens.push(i);
+
+        this.storageServ.setCart(this.pedido);
+
+      });
+
     }
 
-    this.pedido.itens.push(i);
 
-    this.storageServ.setCart(this.pedido);
+
   }
 
   viewPratoVegano() {
@@ -64,6 +89,9 @@ export class ListaDePratosVeganoPage implements OnInit {
   }
   Home() {
     this.router.navigate(['/list']);
+  }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
   }
   ViewPratoVegano(pratovegano: PratoVegano) {
     this.router.navigate(['/view-prato-vegano', { 'pratovegano': pratovegano.id }]);
@@ -81,8 +109,10 @@ export class ListaDePratosVeganoPage implements OnInit {
         let c = new PratoVegano();
         c.setDados(doc.data());
         c.id = doc.id;
+        
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;
+          
           this.ListaDePratosVegano.push(c);
         })
 
