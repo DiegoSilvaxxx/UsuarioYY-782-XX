@@ -27,19 +27,19 @@ export class StorageService {
         }
     }
 
-    setRemoveCart(prato : Prato){
-        let lista : Pedido = this.getCart();
-        
-       let pos = lista.itens.findIndex(
-           x=>x.prato.id == prato.id);
-           
-       if(pos!= -1){ // -1 -> Não existe
-        lista.itens.splice(pos,1);
+    setRemoveCart(prato: Prato) {
+        let lista: Pedido = this.getCart();
+
+        let pos = lista.itens.findIndex(
+            x => x.prato.id == prato.id);
+
+        if (pos != -1) { // -1 -> Não existe
+            lista.itens.splice(pos, 1);
         }
-        
+
         localStorage.setItem('carrinho', JSON.stringify(lista));
     }
-    setRemoveCartVeg(pratovegano: PratoVegano) {
+    setRemoveCartVegano(pratovegano: PratoVegano) {
         let lista: Pedido = this.getCart();
 
         let pos = lista.itens.findIndex(
@@ -52,7 +52,7 @@ export class StorageService {
         localStorage.setItem('carrinho', JSON.stringify(lista));
     }
 
-    setRemoveCartVeget(pratovegetariano: PratoVegetariano) {
+    setRemoveCartVegetariano(pratovegetariano: PratoVegetariano) {
         let lista: Pedido = this.getCart();
 
         let pos = lista.itens.findIndex(
@@ -64,6 +64,6 @@ export class StorageService {
 
         localStorage.setItem('carrinho', JSON.stringify(lista));
     }
-  
+
 
 }

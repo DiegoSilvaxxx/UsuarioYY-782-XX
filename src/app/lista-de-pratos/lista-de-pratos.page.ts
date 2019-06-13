@@ -4,10 +4,10 @@ import * as firebase from 'firebase';
 import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Prato } from '../model/prato';
 
-import { Pedido } from '../model/pedido';
+import { Prato } from '../model/prato'
 import { StorageService } from '../service/storage.service';
+import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
 
 @Component({
@@ -29,14 +29,18 @@ export class ListaDePratosPage implements OnInit {
     public storageServ: StorageService) {
 
     this.pedido = this.storageServ.getCart();
+
   }
-
-
 
   ngOnInit() {
     this.getList();
+    console.log(this.ListaDePratos);
   }
+
   addCarrinho(prato: Prato) {
+
+
+
     this.pedido = this.storageServ.getCart();
     let add = true;
 
@@ -47,15 +51,28 @@ export class ListaDePratosPage implements OnInit {
     if (this.pedido == null) {
       this.pedido = new Pedido();
       this.pedido.itens = [];
-    }
-    this.pedido.itens.forEach(p => {
-      if (p.prato.id = prato.id) {
-        add = false;
-      }
-    });
-    if (add == true) this.pedido.itens.push(i);
+    } else {
 
-    this.storageServ.setCart(this.pedido);
+
+      this.pedido.itens.forEach(p => {
+        console.log(p)
+
+        if (p.prato != undefined) {
+          if (p.prato.id = prato.id) {
+            add = false;
+          }
+        }
+
+        if (add == true) this.pedido.itens.push(i);
+
+        this.storageServ.setCart(this.pedido);
+
+      });
+
+    }
+
+
+
   }
 
   viewPratoVegano() {
@@ -77,6 +94,7 @@ export class ListaDePratosPage implements OnInit {
   }
 
 
+
   getList() {
 
     var ref = firebase.firestore().collection("prato");
@@ -86,8 +104,10 @@ export class ListaDePratosPage implements OnInit {
         let c = new Prato();
         c.setDados(doc.data());
         c.id = doc.id;
+
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;
+
           this.ListaDePratos.push(c);
         })
 

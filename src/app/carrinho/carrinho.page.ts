@@ -15,7 +15,7 @@ export class CarrinhoPage implements OnInit {
 
   pedido: Pedido = new Pedido();
   constructor(public storageServ: StorageService,
-              public router: Router) {
+    public router: Router) {
 
     this.pedido = storageServ.getCart();
     console.log(this.pedido);
@@ -23,22 +23,22 @@ export class CarrinhoPage implements OnInit {
 
   ngOnInit() {
   }
-  removeCar(prato : Prato) {
+  removeCar(prato: Prato) {
     this.storageServ.setRemoveCart(prato);
     this.pedido = this.storageServ.getCart();
 
   }
-  removeCarVeg(pratovegano : PratoVegano) {
-    this.storageServ.setRemoveCartVeg(pratovegano);
+  removeCarVegano(pratovegano: PratoVegano) {
+    this.storageServ.setRemoveCartVegano(pratovegano);
     this.pedido = this.storageServ.getCart();
 
   }
-  removeCarVeget(pratovegetariano : PratoVegetariano) {
-    this.storageServ.setRemoveCartVeg(pratovegetariano);
+  removeCarVegetariano(pratovegetariano: PratoVegetariano) {
+    this.storageServ.setRemoveCartVegetariano(pratovegetariano);
     this.pedido = this.storageServ.getCart();
 
   }
- 
+
 
   Home() {
     this.router.navigate(['/list']);
