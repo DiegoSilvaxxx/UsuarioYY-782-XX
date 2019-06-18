@@ -116,9 +116,9 @@ export class ListaDePratosPage implements OnInit {
 
           this.ListaDePratos.push(c);
         })
-        .catch(err=>{
-         this.ListaDePratos.push(c);
-         })
+        // .catch(err => {
+        //   this.ListaDePratos.push(c);
+        // })
 
       });
     });
