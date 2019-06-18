@@ -59,19 +59,21 @@ export class ListaDePratosVeganoPage implements OnInit {
       this.pedido.itens.forEach(p => {
         console.log(p)
 
-        if (p.pratovegano != undefined) {
-          if (p.pratovegano.id = pratovegano.id) {
+        if (p.pratovegano !== undefined) {
+          if (p.pratovegano.id == pratovegano.id) {
             add = false;
           }
         }
 
-        if (add == true) this.pedido.itens.push(i);
 
-        this.storageServ.setCart(this.pedido);
 
       });
 
     }
+
+    if (add == true) this.pedido.itens.push(i);
+
+    this.storageServ.setCart(this.pedido);
 
 
 
@@ -115,6 +117,10 @@ export class ListaDePratosVeganoPage implements OnInit {
 
           this.ListaDePratosVegano.push(c);
         })
+
+        //.catch(err=>{
+        // this.ListaDePratosVegano.push(c);
+        // })
 
       });
     });

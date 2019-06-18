@@ -49,27 +49,33 @@ export class ListaDePratosPage implements OnInit {
     i.quantidade = 1;
 
     if (this.pedido == null) {
+
       this.pedido = new Pedido();
       this.pedido.itens = [];
+
     } else {
 
 
       this.pedido.itens.forEach(p => {
-        console.log(p)
 
-        if (p.prato != undefined) {
-          if (p.prato.id = prato.id) {
+
+        if (p.prato !== undefined) {
+
+
+          if (p.prato.id == prato.id) {
             add = false;
           }
         }
 
-        if (add == true) this.pedido.itens.push(i);
-
-        this.storageServ.setCart(this.pedido);
 
       });
 
     }
+
+    if (add == true) this.pedido.itens.push(i);
+
+    this.storageServ.setCart(this.pedido);
+
 
 
 
@@ -110,6 +116,9 @@ export class ListaDePratosPage implements OnInit {
 
           this.ListaDePratos.push(c);
         })
+        .catch(err=>{
+         this.ListaDePratos.push(c);
+         })
 
       });
     });

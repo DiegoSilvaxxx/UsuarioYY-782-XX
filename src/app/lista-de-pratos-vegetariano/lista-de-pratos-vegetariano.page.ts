@@ -59,21 +59,21 @@ export class ListaDePratosVegetarianoPage implements OnInit {
       this.pedido.itens.forEach(p => {
         console.log(p)
 
-        if (p.pratovegetariano != undefined) {
-          if (p.pratovegetariano.id = pratovegetariano.id) {
+        if (p.pratovegetariano !== undefined) {
+          if (p.pratovegetariano.id == pratovegetariano.id) {
             add = false;
           }
         }
 
-        if (add == true) this.pedido.itens.push(i);
 
-        this.storageServ.setCart(this.pedido);
 
       });
 
     }
 
+    if (add == true) this.pedido.itens.push(i);
 
+    this.storageServ.setCart(this.pedido);
 
   }
 
@@ -115,6 +115,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
           this.ListaDePratosVegetariano.push(c);
         })
+        // .catch(err=>{
+        //  this.ListaDePratosVegetariano.push(c);
+        //  })
 
       });
     });
