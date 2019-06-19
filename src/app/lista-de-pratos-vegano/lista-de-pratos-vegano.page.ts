@@ -118,9 +118,9 @@ export class ListaDePratosVeganoPage implements OnInit {
           this.ListaDePratosVegano.push(c);
         })
 
-        // .catch(err => {
-        //   this.ListaDePratosVegano.push(c);
-        //  })
+          .catch(err => {
+            this.ListaDePratosVegano.push(c);
+          })
 
       });
     });

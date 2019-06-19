@@ -115,9 +115,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
           this.ListaDePratosVegetariano.push(c);
         })
-        // .catch(err => {
-        //    this.ListaDePratosVegetariano.push(c);
-        //  })
+          .catch(err => {
+            this.ListaDePratosVegetariano.push(c);
+          })
 
       });
     });
