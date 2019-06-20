@@ -26,9 +26,7 @@ ion-card-title{
   ion-grid{
     margin-top: 40px;
   }
-  ion-card{
-    height: 450px;
-  }
+ 
  
   .logo{
     margin-top: 2%;
@@ -42,12 +40,24 @@ ion-card-title{
     height: 50px;
   }
   .titleconfig{
-    height: 100px;
+    height: 60px;
+    font-size: 15px;
+    font-family: fantasy;
 
   }
   .ion-slide{
    color: darkgreen;
   }
+  
+  ion-card-title{
+    font-style: inherit;
+  }
+  
+  ion-card-subtitle{
+    font-style: initial;
+    
+  }
+  
   
   
   

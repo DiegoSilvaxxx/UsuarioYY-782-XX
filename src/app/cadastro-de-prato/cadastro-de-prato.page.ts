@@ -12,32 +12,32 @@ import { Router } from '@angular/router';
 export class CadastroDePratoPage implements OnInit {
 
   firestore = firebase.firestore();
-  settings = {timestampsInSnapshots: true};
-  formGroup : FormGroup;
-  
-  constructor(private formBuilder : FormBuilder, 
-    private router : Router) {
-     
-    this.formGroup = this.formBuilder.group({
-      nome : [''],
-      descricao : [''],
-      valor : [''],
-    });
-    
-   }
+  settings = { timestampsInSnapshots: true };
+  formGroup: FormGroup;
 
-  ngOnInit() {
-    
+  constructor(private formBuilder: FormBuilder,
+    private router: Router) {
+
+    this.formGroup = this.formBuilder.group({
+      nome: [''],
+      descricao: [''],
+      valor: [''],
+    });
+
   }
 
-  cadastrar(){
+  ngOnInit() {
+
+  }
+
+  cadastrar() {
     console.log('ok');
     let ref = this.firestore.collection('prato')
     ref.add(this.formGroup.value)
-      .then(() =>{
+      .then(() => {
         console.log('Cadastrado com sucesso');
         this.router.navigate(['/list']);
-      }).catch(err=>{
+      }).catch(err => {
         console.log(err);
         console.log('Erro ao cadastrar');
       })
