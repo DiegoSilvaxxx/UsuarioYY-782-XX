@@ -146,8 +146,6 @@ export class ListaDePratosPage implements OnInit {
 
 
   }
-
-
-
+ 
 
 }
