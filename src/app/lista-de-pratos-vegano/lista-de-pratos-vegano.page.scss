@@ -31,7 +31,7 @@ ion-card-title{
   .logo{
     margin-top: 2%;
     width: 50px;
-    height: 30px;
+    height: 25px;
   }
   
   .logo3{
@@ -40,27 +40,47 @@ ion-card-title{
     height: 50px;
   }
   .titleconfig{
-    height: 60px;
+    height: 65px;
     font-size: 15px;
-    font-family: fantasy;
-
+    font-family: sans-serif;
+    color: white;
+    text-align: center;
   }
-  
-  ion-card-title{
-    font-style: inherit;
-  }
-  
+   
   ion-card-subtitle{
     font-style: initial;
-    font-family: fantasy;
-    
+    font-family: Arial;
+    color: white;
+    text-align: center;
   }
   ion-card{
-    background-color: khaki;
+    background-color: black;
  
   }
-  
-  
+ 
+  ion-tab-button{
+    background-color: white;
+
+  }
+ 
+  ion-label{
+    color: black;
+    font-family: Monotype Corsiva;
+    font-size: 15px;
+  }
+  h3{
+    color: black;
+    font-size: 15px;
+    font-family: Impact;
+   
+  }
+   
+
+  .valorconfig{
+    font-size: 25px;
+ }
+
+ 
   
   
   

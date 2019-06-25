@@ -19,7 +19,7 @@
 
   </ion-toolbar>
 
-  <ion-slides pager="true"  style="margin-top: 1px; width: 400px; height: 200px;" [options]="slideOpts">
+  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height: 200px;" [options]="slideOpts">
     <ion-slide>
       <ion-img src="../assets/imagens/vg1.jpg"></ion-img>
 
@@ -76,8 +76,9 @@
 
       <ion-tab-button (click)="viewPratoVegetariano()">
         <img src="../../assets/imagens/vegetariano2.png" class="logo">
-        <ion-label>Vegetariano</ion-label>
-        <ion-progress-bar></ion-progress-bar>
+        <ion-label>Cardápio</ion-label>
+        <ion-label>VEGETARIANO</ion-label>
+     
       </ion-tab-button>
 
     </ion-tab-bar>
@@ -93,13 +94,15 @@
             <img src="{{pratovegetariano?.imagem}}">
             <ion-card-title class="titleconfig">{{pratovegetariano?.nome}}</ion-card-title>
             <ion-card-subtitle>{{pratovegetariano?.descricao}} </ion-card-subtitle>
-            <ion-card-subtitle>{{pratovegetariano?.valor}}</ion-card-subtitle>
+            <ion-card-subtitle class="valorconfig">{{pratovegetariano?.valor}}</ion-card-subtitle>
 
           </ion-card-header>
 
+
           <div>
-            <ion-button (click)="addCarrinho(pratovegetariano)" color="dark">
-              <ion-icon slot="end" name="cart" class="css"></ion-icon>Pedido
+            <ion-button expand="full" color="danger" (click)="addCarrinho(prato)">
+                <h3>Pedir Prato</h3>
+              <img src="../../assets/imagens/logo3.png" class="css">
             </ion-button>
           </div>
 
