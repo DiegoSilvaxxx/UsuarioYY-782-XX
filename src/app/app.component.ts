@@ -60,6 +60,7 @@ export class AppComponent {
       url: '/carrinho',
       icon: 'cart'
     },
+   
 
 
 

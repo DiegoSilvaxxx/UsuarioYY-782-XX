@@ -21,6 +21,14 @@ export class ListaDePratosPage implements OnInit {
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
+
+  slideOpts = {
+    initialSlide: 2,
+    speed: 400,
+    loop: 'auto',
+    autoplay: true
+  };
+  
   pedido: Pedido;
 
 

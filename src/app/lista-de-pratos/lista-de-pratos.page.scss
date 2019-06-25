@@ -24,6 +24,62 @@ ion-card-title{
   ion-grid{
     margin-top: 40px;
   }
+ 
+   
+  .logo{
+    margin-top: 2%;
+    width: 50px;
+    height: 30px;
+  }
+  .logo3{
+    margin-top: 2%;
+    width: 90px;
+    height: 50px;
+    
+  }
+  .titleconfig{
+    height: 60px;
+    font-size: 15px;
+    font-family: fantasy;
+  }
+ 
+  ion-card-title{
+    font-style: inherit;
+  }
+ 
+  ion-card-subtitle{
+    font-style: initial;
+    font-family: fantasy;
+    
+  }
+
+   
+  ion-card-title{
+    height: 50px;
+}
+  
+  .css{
+    width: 50px;
+    height: 30px;
+  }
+ 
+  div{
+    text-align: center;
+   
+  }
+  .div2{
+    margin: 0;
+    margin-left: 30px;
+  }
+  
+  .config{
+    width: 80px;
+    height: 60px;
+  }
+
+  ion-grid{
+    margin-top: 40px;
+  }
   
   
   .logo{
@@ -52,9 +108,18 @@ ion-card-title{
     font-family: fantasy;
     
   }
+  ion-card{
+    background-color: khaki;
+ 
+  }
+ 
+  ion-tab-button{
+    background-color: powderblue;
+
+  }
+
+  ion-tabs{
+    background-color: yellowgreen;
+  }
 
  
- 
-  
-  
-  

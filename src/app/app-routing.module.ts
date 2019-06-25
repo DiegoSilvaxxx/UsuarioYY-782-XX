@@ -41,6 +41,9 @@ const routes: Routes = [
   { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
 
 
+
+
+
 ];
 
 @NgModule({
