@@ -21,7 +21,7 @@
 
   </ion-toolbar>
 
-  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height:200px;" [options]="slideOpts">
+  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height:100px;" [options]="slideOpts">
 
     <ion-slide>
       <ion-img src="../assets/imagens/teste1.jpg"></ion-img>
@@ -44,6 +44,9 @@
     </ion-slide>
 
   </ion-slides>
+
+  <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
+    (ionChange)="presentActionSheet()"></ion-searchbar>
 
 </ion-header>
 
