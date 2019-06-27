@@ -27,6 +27,7 @@ export class ListaDePratosPage implements OnInit {
     loop: 'auto',
     autoplay: true
   };
+
   pedido: Pedido;
 
 
