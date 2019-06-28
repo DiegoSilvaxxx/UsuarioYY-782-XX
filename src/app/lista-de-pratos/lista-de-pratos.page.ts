@@ -90,6 +90,7 @@ export class ListaDePratosPage implements OnInit {
 
 
   }
+ 
   busca() {
     console.log(this.textoBusca.value)
 

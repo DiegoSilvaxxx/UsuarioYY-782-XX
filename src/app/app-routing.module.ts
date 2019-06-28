@@ -39,6 +39,11 @@ const routes: Routes = [
   { path: 'cadastro-de-prato-vegetariano', loadChildren: './cadastro-de-prato-vegetariano/cadastro-de-prato-vegetariano.module#CadastroDePratoVegetarianoPageModule' },
 
   { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
+ 
+  { path: 'lista-de-promocoes', loadChildren: './lista-de-promocoes/lista-de-promocoes.module#ListaDePromocoesPageModule' },  { path: 'view-promocao', loadChildren: './view-promocao/view-promocao.module#ViewPromocaoPageModule' },
+  { path: 'cadastro-de-promocao', loadChildren: './cadastro-de-promocao/cadastro-de-promocao.module#CadastroDePromocaoPageModule' },
+
+
 
 
 

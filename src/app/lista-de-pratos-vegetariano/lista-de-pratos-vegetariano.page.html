@@ -19,7 +19,7 @@
 
   </ion-toolbar>
 
-  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height: 200px;" [options]="slideOpts">
+  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height: 100px;" [options]="slideOpts">
     <ion-slide>
       <ion-img src="../assets/imagens/vg1.jpg"></ion-img>
 
@@ -43,6 +43,8 @@
 
   </ion-slides>
 
+  <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
+    (ionChange)="presentActionSheet()"></ion-searchbar>
 
 
 </ion-header>
@@ -78,7 +80,7 @@
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
         <ion-label>Cardápio</ion-label>
         <ion-label>VEGETARIANO</ion-label>
-     
+
       </ion-tab-button>
 
     </ion-tab-bar>
@@ -101,7 +103,7 @@
 
           <div>
             <ion-button expand="full" color="danger" (click)="addCarrinho(prato)">
-                <h3>Pedir Prato</h3>
+              <h3>Pedir Prato</h3>
               <img src="../../assets/imagens/logo3.png" class="css">
             </ion-button>
           </div>

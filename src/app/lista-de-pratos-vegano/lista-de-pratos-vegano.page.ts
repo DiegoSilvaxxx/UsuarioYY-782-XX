@@ -9,6 +9,7 @@ import { PratoVegano } from '../model/pratovegano'
 import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
+import { ViewChild } from '@angular/core';
 
 
 
@@ -22,6 +23,8 @@ export class ListaDePratosVeganoPage implements OnInit {
   ListaDePratosVegano: PratoVegano[] = [];
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
+
+  @ViewChild("textoBusca") textoBusca;
 
   slideOpts = {
     initialSlide: 2,
@@ -85,6 +88,38 @@ export class ListaDePratosVeganoPage implements OnInit {
 
 
   }
+
+  busca() {
+    console.log(this.textoBusca.value)
+
+    this.ListaDePratosVegano = [];
+    var ref = firebase.firestore().collection("pratovegano");
+    //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
+    ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
+
+      if (doc.size > 0) {
+
+        doc.forEach(doc => {
+
+          let p = new PratoVegano();
+          p.setDados(doc.data());
+          p.id = doc.id;
+
+
+          console.log(p);
+          this.ListaDePratosVegano.push(p);
+
+        })
+
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    })
+
+    //this.router.navigate(['/PratoVegano', { 'filtro': "busca" }]);
+  }
+
 
   viewPratoVegano() {
     this.router.navigate(['/lista-de-pratos-vegano']);

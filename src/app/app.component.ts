@@ -60,7 +60,16 @@ export class AppComponent {
       url: '/carrinho',
       icon: 'cart'
     },
-   
+    {
+      title: 'Lista Promoções !',
+      url: '/lista-de-promocoes',
+      icon: 'cart'
+    },
+    {
+      title: 'Cadastro Promoçaõ',
+      url: '/cadastro-de-promocao',
+      icon: 'clipboard'
+    },
 
 
 

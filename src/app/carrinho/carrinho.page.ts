@@ -5,6 +5,7 @@ import { Pedido } from '../model/pedido';
 import { Router } from '@angular/router';
 import { PratoVegano } from '../model/pratovegano';
 import { PratoVegetariano } from '../model/pratovegetariano';
+import { Promocao } from '../model/promocao';
 
 @Component({
   selector: 'app-carrinho',
@@ -35,6 +36,11 @@ export class CarrinhoPage implements OnInit {
   }
   removeCarVegetariano(pratovegetariano: PratoVegetariano) {
     this.storageServ.setRemoveCartVegetariano(pratovegetariano);
+    this.pedido = this.storageServ.getCart();
+
+  }
+  removeCarPromocao(promocao: Promocao) {
+    this.storageServ.setRemoveCartPromocao(promocao);
     this.pedido = this.storageServ.getCart();
 
   }
