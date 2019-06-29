@@ -19,7 +19,17 @@
     <ion-icon slot="start" name="contact" class="css"></ion-icon>
 
 
+
+
   </ion-toolbar>
+
+  <div>
+    <ion-button color="primary" expand="full"  (click)="ListaDePromocoes(promocao)" class="promocao">
+      <h4>Promoções do Dia</h4>
+    
+    </ion-button>
+  </div>
+
 
   <ion-slides pager="true" style="margin-top: 1px; width: 400px; height:100px;" [options]="slideOpts">
 
@@ -45,8 +55,7 @@
 
   </ion-slides>
 
-  <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
-    (ionChange)="presentActionSheet()"></ion-searchbar>
+  <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()" (ionChange)="presentActionSheet()"></ion-searchbar>
 
 </ion-header>
 

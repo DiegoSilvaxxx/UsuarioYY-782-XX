@@ -141,6 +141,10 @@ export class ListaDePratosPage implements OnInit {
     this.router.navigate(['/carrinho']);
   }
 
+  ListaDePromocoes(){
+    this.router.navigate(['/lista-de-promocoes']);
+  }
+
 
 
   getList() {

@@ -90,6 +90,10 @@ export class ListaDePromocoesPage implements OnInit {
     this.router.navigate(['/view-promocao', { 'promocao': promocao.id }]);
 
   }
+  Carrinho(){
+    this.router.navigate(['/carrinho']);
+
+  }
 
 
 
