@@ -21,12 +21,9 @@
 
   </ion-toolbar>
 
-  <ion-slides pager="true" style="margin-top: 1px; width: 400px; height: 100px;" [options]="slideOpts">
 
-    <ion-slide>
-      <ion-img src="../assets/imagens/v6.jpg"></ion-img>
+  <ion-slides pager="true" style="margin-top: 1px; width: 200px; height: 100px;" [options]="slideOpts">
 
-    </ion-slide>
 
     <ion-slide>
       <ion-img src="../assets/imagens/v3.jpg"></ion-img>
@@ -40,11 +37,11 @@
       <ion-img src="../assets/imagens/v5.jpg"></ion-img>
     </ion-slide>
 
-    <ion-slide>
-      <ion-img src="../assets/imagens/v1.jpg"></ion-img>
-    </ion-slide>
+
 
   </ion-slides>
+
+  <img src="../../assets/imagens/seta9.png" class="promocao" (click)="ListaDePromocoes()">
 
   <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
     (ionChange)="presentActionSheet()"></ion-searchbar>
@@ -100,7 +97,7 @@
 
 
           <div>
-            <ion-button expand="full" color="danger" (click)="addCarrinho(prato)">
+            <ion-button expand="solid" color="danger" (click)="addCarrinho(prato)">
               <h3>Pedir Prato</h3>
               <img src="../../assets/imagens/logo3.png" class="css">
             </ion-button>

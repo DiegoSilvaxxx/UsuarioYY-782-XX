@@ -63,7 +63,7 @@ export class AppComponent {
     {
       title: 'Lista Promoções !',
       url: '/lista-de-promocoes',
-      icon: 'cart'
+      icon: 'basket'
     },
     {
       title: 'Cadastro Promoçaõ',

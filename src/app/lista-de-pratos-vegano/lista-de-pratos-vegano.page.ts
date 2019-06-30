@@ -141,6 +141,9 @@ export class ListaDePratosVeganoPage implements OnInit {
     this.router.navigate(['/view-prato-vegano', { 'pratovegano': pratovegano.id }]);
 
   }
+  ListaDePromocoes() {
+    this.router.navigate(['/lista-de-promocoes']);
+  }
 
 
 

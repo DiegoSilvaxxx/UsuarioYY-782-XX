@@ -142,7 +142,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
   }
 
-
+  ListaDePromocoes() {
+    this.router.navigate(['/lista-de-promocoes']);
+  }
 
   getList() {
 
