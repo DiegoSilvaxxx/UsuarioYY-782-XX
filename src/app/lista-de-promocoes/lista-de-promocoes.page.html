@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
- 
+
 
     <ion-icon (click)="ListaDePratos()" slot="start" name="arrow-back" class="css"></ion-icon>
-   
+
     <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
 
     <ion-buttons slot="end">
@@ -16,33 +16,44 @@
 
 <ion-content>
 
-  <ion-card *ngFor="let promocao of ListaDePromocoes">
-    <ion-card-header>
-      <img src="{{promocao?.imagem}}">
-      <ion-card-title>{{promocao?.nome}}</ion-card-title>
-      <ion-card-subtitle>{{promocao?.descricao}}</ion-card-subtitle>
-      <ion-card-subtitle class="valorconfig">{{promocao?.valor}}</ion-card-subtitle>
-    </ion-card-header>
+  <ion-grid>
+    <ion-row>
 
-    <div>
-      <ion-button expand="full" color="danger" (click)="addCarrinho(promocao)">
-        <h3>Pedir Prato</h3>
-        <img src="../../assets/imagens/logo3.png" class="css">
-      </ion-button>
-    </div>
+      <ion-col size="6" *ngFor="let promocao of ListaDePromocoes">
+        <ion-card>
+          <ion-card-header>
+            <img src="{{promocao?.imagem}}">
+            <ion-card-title  class="titleconfig">{{promocao?.nome}}</ion-card-title>
+            <ion-card-subtitle>{{promocao?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle class="valorconfig">{{promocao?.valor}}</ion-card-subtitle>
+          </ion-card-header>
 
-    <ion-icon name="build" (click)="ViewPromocao(promocao)" size="large"></ion-icon>
-    <ion-icon name="trash" (click)="remove(promocao)" size="large"></ion-icon>
+          <div>
+            <ion-button expand="full" color="danger" (click)="addCarrinho(promocao)">
+              <h3>Pedir Prato</h3>
+              <img src="../../assets/imagens/logo3.png" class="css">
+            </ion-button>
+          </div>
 
-  </ion-card>
+          <ion-icon name="build" (click)="ViewPromocao(promocao)" size="large"></ion-icon>
+          <ion-icon name="trash" (click)="remove(promocao)" size="large"></ion-icon>
+
+        </ion-card>
+
+      </ion-col>
+
+
+    </ion-row>
+
+  </ion-grid>
 
 
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="cart"></ion-icon>
-      <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
-    </ion-fab-button>
-  </ion-fab>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button>
+            <ion-icon name="cart"></ion-icon>
+            <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+          </ion-fab-button>
+        </ion-fab>
 
 </ion-content>

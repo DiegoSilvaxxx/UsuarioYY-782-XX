@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+
+    <ion-icon (click)="ListaDePratos()" slot="start" name="arrow-back" class="css"></ion-icon>
+
+
+
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Entre em Contato</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item *ngFor="let parceria of ListaDeParcerias">
+
+    <ion-thumbnail slot="start">
+      <img src="{{parceria?.imagem}}">
+    </ion-thumbnail>
+   
+    <ion-label>
+      <ion-title class="title">{{parceria?.nome}}</ion-title>
+      <p>{{parceria?.descricao}}</p>
+      <p>{{parceria?.valor}}</p>
+    </ion-label>
+
+
+
+    <ion-icon name="build" (click)="ViewParceria(parceria)" size="large"></ion-icon>
+    <ion-icon name="trash" (click)="remove(parceria)" size="large"></ion-icon>
+
+  </ion-item>
+
+
+</ion-content>

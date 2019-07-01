@@ -144,7 +144,9 @@ export class ListaDePratosVeganoPage implements OnInit {
   ListaDePromocoes() {
     this.router.navigate(['/lista-de-promocoes']);
   }
-
+  ListaDeParcerias() {
+    this.router.navigate(['/lista-de-parcerias']);
+  }
 
 
   getList() {

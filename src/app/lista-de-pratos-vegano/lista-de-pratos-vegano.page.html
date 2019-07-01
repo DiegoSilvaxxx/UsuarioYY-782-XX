@@ -41,7 +41,18 @@
 
   </ion-slides>
 
-  <img src="../../assets/imagens/seta9.png" class="promocao" (click)="ListaDePromocoes()">
+  <ion-fab  vertical="center" horizontal="start" slot="fixed">
+      <ion-fab-button color="light" (click)="ListaDeParcerias()">
+        <img src="../../assets/imagens/parca6.png" class="parceria">
+      </ion-fab-button>
+    </ion-fab>
+   
+    <ion-fab  vertical="center" horizontal="end" slot="fixed">
+        <ion-fab-button color="light" (click)="ListaDePromocoes()">
+            <img src="../../assets/imagens/seta9.png" class="promocao" >
+        </ion-fab-button>
+      </ion-fab>
+   
 
   <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
     (ionChange)="presentActionSheet()"></ion-searchbar>

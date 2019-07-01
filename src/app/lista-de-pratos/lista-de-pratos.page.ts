@@ -90,7 +90,7 @@ export class ListaDePratosPage implements OnInit {
 
 
   }
- 
+
   busca() {
     console.log(this.textoBusca.value)
 
@@ -141,8 +141,12 @@ export class ListaDePratosPage implements OnInit {
     this.router.navigate(['/carrinho']);
   }
 
-  ListaDePromocoes(){
+  ListaDePromocoes() {
     this.router.navigate(['/lista-de-promocoes']);
+  }
+
+  ListaDeParcerias() {
+    this.router.navigate(['/lista-de-parcerias']);
   }
 
 

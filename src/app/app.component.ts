@@ -70,8 +70,17 @@ export class AppComponent {
       url: '/cadastro-de-promocao',
       icon: 'clipboard'
     },
+    {
+      title: 'Cadastro Parceiro',
+      url: '/cadastro-de-parceiro',
+      icon: 'clipboard'
+    },
 
-
+    {
+      title: 'Lista Parceiros !',
+      url: '/lista-de-parcerias',
+      icon: 'people'
+    },
 
   ];
   // 

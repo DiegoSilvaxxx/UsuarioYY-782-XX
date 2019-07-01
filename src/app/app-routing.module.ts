@@ -40,8 +40,13 @@ const routes: Routes = [
 
   { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
  
-  { path: 'lista-de-promocoes', loadChildren: './lista-de-promocoes/lista-de-promocoes.module#ListaDePromocoesPageModule' },  { path: 'view-promocao', loadChildren: './view-promocao/view-promocao.module#ViewPromocaoPageModule' },
+  { path: 'lista-de-promocoes', loadChildren: './lista-de-promocoes/lista-de-promocoes.module#ListaDePromocoesPageModule' },
+  { path: 'view-promocao', loadChildren: './view-promocao/view-promocao.module#ViewPromocaoPageModule' },
   { path: 'cadastro-de-promocao', loadChildren: './cadastro-de-promocao/cadastro-de-promocao.module#CadastroDePromocaoPageModule' },
+ 
+  { path: 'lista-de-parcerias', loadChildren: './lista-de-parcerias/lista-de-parcerias.module#ListaDeParceriasPageModule' },
+  { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },  { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
+
 
 
 
