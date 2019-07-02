@@ -8,7 +8,7 @@
     </div>
 
     <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
-    <ion-icon slot="end" name="search" class="css"></ion-icon>
+  
 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -23,40 +23,37 @@
 
   <ion-slides pager="true" style="margin-top: 1px; width: 200px; height:100px;" [options]="slideOpts">
 
-      <ion-slide>
-        <ion-img src="../assets/imagens/teste1.jpg"></ion-img>
-      </ion-slide>
-  
-      <ion-slide>
-        <ion-img src="../assets/imagens/teste2.jpg"></ion-img>
-      </ion-slide>
-  
-      <ion-slide>
-        <ion-img src="../assets/imagens/teste3.jpg"></ion-img>
-      </ion-slide>
-  
-  
-    </ion-slides>
+    <ion-slide>
+      <ion-img src="../assets/imagens/teste1.jpg"></ion-img>
+    </ion-slide>
 
- 
-  <ion-fab  vertical="center" horizontal="start" slot="fixed">
+    <ion-slide>
+      <ion-img src="../assets/imagens/teste2.jpg"></ion-img>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-img src="../assets/imagens/teste3.jpg"></ion-img>
+    </ion-slide>
+
+
+  </ion-slides>
+
+
+  <ion-fab vertical="center" horizontal="start" slot="fixed">
     <ion-fab-button color="light" (click)="ListaDeParcerias()">
       <img src="../../assets/imagens/parca6.png" class="parceria">
     </ion-fab-button>
   </ion-fab>
- 
-  <ion-fab  vertical="center" horizontal="end" slot="fixed">
-      <ion-fab-button color="light" (click)="ListaDePromocoes()">
-          <img src="../../assets/imagens/seta9.png" class="promocao" >
-      </ion-fab-button>
-    </ion-fab>
- 
- 
-  
-      
 
-  <ion-searchbar color="dark" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
-    (ionChange)="presentActionSheet()"></ion-searchbar>
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="ListaDePromocoes()">
+      <img src="../../assets/imagens/seta9.png" class="promocao">
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-searchbar debounce="500" color="clear" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()" 
+  (ionChange)="presentActionSheet()"></ion-searchbar>
 
 </ion-header>
 

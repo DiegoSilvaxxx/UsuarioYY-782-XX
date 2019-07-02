@@ -88,8 +88,6 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   }
 
   busca() {
-    console.log(this.textoBusca.value)
-
     this.ListaDePratosVegetariano = [];
     var ref = firebase.firestore().collection("pratovegetariano");
     //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
@@ -102,12 +100,42 @@ export class ListaDePratosVegetarianoPage implements OnInit {
           let p = new PratoVegetariano();
           p.setDados(doc.data());
           p.id = doc.id;
-
-
-          console.log(p);
           this.ListaDePratosVegetariano.push(p);
 
-        })
+        });
+
+        this.busca2();
+
+      } else {
+        this.ListaDePratosVegetariano = [];
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        this.busca2();   
+        this.busca3();
+      }
+    })
+
+    //this.router.navigate(['/Prato', { 'filtro': "busca" }]);
+  }
+
+  busca2() {
+    
+
+    
+    var ref = firebase.firestore().collection("prato");
+    //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
+    ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
+
+      if (doc.size > 0) {
+
+        doc.forEach(doc => {
+
+          let p = new PratoVegetariano();
+          p.setDados(doc.data());
+          p.id = doc.id;
+          this.ListaDePratosVegetariano.push(p);
+
+        });
 
       } else {
         // doc.data() will be undefined in this case
@@ -115,10 +143,37 @@ export class ListaDePratosVegetarianoPage implements OnInit {
       }
     })
 
-    //this.router.navigate(['/PratoVegetariano', { 'filtro': "busca" }]);
+    //this.router.navigate(['/Prato', { 'filtro': "busca" }]);
   }
 
 
+  busca3() {
+    
+
+    
+    var ref = firebase.firestore().collection("pratovegano");
+    //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
+    ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
+
+      if (doc.size > 0) {
+
+        doc.forEach(doc => {
+
+          let p = new PratoVegetariano();
+          p.setDados(doc.data());
+          p.id = doc.id;
+          this.ListaDePratosVegetariano.push(p);
+
+        });
+
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    })
+
+    //this.router.navigate(['/Prato', { 'filtro': "busca" }]);
+  }
 
 
   viewPratoVegano() {
