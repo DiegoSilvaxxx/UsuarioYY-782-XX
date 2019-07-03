@@ -10,8 +10,6 @@
     <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
 
 
-  
-
 
     <ion-icon (click)="Home()" slot="start" name="arrow-back" class="css"></ion-icon>
     <ion-icon slot="start" name="contact" class="css"></ion-icon>
@@ -22,15 +20,15 @@
   <ion-slides pager="true" style="margin-top: 1px; width: 200px; height:100px;" [options]="slideOpts">
 
     <ion-slide>
-      <ion-img src="../assets/imagens/teste1.jpg"></ion-img>
+      <ion-img src="../assets/imagens/vg2.jpg"></ion-img>
     </ion-slide>
 
     <ion-slide>
-      <ion-img src="../assets/imagens/teste2.jpg"></ion-img>
+      <ion-img src="../assets/imagens/vg3.jpg"></ion-img>
     </ion-slide>
 
     <ion-slide>
-      <ion-img src="../assets/imagens/teste3.jpg"></ion-img>
+      <ion-img src="../assets/imagens/vg4.jpg"></ion-img>
     </ion-slide>
 
 
@@ -44,7 +42,7 @@
   </ion-fab>
 
   <ion-fab vertical="center" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" (click)="ListaDePromocoesCm()">
+    <ion-fab-button color="light" (click)=" ListaDePromocoesCm()">
       <img src="../../assets/imagens/seta9.png" class="promocao">
     </ion-fab-button>
   </ion-fab>
@@ -70,22 +68,23 @@
   <ion-tabs>
     <ion-tab-bar slot="top">
 
-      <ion-tab-button>
-
+      <ion-tab-button (click)=" ListaDePratos()">
         <img src="../../assets/imagens/logobx.png" class="logo">
         <ion-label>Cardápio</ion-label>
-        <ion-label>baixa-caloria</ion-label>
+
 
       </ion-tab-button>
 
       <ion-tab-button (click)="viewPratoVegano()">
         <img src="../../assets/imagens/logovegano.png" class="logo">
         <ion-label>Cardápio</ion-label>
+
       </ion-tab-button>
 
       <ion-tab-button (click)="viewPratoVegetariano()">
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
         <ion-label>Cardápio</ion-label>
+        <ion-label>VEGETERIANO</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>
@@ -95,13 +94,13 @@
   <ion-grid>
     <ion-row>
 
-      <ion-col size="6" *ngFor="let prato of ListaDePratosCm">
+      <ion-col size="6" *ngFor="let pratovegetariano of ListaDePratosVegetarianoCm">
         <ion-card>
           <ion-card-header>
-            <img src="{{prato?.imagem}}">
-            <ion-card-title class="titleconfig">{{prato?.nome}}</ion-card-title>
-            <ion-card-subtitle>{{prato?.descricao}} </ion-card-subtitle>
-            <ion-card-subtitle class="valorconfig">{{prato?.valor}}</ion-card-subtitle>
+            <img src="{{pratovegetariano?.imagem}}">
+            <ion-card-title class="titleconfig">{{pratovegetariano?.nome}}</ion-card-title>
+            <ion-card-subtitle>{{pratovegetariano?.descricao}} </ion-card-subtitle>
+            <ion-card-subtitle class="valorconfig">{{pratovegetariano?.valor}}</ion-card-subtitle>
 
           </ion-card-header>
 

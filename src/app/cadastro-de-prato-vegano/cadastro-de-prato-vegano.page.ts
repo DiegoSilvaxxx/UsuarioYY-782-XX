@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cadastro-de-prato-vegano',
@@ -11,36 +12,76 @@ import { Router } from '@angular/router';
 })
 export class CadastroDePratoVeganoPage implements OnInit {
 
-  firestore = firebase.firestore();
-  settings = {timestampsInSnapshots: true};
-  formGroup : FormGroup;
-  
-  constructor(private formBuilder : FormBuilder, 
-    private router : Router) {
-     
-    this.formGroup = this.formBuilder.group({
-      nome : [''],
-      descricao : [''],
-      valor : [''],
-    });
-    
-   }
+  @ViewChild("enviaFoto") enviaFoto;
 
-  ngOnInit() {
-    
+  firestore = firebase.firestore();
+  settings = { timestampsInSnapshots: true };
+  formGroup: FormGroup;
+
+  idFoto: string = "";
+
+  imagem: string = "";
+
+  foto: string = "";
+
+
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    public toastController: ToastController, ) {
+
+    this.formGroup = this.formBuilder.group({
+      nome: [''],
+      descricao: [''],
+      valor: [''],
+    });
+
   }
 
-  cadastrar(){
+  ngOnInit() {
+
+  }
+
+  cadastrar() {
     console.log('ok');
     let ref = this.firestore.collection('pratovegano')
     ref.add(this.formGroup.value)
-      .then(() =>{
+      .then(resp => {
         console.log('Cadastrado com sucesso');
-        this.router.navigate(['/list']);
-      }).catch(err=>{
+        this.toast('Produto Cadastrada com sucesso');
+
+        this.idFoto = resp.id;
+
+        if (this.idFoto = resp.id) {
+          let ref = firebase.storage().ref()
+            .child(`pratos/${this.idFoto}.jpg`);
+          ref.put(this.imagem).then(url => {
+            console.log('Enviado com Sucesso')
+            this.router.navigate(['/list']);
+
+          })
+
+        }
+      }).catch(err => {
         console.log(err);
         console.log('Erro ao cadastrar');
       })
   }
+  pegarImagem(event) {
+    this.imagem = event.srcElement.files[0];
+    console.log(this.imagem);
+    if (this.imagem == event.srcElement.files[0]) {
+      this.foto = this.imagem;
+    }
 
+
+  }
+
+  async toast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+
+  }
 }

@@ -6,20 +6,21 @@ import { NavParams, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-import { Prato } from '../model/prato'
+import { PratoVegano } from '../model/pratovegano'
 import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
 
-@Component({
-  selector: 'app-lista-de-pratos-cm',
-  templateUrl: './lista-de-pratos-cm.page.html',
-  styleUrls: ['./lista-de-pratos-cm.page.scss'],
-})
-export class ListaDePratosCmPage implements OnInit {
 
-  ListaDePratosCm: Prato[] = [];
+@Component({
+  selector: 'app-lista-de-pratos-vegano-cm',
+  templateUrl: './lista-de-pratos-vegano-cm.page.html',
+  styleUrls: ['./lista-de-pratos-vegano-cm.page.scss'],
+})
+export class ListaDePratosVeganoCmPage implements OnInit {
+
+  ListaDePratosVeganoCm: PratoVegano[] = [];
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
 
@@ -45,10 +46,10 @@ export class ListaDePratosCmPage implements OnInit {
 
   ngOnInit() {
     this.getList();
-    console.log(this.ListaDePratosCm);
+    console.log(this.ListaDePratosVeganoCm);
   }
 
-  addCarrinho(prato: Prato) {
+  addCarrinho(pratovegano: PratoVegano) {
 
 
 
@@ -56,7 +57,7 @@ export class ListaDePratosCmPage implements OnInit {
     let add = true;
 
     let i = new Item();
-    i.prato = prato;
+    i.pratovegano = pratovegano;
     i.quantidade = 1;
 
     if (this.pedido == null) {
@@ -70,10 +71,10 @@ export class ListaDePratosCmPage implements OnInit {
       this.pedido.itens.forEach(p => {
 
 
-        if (p.prato !== undefined) {
+        if (p.pratovegano !== undefined) {
 
 
-          if (p.prato.id == prato.id) {
+          if (p.pratovegano.id == pratovegano.id) {
             add = false;
           }
         }
@@ -90,8 +91,8 @@ export class ListaDePratosCmPage implements OnInit {
   }
 
   busca() {
-    this.ListaDePratosCm = [];
-    var ref = firebase.firestore().collection("prato");
+    this.ListaDePratosVeganoCm = [];
+    var ref = firebase.firestore().collection("pratovegano");
     //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
     ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
 
@@ -99,17 +100,17 @@ export class ListaDePratosCmPage implements OnInit {
 
         doc.forEach(doc => {
 
-          let p = new Prato();
+          let p = new PratoVegano();
           p.setDados(doc.data());
           p.id = doc.id;
-          this.ListaDePratosCm.push(p);
+          this.ListaDePratosVeganoCm.push(p);
 
         });
 
         this.busca2();
 
       } else {
-        this.ListaDePratosCm = [];
+        this.ListaDePratosVeganoCm = [];
         // doc.data() will be undefined in this case
         console.log("No such document!");
         this.busca2();
@@ -132,10 +133,10 @@ export class ListaDePratosCmPage implements OnInit {
 
         doc.forEach(doc => {
 
-          let p = new Prato();
+          let p = new PratoVegano();
           p.setDados(doc.data());
           p.id = doc.id;
-          this.ListaDePratosCm.push(p);
+          this.ListaDePratosVeganoCm.push(p);
 
         });
 
@@ -160,10 +161,10 @@ export class ListaDePratosCmPage implements OnInit {
 
         doc.forEach(doc => {
 
-          let p = new Prato();
+          let p = new PratoVegano();
           p.setDados(doc.data());
           p.id = doc.id;
-          this.ListaDePratosCm.push(p);
+          this.ListaDePratosVeganoCm.push(p);
 
         });
 
@@ -177,7 +178,7 @@ export class ListaDePratosCmPage implements OnInit {
   }
 
   viewPratoVegano() {
-    this.router.navigate(['/lista-de-pratos-vegano-cm']);
+    this.router.navigate(['/lista-de-pratos-vegano']);
   }
 
   viewPratoVegetariano() {
@@ -186,8 +187,8 @@ export class ListaDePratosCmPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  viewPrato(prato: Prato) {
-    this.router.navigate(['/prato-view', { 'prato': prato.id }]);
+  ViewPratoVegano(pratovegano: PratoVegano) {
+    this.router.navigate(['/view-prato-vegano', { 'pratovegano': pratovegano.id }]);
 
   }
   Carrinho() {
@@ -201,26 +202,28 @@ export class ListaDePratosCmPage implements OnInit {
   ListaDeParceriasCm() {
     this.router.navigate(['/lista-de-parcerias-cm']);
   }
-
+  ListaDePratos(){
+    this.router.navigate(['/lista-de-pratos-cm']);
+  }
 
 
   getList() {
 
-    var ref = firebase.firestore().collection("prato");
+    var ref = firebase.firestore().collection("pratovegano");
     ref.get().then(query => {
       query.forEach(doc => {
 
-        let c = new Prato();
+        let c = new PratoVegano();
         c.setDados(doc.data());
         c.id = doc.id;
 
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;
 
-          this.ListaDePratosCm.push(c);
+          this.ListaDePratosVeganoCm.push(c);
         })
           .catch(err => {
-            this.ListaDePratosCm.push(c);
+            this.ListaDePratosVeganoCm.push(c);
           })
 
       });
@@ -228,11 +231,11 @@ export class ListaDePratosCmPage implements OnInit {
   }
 
 
-  remove(obj: Prato) {
-    var ref = firebase.firestore().collection("prato");
+  remove(obj: PratoVegano) {
+    var ref = firebase.firestore().collection("pratovegano");
     ref.doc(obj.id).delete()
       .then(() => {
-        this.ListaDePratosCm = [];
+        this.ListaDePratosVeganoCm = [];
         this.getList();
       }).catch(() => {
         console.log('Erro ao atualizar');
