@@ -45,7 +45,10 @@ const routes: Routes = [
   { path: 'cadastro-de-promocao', loadChildren: './cadastro-de-promocao/cadastro-de-promocao.module#CadastroDePromocaoPageModule' },
  
   { path: 'lista-de-parcerias', loadChildren: './lista-de-parcerias/lista-de-parcerias.module#ListaDeParceriasPageModule' },
-  { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },  { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
+  { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },
+  { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
+  
+  { path: 'lista-de-pratos-cm', loadChildren: './lista-de-pratos-cm/lista-de-pratos-cm.module#ListaDePratosCmPageModule' },
 
 
 

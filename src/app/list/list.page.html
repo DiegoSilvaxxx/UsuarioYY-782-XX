@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" *ngIf="usuario.tipo!=undefined" >
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-icon slot="start" name="contact" class="iconeconf"></ion-icon>
@@ -27,7 +27,8 @@
           <img src="../../assets/imagens/roda-alimento.png" class="escolha">
           <h3>Alimentação</h3>
           <h6>Faça seus pedidos</h6>
-          <ion-button expand="block" size="default" color="dark" (click)="Home()">Ir</ion-button>
+          <ion-button expand="block" size="default" color="dark" *ngIf="usuario.tipo!=undefined" (click)="HomeAdm()">Ir</ion-button>
+          <ion-button expand="block" size="default" color="dark" *ngIf="usuario.tipo==undefined" (click)="HomeCm()">Ir</ion-button>
         </ion-col>
         <ion-col>
           <img src="../../assets/imagens/nutricionista.png" class="escolha">
