@@ -48,20 +48,6 @@ const routes: Routes = [
   { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },
   { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
 
-  { path: 'lista-de-pratos-cm', loadChildren: './lista-de-pratos-cm/lista-de-pratos-cm.module#ListaDePratosCmPageModule' },
-  { path: 'lista-de-pratos-vegano-cm', loadChildren: './lista-de-pratos-vegano-cm/lista-de-pratos-vegano-cm.module#ListaDePratosVeganoCmPageModule' },
-  { path: 'lista-de-pratos-vegetariano-cm', loadChildren: './lista-de-pratos-vegetariano-cm/lista-de-pratos-vegetariano-cm.module#ListaDePratosVegetarianoCmPageModule' },
-  { path: 'lista-de-promocoes-cm', loadChildren: './lista-de-promocoes-cm/lista-de-promocoes-cm.module#ListaDePromocoesCmPageModule' },
-  { path: 'lista-de-parcerias-cm', loadChildren: './lista-de-parcerias-cm/lista-de-parcerias-cm.module#ListaDeParceriasCmPageModule' },
-
-
-
-
-
-
-
-
-
 
 ];
 
