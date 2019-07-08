@@ -10,6 +10,7 @@ import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
+import { Modal } from '../model/modal';
 
 @Component({
   selector: 'app-lista-de-pratos',
@@ -200,7 +201,9 @@ export class ListaDePratosPage implements OnInit {
   ListaDeParcerias() {
     this.router.navigate(['/lista-de-parcerias']);
   }
-
+  ViewModal (modal: Modal){
+    this.router.navigate(['/view-modal']);
+  }
 
 
   getList() {

@@ -47,6 +47,9 @@ const routes: Routes = [
   { path: 'lista-de-parcerias', loadChildren: './lista-de-parcerias/lista-de-parcerias.module#ListaDeParceriasPageModule' },
   { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },
   { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
+ 
+  { path: 'view-modal', loadChildren: './view-modal/view-modal.module#ViewModalPageModule' },
+
 
 
 ];
