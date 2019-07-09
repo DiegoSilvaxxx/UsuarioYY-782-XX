@@ -22,65 +22,20 @@ export class AppComponent {
       url: '/logoff',
       icon: 'md-exit'
     },
-    {
-      title: 'Lista de Clientes',
-      url: '/lista-de-clientes',
-      icon: 'body'
-    },
-    {
-      title: 'Cadastro de Clientes',
-      url: '/cadastro-de-cliente',
-      icon: 'book'
-    },
-    {
-      title: 'Cadastrar Prato',
-      url: '/cadastro-de-prato',
-      icon: 'clipboard'
-    },
+   
     {
       title: 'Cardápio',
       url: '/lista-de-pratos',
       icon: 'nutrition'
     },
 
-    {
-      title: 'Cadastrar PratoVegano',
-      url: '/cadastro-de-prato-vegano',
-      icon: 'clipboard'
-    },
-
-    {
-      title: 'Cadastrar PratoVegetariano',
-      url: '/cadastro-de-prato-vegetariano',
-      icon: 'clipboard'
-    },
-
+  
     {
       title: 'Carrinho',
       url: '/carrinho',
       icon: 'cart'
     },
-    {
-      title: 'Lista Promoções !',
-      url: '/lista-de-promocoes',
-      icon: 'basket'
-    },
-    {
-      title: 'Cadastro Promoçaõ',
-      url: '/cadastro-de-promocao',
-      icon: 'clipboard'
-    },
-    {
-      title: 'Cadastro Parceiro',
-      url: '/cadastro-de-parceiro',
-      icon: 'clipboard'
-    },
-
-    {
-      title: 'Lista Parceiros !',
-      url: '/lista-de-parcerias',
-      icon: 'people'
-    },
+   
 
   ];
   // 

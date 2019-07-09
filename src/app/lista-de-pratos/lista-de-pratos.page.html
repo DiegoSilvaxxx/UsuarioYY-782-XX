@@ -1,25 +1,18 @@
 <ion-header>
-  <ion-toolbar color="dark">
-
-    <div class="div2">
-      <ion-title>
-        <img src="../../assets/imagens/logo2.png" class="logo3">
-      </ion-title>
-    </div>
-
-    <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
+  <ion-header>
+    <ion-toolbar color="dark">
 
 
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-
-
-    <ion-icon (click)="Home()" slot="start" name="arrow-back" class="css"></ion-icon>
-    <ion-icon slot="start" name="contact" class="css"></ion-icon>
-
-  </ion-toolbar>
-
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  
+      <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
+  
+  
+      <ion-title>Pratos de Baixa-Caloria</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
   <ion-slides pager="true" style="margin-top: 1px; width: 200px; height:100px;" [options]="slideOpts">
 
@@ -102,7 +95,7 @@
           <ion-card-header>
             <img src="{{prato?.imagem}}" (click)="viewPrato(prato)">
             <ion-card-title class="titleconfig">{{prato?.nome}}</ion-card-title>
-            <ion-card-subtitle>{{prato?.descricao}} </ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle class="valorconfig">{{prato?.valor}}</ion-card-subtitle>
 
@@ -118,9 +111,6 @@
           </div>
 
 
-
-          <ion-icon name="build" (click)="ViewPrato(prato)" size="large"></ion-icon>
-          <ion-icon name="trash" (click)="remove(prato)" size="large"></ion-icon>
 
         </ion-card>
 

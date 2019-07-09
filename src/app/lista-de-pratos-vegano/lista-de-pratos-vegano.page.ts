@@ -186,7 +186,7 @@ export class ListaDePratosVeganoPage implements OnInit {
     this.router.navigate(['/lista-de-pratos']);
   }
   Home() {
-    this.router.navigate(['/list']);
+    this.router.navigate(['/lista-de-pratos']);
   }
   Carrinho() {
     this.router.navigate(['/carrinho']);

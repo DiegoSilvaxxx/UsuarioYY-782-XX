@@ -187,7 +187,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     this.router.navigate(['/lista-de-pratos']);
   }
   Home() {
-    this.router.navigate(['/list']);
+    this.router.navigate(['/lista-de-pratos-vegano']);
   }
   Carrinho() {
     this.router.navigate(['/carrinho']);

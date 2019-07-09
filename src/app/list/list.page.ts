@@ -72,11 +72,11 @@ export class ListPage {
     });
   }
 
-  HomeAdm(){
+  HomeCm(){
     this.router.navigate(['/lista-de-pratos']);
   }
 
-  HomeCm(){
+  HomeAdm(){
     this.router.navigate(['/lista-de-pratos-cm']);
   }
 

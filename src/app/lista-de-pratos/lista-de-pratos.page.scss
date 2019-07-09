@@ -98,10 +98,10 @@ ion-grid{
   
 }
 .titleconfig{
-  height: 60px;
-  font-size: 15px;
-  font-family: sans-serif;
-  text-align: center;
+  height: 35px;
+  font-size: 13px;
+  font-family: Arial;
+  text-align: start;
  
  
 }
@@ -138,8 +138,10 @@ h3{
 }
 
 .valorconfig{
-  font-size: 30px;
+  font-size: 25px;
   font-family: Impact;
+  height: 25px;
+  text-align: end;
 }
 h4{
 color: black;
@@ -181,3 +183,15 @@ margin-top: 10px;
    color: black;
    
  }
+
+
+ion-title{
+ font-family: Palatino Linotype;
+ font-size: 18px;
+ margin-left: 1px;
+}
+
+.transp:hover{
+opacity: 0.3;
+
+}

@@ -41,11 +41,12 @@ ion-card-title{
     margin-right: 35px;
   }
   .titleconfig{
-    height: 65px;
-    font-size: 15px;
-    font-family: sans-serif;
+    height: 35px;
+    font-size: 13px;
+    font-family: Arial;
+    text-align: start;
     color: white;
-    text-align: center;
+   
   }
    
   ion-card-subtitle{
@@ -78,9 +79,11 @@ ion-card-title{
    
 
   .valorconfig{
-    font-size: 30px;
+    font-size: 25px;
     font-family: Impact;
- }
+    height: 25px;
+    text-align: end;
+  }
 
  h4{
   color: black;
@@ -127,4 +130,8 @@ ion-card-title{
      
    }
    
-  
+   ion-title{
+    font-family: Palatino Linotype;
+    font-size: 18px;
+    margin-left: 1px;
+  }

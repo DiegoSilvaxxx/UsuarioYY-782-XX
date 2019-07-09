@@ -44,6 +44,7 @@ export class ViewModalPage implements OnInit {
   ListaDePratos() {
     this.router.navigate(['/lista-de-pratos']);
   }
+  
 
   buscaID(){
     var ref = firebase.firestore().collection("prato").doc(this.pratoID).get().then(doc => {
