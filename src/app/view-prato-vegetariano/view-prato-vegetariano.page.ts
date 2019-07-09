@@ -35,6 +35,7 @@ export class ViewPratoVegetarianoPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome : [this.pratovegetariano.nome],
       descricao : [this.pratovegetariano.descricao],
+      ingrediente : [this.pratovegetariano.ingrediente],
       valor : [this.pratovegetariano.valor],
     });
   }

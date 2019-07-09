@@ -175,7 +175,7 @@ export class ListaDePratosVeganoPage implements OnInit {
     //this.router.navigate(['/Prato', { 'filtro': "busca" }]);
   }
 
-  viewPratoVegano() {
+  ListaDePratos() {
     this.router.navigate(['/lista-de-pratos-vegano']);
   }
 
@@ -201,7 +201,10 @@ export class ListaDePratosVeganoPage implements OnInit {
   ListaDeParcerias() {
     this.router.navigate(['/lista-de-parcerias']);
   }
-
+  viewPratoVegano (pratovegano: PratoVegano){
+    
+    this.router.navigate(['/view-modal-vegano',{'pratovegano':pratovegano.id}]);
+  }
 
   getList() {
 

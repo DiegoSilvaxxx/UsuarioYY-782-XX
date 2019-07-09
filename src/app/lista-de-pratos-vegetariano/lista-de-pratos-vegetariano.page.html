@@ -6,7 +6,7 @@
     </div>
 
     <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
-   
+
 
 
     <ion-buttons slot="end">
@@ -40,20 +40,20 @@
 
   </ion-slides>
 
-  <ion-fab  vertical="center" horizontal="start" slot="fixed">
-      <ion-fab-button color="light" (click)="ListaDeParcerias()">
-        <img src="../../assets/imagens/parca6.png" class="parceria">
-      </ion-fab-button>
-    </ion-fab>
-   
-    <ion-fab  vertical="center" horizontal="end" slot="fixed">
-        <ion-fab-button color="light" (click)="ListaDePromocoes()">
-            <img src="../../assets/imagens/seta9.png" class="promocao" >
-        </ion-fab-button>
-      </ion-fab>
+  <ion-fab vertical="center" horizontal="start" slot="fixed">
+    <ion-fab-button color="light" (click)="ListaDeParcerias()">
+      <img src="../../assets/imagens/parca6.png" class="parceria">
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="center" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="ListaDePromocoes()">
+      <img src="../../assets/imagens/seta9.png" class="promocao">
+    </ion-fab-button>
+  </ion-fab>
 
 
-  <ion-searchbar  color="clear" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
+  <ion-searchbar color="clear" #textoBusca animated placeholder="Procurar" debounce="500" (ionChange)="busca()"
     (ionChange)="presentActionSheet()"></ion-searchbar>
 
 
@@ -86,7 +86,7 @@
         <ion-label>Cardápio</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button (click)="viewPratoVegetariano()">
+      <ion-tab-button (click)="ListaDePratos()">
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
         <ion-label>Cardápio</ion-label>
         <ion-label>VEGETARIANO</ion-label>
@@ -103,9 +103,10 @@
       <ion-col size="6" *ngFor="let pratovegetariano of  ListaDePratosVegetariano">
         <ion-card>
           <ion-card-header>
-            <img src="{{pratovegetariano?.imagem}}">
+            <img src="{{pratovegetariano?.imagem}}" (click)="viewPratoVegetariano(pratovegetariano)">
             <ion-card-title class="titleconfig">{{pratovegetariano?.nome}}</ion-card-title>
             <ion-card-subtitle>{{pratovegetariano?.descricao}} </ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle class="valorconfig">{{pratovegetariano?.valor}}</ion-card-subtitle>
 
           </ion-card-header>

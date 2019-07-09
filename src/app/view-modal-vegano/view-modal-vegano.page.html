@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Prato Principal (Ingredientes)</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-content>
+
+
+    <ion-card>
+      <ion-card-header>
+        <img src="{{pratovegano.imagem}}">
+
+        <ion-card-subtitle>{{pratovegano.nome}}</ion-card-subtitle>
+
+        <ion-card-title> {{pratovegano?.ingrediente}}</ion-card-title>
+
+        <ion-card-title>{{pratovegano?.descricao}}</ion-card-title>
+
+      </ion-card-header>
+
+      <ion-card-content>
+          <ion-button color="danger" (click)="ListaDePratosVegano()">Sair</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-content>

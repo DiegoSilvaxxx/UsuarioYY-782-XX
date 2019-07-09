@@ -110,7 +110,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
         this.ListaDePratosVegetariano = [];
         // doc.data() will be undefined in this case
         console.log("No such document!");
-        this.busca2();   
+        this.busca2();
         this.busca3();
       }
     })
@@ -119,9 +119,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
   }
 
   busca2() {
-    
 
-    
+
+
     var ref = firebase.firestore().collection("prato");
     //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
     ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
@@ -148,9 +148,9 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
 
   busca3() {
-    
 
-    
+
+
     var ref = firebase.firestore().collection("pratovegano");
     //ref.orderBy('nome').startAfter(this.textoBusca.value).get().then(doc=> {
     ref.orderBy('nome').startAfter(this.textoBusca.value).endAt(this.textoBusca.value + '\uf8ff').get().then(doc => {
@@ -180,7 +180,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     this.router.navigate(['/lista-de-pratos-vegano']);
   }
 
-  viewPratoVegetariano() {
+  ListaDePratos() {
     this.router.navigate(['/lista-de-pratos-vegetariano']);
   }
   PratoView() {
@@ -203,6 +203,11 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
   ListaDeParcerias() {
     this.router.navigate(['/lista-de-parcerias']);
+  }
+
+  viewPratoVegetariano(pratovegetariano: PratoVegetariano) {
+
+    this.router.navigate(['/view-modal-vegetariano', { 'pratovegetariano': pratovegetariano.id }]);
   }
 
   getList() {

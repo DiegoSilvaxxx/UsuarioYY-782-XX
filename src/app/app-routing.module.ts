@@ -48,7 +48,9 @@ const routes: Routes = [
   { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },
   { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
  
-  { path: 'view-modal', loadChildren: './view-modal/view-modal.module#ViewModalPageModule' },
+  { path: 'view-modal', loadChildren: './view-modal/view-modal.module#ViewModalPageModule' },  { path: 'view-modal-vegano', loadChildren: './view-modal-vegano/view-modal-vegano.module#ViewModalVeganoPageModule' },
+  { path: 'view-modal-vegetariano', loadChildren: './view-modal-vegetariano/view-modal-vegetariano.module#ViewModalVegetarianoPageModule' },
+
 
 
 

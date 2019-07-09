@@ -100,10 +100,10 @@
       <ion-col size="6" *ngFor="let prato of ListaDePratos">
         <ion-card>
           <ion-card-header>
-            <img src="{{prato?.imagem}}"  (click)="viewPrato(prato)">
+            <img src="{{prato?.imagem}}" (click)="viewPrato(prato)">
             <ion-card-title class="titleconfig">{{prato?.nome}}</ion-card-title>
             <ion-card-subtitle>{{prato?.descricao}} </ion-card-subtitle>
-           
+            <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle class="valorconfig">{{prato?.valor}}</ion-card-subtitle>
 
           </ion-card-header>

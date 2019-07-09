@@ -78,7 +78,7 @@
         <ion-label>Cardápio</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button (click)="viewPratoVegano()">
+      <ion-tab-button (click)=" ListaDePratos()">
         <img src="../../assets/imagens/logovegano.png" class="logo">
         <ion-label>Cardápio</ion-label>
         <ion-label>VEGANO</ion-label>
@@ -100,9 +100,10 @@
       <ion-col size="6" *ngFor="let pratovegano of ListaDePratosVegano">
         <ion-card>
           <ion-card-header>
-            <img src="{{pratovegano?.imagem}}">
+            <img src="{{pratovegano?.imagem}}" (click)="viewPratoVegano(pratovegano)">
             <ion-card-title class="titleconfig">{{pratovegano?.nome}}</ion-card-title>
             <ion-card-subtitle>{{pratovegano?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle class="valorconfig">{{pratovegano?.valor}}</ion-card-subtitle>
           </ion-card-header>
 

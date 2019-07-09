@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Prato Principal (Ingredientes)</ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-content>
+
+
+    <ion-card>
+      <ion-card-header>
+        <img src="{{pratovegetariano.imagem}}">
+
+        <ion-card-subtitle>{{pratovegetariano.nome}}</ion-card-subtitle>
+
+        <ion-card-title> {{pratovegetariano?.ingrediente}}</ion-card-title>
+
+        <ion-card-title>{{pratovegetariano?.descricao}}</ion-card-title>
+
+      </ion-card-header>
+
+      <ion-card-content>
+          <ion-button color="danger" (click)="ListaDePratosVegetariano()">Sair</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
+  </ion-content>

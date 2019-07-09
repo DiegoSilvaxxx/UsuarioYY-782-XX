@@ -36,6 +36,7 @@ export class ViewPratoVeganoPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [this.pratovegano.nome],
       descricao: [this.pratovegano.descricao],
+      ingrediente: [this.pratovegano.ingrediente],
       valor: [this.pratovegano.valor],
     });
   }
