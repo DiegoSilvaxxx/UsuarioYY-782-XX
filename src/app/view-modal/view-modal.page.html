@@ -1,33 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Descrição do Prato</ion-title>
+    <ion-title>Prato Principal (Ingredientes)</ion-title>
   </ion-toolbar>
+ 
 </ion-header>
 
 <ion-content padding>
 
-  <img src="{{imagem}}">
-
-  <ion-item>
-    <input type="file" (change)="enviaArquivo($event)" />
-  </ion-item>
 
   <ion-content>
-    <form [formGroup]="formGroup">
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Nome</ion-label>
-          <ion-input formControlName="nome" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Descrição</ion-label>
-          <ion-input formControlName="descricao" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label floating>Valor</ion-label>
-          <ion-input formControlName="valor" type="text"></ion-input>
-        </ion-item>
-      </ion-list>
-      <ion-button expand="full" (click)="atualizar()">Atualizar</ion-button>
-    </form>
+
+
+    <ion-card>
+      <ion-card-header>
+        <img src="{{prato.imagem}}">
+
+        <ion-card-subtitle>{{prato.nome}}</ion-card-subtitle>
+
+        <ion-card-title> {{prato?.ingrediente}}</ion-card-title>
+
+        <ion-card-title>{{prato?.descricao}}</ion-card-title>
+
+      </ion-card-header>
+
+      <ion-card-content>
+          <ion-button color="danger" (click)="ListaDePratos()">Sair</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+
   </ion-content>

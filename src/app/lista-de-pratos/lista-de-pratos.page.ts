@@ -186,10 +186,7 @@ export class ListaDePratosPage implements OnInit {
   Home() {
     this.router.navigate(['/list']);
   }
-  viewPrato(prato: Prato) {
-    this.router.navigate(['/prato-view', { 'prato': prato.id }]);
 
-  }
   Carrinho() {
     this.router.navigate(['/carrinho']);
   }
@@ -201,10 +198,13 @@ export class ListaDePratosPage implements OnInit {
   ListaDeParcerias() {
     this.router.navigate(['/lista-de-parcerias']);
   }
-  ViewModal (modal: Modal){
-    this.router.navigate(['/view-modal']);
+  viewPrato (prato: Prato){
+    
+    this.router.navigate(['/view-modal',{'prato':prato.id}]);
   }
-
+  ViewPrato(prato: Prato) {
+    this.router.navigate(['/prato-view', { 'prato': prato.id }]);
+  }
 
   getList() {
 

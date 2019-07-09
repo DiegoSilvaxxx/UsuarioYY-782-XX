@@ -33,6 +33,7 @@ export class CadastroDePratoPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [''],
       descricao: [''],
+      ingrediente:[''],
       valor: [''],
     });
 

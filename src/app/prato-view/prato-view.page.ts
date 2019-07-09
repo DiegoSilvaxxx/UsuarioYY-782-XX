@@ -36,6 +36,7 @@ export class PratoViewPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [this.prato.nome],
       descricao: [this.prato.descricao],
+      ingrediente: [this.prato.ingrediente],
       valor: [this.prato.valor],
     });
   }

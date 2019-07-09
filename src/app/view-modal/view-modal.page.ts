@@ -6,6 +6,7 @@ import { Modal } from '../model/modal';
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { Prato } from '../model/prato';
 
 @Component({
   selector: 'app-view-modal',
@@ -14,7 +15,8 @@ import { NavController } from '@ionic/angular';
 })
 export class ViewModalPage implements OnInit {
 
-  modal: Modal = new Modal();
+  pratoID : any;
+  prato : Prato = new Prato();
   id: string;
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
@@ -26,47 +28,51 @@ export class ViewModalPage implements OnInit {
     public formBuilder: FormBuilder,
     public router: Router,
     public nav: NavController) {// <----
-    this.id = this.activatedRoute.snapshot.paramMap.get('modal');
-    console.log(this.id)
-    this.form(); // <----
+
+    this.pratoID = this.activatedRoute.snapshot.paramMap.get('prato');
+    
+    // <----
   }
 
-  form() {// <----
-    this.formGroup = this.formBuilder.group({
-      nome: [this.modal.nome],
-      descricao: [this.modal.descricao],
-      valor: [this.modal.valor],
-    });
-  }
+ 
 
   ngOnInit() {
-    this.downloadFoto();
-    this.obterModal();
+   
+   this.buscaID();
+  }
+ 
+  ListaDePratos() {
+    this.router.navigate(['/lista-de-pratos']);
   }
 
-  obterModal() {
-    var ref = firebase.firestore().collection("modal").doc(this.id);
+  buscaID(){
+    var ref = firebase.firestore().collection("prato").doc(this.pratoID).get().then(doc => {
 
-    ref.get().then(doc => {
-      this.modal.setDados(doc.data());
-      this.form();
+      if (doc.exists) {
 
-    }).catch(function (error) {
-      console.log("Error getting document:", error);
-    });
 
+        
+          this.prato.setDados(doc.data());
+          this.prato.id = doc.id;
+        
+
+          let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+            this.prato.imagem = url;
+
+          })
+            .catch(err => {
+ 
+            })
+
+
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    })
   }
 
-  atualizar() {
-    let ref = this.firestore.collection('modal')
-    ref.doc(this.id).set(this.formGroup.value)
-      .then(() => {
-        console.log('Atualizado com sucesso');
-        this.nav.navigateRoot('/lista-de-pratos');
-      }).catch(() => {
-        console.log('Erro ao Atualizar');
-      })
-  }
+
 
   enviaArquivo(event) {
     let imagem = event.srcElement.files[0];
@@ -76,19 +82,12 @@ export class ViewModalPage implements OnInit {
 
     ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");
-      this.downloadFoto();
+   
     })
 
   }
 
-  downloadFoto() {
-    let ref = firebase.storage().ref()
-      .child(`promo/${this.modal.id}.jpg`);
 
-    ref.getDownloadURL().then(url => {
-      this.imagem = url;
-    })
-  }
 
 
 
