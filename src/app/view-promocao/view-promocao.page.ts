@@ -35,6 +35,7 @@ export class ViewPromocaoPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [this.promocao.nome],
       descricao: [this.promocao.descricao],
+      ingrediente: [this.promocao.ingrediente],
       valor: [this.promocao.valor],
     });
   }

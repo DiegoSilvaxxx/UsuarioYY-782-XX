@@ -107,8 +107,8 @@ ion-card-title{
   
   .promocao{
  
-    width: 40px;
-    height: 30px;
+    width: 50px;
+    height: 40px;
    
   }
   .parceria{
@@ -134,4 +134,17 @@ ion-card-title{
     font-family: Palatino Linotype;
     font-size: 18px;
     margin-left: 1px;
+  }
+  .transp{
+ 
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+  }
+  
+  .transp:hover{
+    
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    
+  
   }

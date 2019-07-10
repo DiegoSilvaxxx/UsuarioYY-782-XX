@@ -6,17 +6,18 @@ import { Modal } from '../model/modal';
 import * as firebase from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { Prato } from '../model/prato';
+import { Promocao } from '../model/promocao';
+
 
 @Component({
-  selector: 'app-view-modal',
-  templateUrl: './view-modal.page.html',
-  styleUrls: ['./view-modal.page.scss'],
+  selector: 'app-view-modal-promocoes',
+  templateUrl: './view-modal-promocoes.page.html',
+  styleUrls: ['./view-modal-promocoes.page.scss'],
 })
-export class ViewModalPage implements OnInit {
+export class ViewModalPromocoesPage implements OnInit {
 
-  pratoID : any;
-  prato : Prato = new Prato();
+  pratoID: any;
+  promocao: Promocao = new Promocao();
   id: string;
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
@@ -29,44 +30,44 @@ export class ViewModalPage implements OnInit {
     public router: Router,
     public nav: NavController) {// <----
 
-    this.pratoID = this.activatedRoute.snapshot.paramMap.get('prato');
-    
+    this.pratoID = this.activatedRoute.snapshot.paramMap.get('promocao');
+
     // <----
   }
 
- 
+
 
   ngOnInit() {
-   
-   this.buscaID();
+
+    this.buscaID();
   }
- 
-  ListaDePratos() {
-    this.router.navigate(['/lista-de-pratos']);
+
+  ListaDePromocoes() {
+    this.router.navigate(['/lista-de-promocoes']);
   }
   Home() {
-    this.router.navigate(['/lista-de-pratos']);
+    this.router.navigate(['/lista-de-promocoes']);
   }
-  
 
-  buscaID(){
-    var ref = firebase.firestore().collection("prato").doc(this.pratoID).get().then(doc => {
+
+  buscaID() {
+    var ref = firebase.firestore().collection("promocao").doc(this.pratoID).get().then(doc => {
 
       if (doc.exists) {
 
 
-        
-          this.prato.setDados(doc.data());
-          this.prato.id = doc.id;
-        
 
-          let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-            this.prato.imagem = url;
+        this.promocao.setDados(doc.data());
+        this.promocao.id = doc.id;
+
+
+        let ref = firebase.storage().ref().child(`promo/${doc.id}.jpg`).getDownloadURL().then(url => {
+          this.promocao.imagem = url;
+
+        })
+          .catch(err => {
 
           })
-            .catch(err => {
- 
-            })
 
 
       } else {
@@ -86,7 +87,7 @@ export class ViewModalPage implements OnInit {
 
     ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");
-   
+
     })
 
   }

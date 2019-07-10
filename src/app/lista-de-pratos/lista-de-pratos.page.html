@@ -2,15 +2,17 @@
   <ion-header>
     <ion-toolbar color="dark">
 
-
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-  
+
+
+      <img src="../../assets/imagens/parca11.png" class="parceria" (click)="ListaDeParcerias()">
+
       <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
-  
-  
-      <ion-title>Pratos de Baixa-Caloria</ion-title>
+
+      <ion-title slot="start">Pratos Baixa-Caloria</ion-title>
+
     </ion-toolbar>
   </ion-header>
 
@@ -32,15 +34,10 @@
   </ion-slides>
 
 
-  <ion-fab vertical="center" horizontal="start" slot="fixed">
-    <ion-fab-button color="light" (click)="ListaDeParcerias()">
-      <img src="../../assets/imagens/parca6.png" class="parceria">
-    </ion-fab-button>
-  </ion-fab>
 
-  <ion-fab vertical="center" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" (click)="ListaDePromocoes()">
-      <img src="../../assets/imagens/seta9.png" class="promocao">
+  <ion-fab vertical="center" horizontal="start" slot="fixed">
+    <ion-fab-button color="success" (click)="ListaDePromocoes()">
+      <img src="../../assets/imagens/seta14.png" class="promocao">
     </ion-fab-button>
   </ion-fab>
 
@@ -93,7 +90,7 @@
       <ion-col size="6" *ngFor="let prato of ListaDePratos">
         <ion-card>
           <ion-card-header>
-            <img src="{{prato?.imagem}}" (click)="viewPrato(prato)">
+            <img src="{{prato?.imagem}}" (click)="viewPrato(prato)" class="transp">
             <ion-card-title class="titleconfig">{{prato?.nome}}</ion-card-title>
             <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle></ion-card-subtitle>
@@ -104,7 +101,7 @@
 
 
           <div>
-            <ion-button expand="solid" color="danger" (click)="addCarrinho(prato)">
+            <ion-button expand="solid" color="danger"  (click)="addCarrinho(prato)">
               <h3>Pedir Prato</h3>
               <img src="../../assets/imagens/logo3.png" class="css">
             </ion-button>

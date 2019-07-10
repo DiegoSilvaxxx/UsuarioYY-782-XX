@@ -1,14 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
 
 
     <ion-icon (click)="ListaDePratos()" slot="start" name="arrow-back" class="css"></ion-icon>
 
     <ion-icon slot="end" name="cart" class="css" (click)="Carrinho()"></ion-icon>
 
-    <ion-buttons slot="end">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+   
 
     <ion-title>Promoções Do Dia !!</ion-title>
   </ion-toolbar>
@@ -22,9 +20,10 @@
       <ion-col size="6" *ngFor="let promocao of ListaDePromocoes">
         <ion-card>
           <ion-card-header>
-            <img src="{{promocao?.imagem}}">
+            <img src="{{promocao?.imagem}}" (click)="viewPrato(promocao)">
             <ion-card-title  class="titleconfig">{{promocao?.nome}}</ion-card-title>
-            <ion-card-subtitle>{{promocao?.descricao}}</ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
+            <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle class="valorconfig">{{promocao?.valor}}</ion-card-subtitle>
           </ion-card-header>
 
@@ -35,8 +34,7 @@
             </ion-button>
           </div>
 
-          <ion-icon name="build" (click)="ViewPromocao(promocao)" size="large"></ion-icon>
-          <ion-icon name="trash" (click)="remove(promocao)" size="large"></ion-icon>
+        
 
         </ion-card>
 

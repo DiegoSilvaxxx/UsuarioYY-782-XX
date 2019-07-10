@@ -9,7 +9,7 @@
   
 
 
-    <ion-title>Pratos Veganos</ion-title>
+    <ion-title>Pratos Vegano</ion-title>
   </ion-toolbar>
 
 
@@ -32,15 +32,11 @@
 
   </ion-slides>
 
-  <ion-fab  vertical="center" horizontal="start" slot="fixed">
-      <ion-fab-button color="light" (click)="ListaDeParcerias()">
-        <img src="../../assets/imagens/parca6.png" class="parceria">
-      </ion-fab-button>
-    </ion-fab>
+ 
    
-    <ion-fab  vertical="center" horizontal="end" slot="fixed">
-        <ion-fab-button color="light" (click)="ListaDePromocoes()">
-            <img src="../../assets/imagens/seta9.png" class="promocao" >
+    <ion-fab  vertical="center" horizontal="start" slot="fixed">
+        <ion-fab-button color="success" (click)="ListaDePromocoes()">
+            <img src="../../assets/imagens/seta14.png" class="promocao" >
         </ion-fab-button>
       </ion-fab>
    
@@ -91,7 +87,7 @@
       <ion-col size="6" *ngFor="let pratovegano of ListaDePratosVegano">
         <ion-card>
           <ion-card-header>
-            <img src="{{pratovegano?.imagem}}" (click)="viewPratoVegano(pratovegano)">
+            <img src="{{pratovegano?.imagem}}" (click)="viewPratoVegano(pratovegano)" class="transp">
             <ion-card-title class="titleconfig">{{pratovegano?.nome}}</ion-card-title>
             <ion-card-subtitle></ion-card-subtitle>
             <ion-card-subtitle></ion-card-subtitle>

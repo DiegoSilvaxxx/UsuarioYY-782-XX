@@ -1,6 +1,7 @@
 .css{
     width: 50px;
     height: 30px;
+    color: black;
   }
   ion-card{
     background-color: black;
@@ -20,9 +21,10 @@
     text-align: center;
   }
   .valorconfig{
-    font-size: 30px;
+    font-size: 25px;
     font-family: Impact;
-    color: white;
+    height: 25px;
+    text-align: end;
   }
   h3{
     color:black;
@@ -31,10 +33,14 @@
    
   }
   .titleconfig{
-    height: 65px;
-    font-size: 15px;
-    font-family: sans-serif;
-    text-align: center;
+    height: 35px;
+    font-size: 13px;
+    font-family: Arial;
+    text-align: start;
+    color: white;
    
    
+  }
+  ion-title{
+    color: black;
   }
