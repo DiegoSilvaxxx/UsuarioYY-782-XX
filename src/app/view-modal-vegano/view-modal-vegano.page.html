@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-icon (click)="Home()" slot="start" name="arrow-back" class="css"></ion-icon>
-    <ion-title>Cardápio</ion-title>
+    <ion-title>Cardápio Vegano</ion-title>
   </ion-toolbar>
 
 </ion-header>
@@ -14,15 +14,32 @@
 
     <ion-card>
       <ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card-subtitle>{{pratovegano.nome}}</ion-card-subtitle>
+
+            </ion-col>
+            <ion-col>
+              <ion-card-subtitle class="valor">{{pratovegano.valor}}</ion-card-subtitle>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
+
+
+
         <img src="{{pratovegano.imagem}}">
 
-        <ion-card-subtitle>{{pratovegano.nome}}</ion-card-subtitle>
 
         <ion-card-title> {{pratovegano?.ingrediente}}</ion-card-title>
 
         <ion-card-title>{{pratovegano?.descricao}}</ion-card-title>
 
       </ion-card-header>
+
 
       <ion-card-content>
         <ion-button expand="full" color="danger" (click)="ListaDePratosVegano()">Sair</ion-button>

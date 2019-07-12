@@ -28,6 +28,18 @@ export class AppComponent {
       url: '/lista-de-pratos',
       icon: 'nutrition'
     },
+  
+    {
+      title: 'Cardápio Vegano',
+      url: '/lista-de-pratos-vegano',
+      icon: 'nutrition'
+    },
+    
+    {
+      title: 'Cardápio Vegetariano',
+      url: '/lista-de-pratos-vegetariano',
+      icon: 'nutrition'
+    },
 
   
     {

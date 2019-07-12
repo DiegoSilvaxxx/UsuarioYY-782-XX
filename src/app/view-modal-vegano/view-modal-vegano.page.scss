@@ -1,17 +1,33 @@
-ion-card-subtitle{
+
+  ion-card-subtitle{
     font-family: Trebuchet ;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     color: black
+    
   }
+ 
   ion-card-title{
     text-align: center;
     font-family: Lucida ;
-    font-size: 16px;
+    font-size: 18px;
 
   }
   .css{
     width: 50px;
     height: 30px;
+    color: black;
    
+  }
+  .valor{
+    color: brown;
+    text-align: end;
+    font-family: Impact;
+    font-size: 30px;
+  }
+  ion-card{
+    background-color: chartreuse;
+  }
+  ion-title{
+    color: black;
   }

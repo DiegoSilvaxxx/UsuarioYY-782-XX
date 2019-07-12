@@ -47,7 +47,10 @@ export class CarrinhoPage implements OnInit {
 
 
   Home() {
-    this.router.navigate(['/list']);
+    this.router.navigate(['/lista-de-pratos']);
+  }
+  ListaDeParcerias() {
+    this.router.navigate(['/lista-de-parcerias']);
   }
 
 }
