@@ -23,6 +23,7 @@ export class ListaDePratosVeganoPage implements OnInit {
   ListaDePratosVegano: PratoVegano[] = [];
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
+  filtroBox = 'none'
 
   @ViewChild("textoBusca") textoBusca;
 
@@ -252,8 +253,14 @@ export class ListaDePratosVeganoPage implements OnInit {
 
 
   }
-
-
-
-
+  showFilter(){
+    if(this.filtroBox=='none')
+      this.filtroBox = 'block'
+    else
+      this.filtroBox = 'none'
+  }
 }
+
+
+
+
