@@ -45,12 +45,20 @@ export class CarrinhoPage implements OnInit {
 
   }
 
+  FinalizarCompra() {
+    this.router.navigate(['/finalizar-compra']);
+  }
+
 
   Home() {
     this.router.navigate(['/lista-de-pratos']);
   }
+
+
   ListaDeParcerias() {
     this.router.navigate(['/lista-de-parcerias']);
   }
+
+
 
 }

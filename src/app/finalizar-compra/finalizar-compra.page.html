@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Seus Dados</ion-title>
+    <ion-icon   slot="start" name="arrow-back" class="volta" (click)="Carrinho()"></ion-icon>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input formControlName="nome" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Endereço</ion-label>
+        <ion-input formControlName="endereco" type="text"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Bairro</ion-label>
+        <ion-input formControlName="bairro" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Cidade</ion-label>
+        <ion-input formControlName="cidade" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Cep</ion-label>
+        <ion-input formControlName="cep" type="text"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label floating>Cpf</ion-label>
+        <ion-input formControlName="cpf" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input formControlName="email" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Telefone</ion-label>
+        <ion-input formControlName="telefone" type="text"></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" fill="outline">Finalizar Pedido</ion-button>
+
+    </ion-list>
+
+
+  </form>
+</ion-content>

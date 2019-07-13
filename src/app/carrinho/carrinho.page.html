@@ -16,84 +16,87 @@
       </ion-toolbar>
     </ion-header>
 
-<ion-content>
-  <!-- fab placed to the top end -->
+    <ion-content>
+     
 
+      <ion-button  expand="full" fill="outline" (click)="FinalizarCompra()">Finalizar Pedido</ion-button>
+     
+    
+    
+      <ion-grid>
+        <ion-row>
+    
+          <ion-col size="6" *ngFor="let pedido of pedido.itens">
+    
+            <ion-card *ngIf="pedido.prato != undefined">
+              <ion-card-header>
+                <img src="{{prato?.imagem}}">
+                <ion-card-title class="titleconfig">{{pedido?.prato.nome}}</ion-card-title>
+                <ion-card-subtitle>{{pedido?.prato.desrcicao}}</ion-card-subtitle>
+                <ion-card-subtitle>R$ {{pedido?.prato.valor}}</ion-card-subtitle>
+    
+              </ion-card-header>
+    
+              <ion-icon name="trash" (click)="removeCar(pedido?.prato)" size="large"></ion-icon>
+    
+            </ion-card>
+    
+            <ion-card *ngIf="pedido.pratovegano != undefined">
+              <ion-card-header>
+                <img src="{{pratovegano?.imagem}}">
+                <ion-card-title class="titleconfig">{{pedido?.pratovegano.nome}}</ion-card-title>
+                <ion-card-subtitle>{{pedido?.pratovegano.desrcicao}}</ion-card-subtitle>
+                <ion-card-subtitle>R$ {{pedido?.pratovegano.valor}}</ion-card-subtitle>
+    
+              </ion-card-header>
+    
+              <ion-icon name="trash" (click)="removeCarVegano(pedido?.pratovegano)" size="large"></ion-icon>
+    
+            </ion-card>
+    
+    
+            <ion-card *ngIf="pedido.pratovegetariano != undefined">
+              <ion-card-header>
+                <img src="{{pratovegetariano?.imagem}}">
+                <ion-card-title class="titleconfig01">{{pedido?.pratovegetariano.nome}}</ion-card-title>
+                <ion-card-subtitle>{{pedido?.pratovegetariano.desrcicao}}</ion-card-subtitle>
+                <ion-card-subtitle>R$ {{pedido?.pratovegetariano.valor}}</ion-card-subtitle>
+    
+              </ion-card-header>
+    
+              <ion-icon name="trash" (click)="removeCarVegetariano(pedido?.pratovegetariano)" size="large"></ion-icon>
+    
+            </ion-card>
+    
+    
+            <ion-card *ngIf="pedido.promocao != undefined">
+              <ion-card-header>
+                <img src="{{promocao?.imagem}}">
+                <ion-card-title class="titleconfig01">{{pedido?.promocao.nome}}</ion-card-title>
+                <ion-card-subtitle>{{pedido?.promocao.desrcicao}}</ion-card-subtitle>
+                <ion-card-subtitle>R$ {{pedido?.promocao.valor}}</ion-card-subtitle>
+    
+              </ion-card-header>
+    
+              <ion-icon name="trash" (click)="removeCarPromocao(pedido?.promocao)" size="large"></ion-icon>
+    
+            </ion-card>
+    
+    
+         
 
-
-  <ion-grid>
-    <ion-row>
-
-      <ion-col size="6" *ngFor="let pedido of pedido.itens">
-
-        <ion-card *ngIf="pedido.prato != undefined">
-          <ion-card-header>
-            <img src="{{prato?.imagem}}">
-            <ion-card-title class="titleconfig">{{pedido?.prato.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.prato.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.prato.valor}}</ion-card-subtitle>
-
-          </ion-card-header>
-
-          <ion-icon name="trash" (click)="removeCar(pedido?.prato)" size="large"></ion-icon>
-
-        </ion-card>
-
-        <ion-card *ngIf="pedido.pratovegano != undefined">
-          <ion-card-header>
-            <img src="{{pratovegano?.imagem}}">
-            <ion-card-title class="titleconfig">{{pedido?.pratovegano.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.pratovegano.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.pratovegano.valor}}</ion-card-subtitle>
-
-          </ion-card-header>
-
-          <ion-icon name="trash" (click)="removeCarVegano(pedido?.pratovegano)" size="large"></ion-icon>
-
-        </ion-card>
-
-
-        <ion-card *ngIf="pedido.pratovegetariano != undefined">
-          <ion-card-header>
-            <img src="{{pratovegetariano?.imagem}}">
-            <ion-card-title class="titleconfig01">{{pedido?.pratovegetariano.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.pratovegetariano.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.pratovegetariano.valor}}</ion-card-subtitle>
-
-          </ion-card-header>
-
-          <ion-icon name="trash" (click)="removeCarVegetariano(pedido?.pratovegetariano)" size="large"></ion-icon>
-
-        </ion-card>
-
-
-        <ion-card *ngIf="pedido.promocao != undefined">
-          <ion-card-header>
-            <img src="{{promocao?.imagem}}">
-            <ion-card-title class="titleconfig01">{{pedido?.promocao.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.promocao.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.promocao.valor}}</ion-card-subtitle>
-
-          </ion-card-header>
-
-          <ion-icon name="trash" (click)="removeCarPromocao(pedido?.promocao)" size="large"></ion-icon>
-
-        </ion-card>
-
-
-
-
-
-      </ion-col>
-
-
-    </ion-row>
-
-  </ion-grid>
-
-
-
-
-
-
-</ion-content>
+       
+    
+          </ion-col>
+    
+    
+        </ion-row>
+      
+      </ion-grid>
+    
+    
+    
+    
+   
+    
+    </ion-content>

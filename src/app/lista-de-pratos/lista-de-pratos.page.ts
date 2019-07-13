@@ -22,6 +22,7 @@ export class ListaDePratosPage implements OnInit {
   ListaDePratos: Prato[] = [];
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
+  filtroBox = 'none'
 
   @ViewChild("textoBusca") textoBusca;
 
@@ -251,6 +252,11 @@ export class ListaDePratosPage implements OnInit {
 
 
   }
-
-
+  showFilter(){
+    if(this.filtroBox=='none')
+      this.filtroBox = 'block'
+    else
+      this.filtroBox = 'none'
+  }
 }
+
