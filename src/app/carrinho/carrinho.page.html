@@ -19,9 +19,9 @@
   <ion-content>
 
 
-    <ion-button expand="full" fill="outline" (click)="FinalizarCompra()">Finalizar Pedido</ion-button>
 
-    <ion-button color="dark">Dark</ion-button>
+
+
 
 
     <ion-grid>
@@ -101,3 +101,11 @@
 
 
   </ion-content>
+
+  <ion-footer>
+
+    <ion-button expand="full" color="success" (click)="ListaDePratos()" class="pedido">Continuar Compra</ion-button>
+
+    <ion-button expand="full" color="danger" (click)="FinalizarCompra()" class="pedido">Finalizar Pedido</ion-button>
+
+  </ion-footer>
