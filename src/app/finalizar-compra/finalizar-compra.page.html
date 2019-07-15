@@ -3,95 +3,94 @@
     <ion-title>Finalizar Pedido</ion-title>
     <ion-icon slot="start" name="arrow-back" style="width: 30px; height: 50px; " (click)="Carrinho()"></ion-icon>
   </ion-toolbar>
+</ion-header>
 
 
 
+<form [formGroup]="formGroup" class="contactform">
 
-  <form [formGroup]="formGroup" class="contactform">
+  <ion-toolbar color="medium">
+    <ion-title>Dados de Pagamento</ion-title>
+  </ion-toolbar>
 
-    <ion-list>
+  <ion-list>
 
-      <ion-toolbar color="medium" slot="top">
-        <ion-title>Dados de Pagamento</ion-title>
-      </ion-toolbar>
+    <ion-item>
+      <ion-label floating>Nome:</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
 
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Nome:</ion-label>
-        <ion-input formControlName="nome" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Endereço:</ion-label>
+      <ion-input formControlName="endereco" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Endereço:</ion-label>
-        <ion-input formControlName="endereco" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Bairro:</ion-label>
+      <ion-input formControlName="bairro" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Bairro:</ion-label>
-        <ion-input formControlName="bairro" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Cidade:</ion-label>
+      <ion-input formControlName="cidade" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Cidade:</ion-label>
-        <ion-input formControlName="cidade" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Cep:</ion-label>
+      <ion-input formControlName="cep" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Cep:</ion-label>
-        <ion-input formControlName="cep" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Cpf:</ion-label>
+      <ion-input formControlName="cpf" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Cpf:</ion-label>
-        <ion-input formControlName="cpf" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Telefone:</ion-label>
+      <ion-input formControlName="telefone" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Telefone:</ion-label>
-        <ion-input formControlName="telefone" type="text"></ion-input>
+    <ion-item>
+      <ion-label floating>Email:</ion-label>
+      <ion-input formControlName="email" type="text"></ion-input>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Email:</ion-label>
-        <ion-input formControlName="email" type="text"></ion-input>
-
-      </ion-item>
-
-      <ion-toolbar  color="medium">
-        <ion-title>Modo de Pagamento</ion-title>
-      </ion-toolbar>
+    <ion-toolbar color="medium">
+      <ion-title>Modo de Pagamento</ion-title>
+    </ion-toolbar>
 
 
-      <ion-item>
-        <ion-label floating>Depósito</ion-label>
+    <ion-item>
+      <ion-label>Depósito</ion-label>
 
-        <ion-checkbox slot="start"></ion-checkbox>
+      <ion-checkbox color="success" slot="start"></ion-checkbox>
 
-      </ion-item>
+    </ion-item>
 
-      <ion-item>
-        <ion-label floating>Cartão de Crédito</ion-label>
+    <ion-item>
+      <ion-label>Cartão de Crédito</ion-label>
 
-        <ion-checkbox slot="start"></ion-checkbox>
+      <ion-checkbox color="danger" slot="start"></ion-checkbox>
 
-      </ion-item>
+    </ion-item>
 
 
-    </ion-list>
+  </ion-list>
 
-  </form>
+</form>
 
-  <ion-footer>
+<ion-footer>
 
-    <ion-button (click)="subimtForm()" expand="full">
-      Finalizar Pagamento
-    </ion-button>
+  <ion-button (click)="subimtForm()" expand="full" [disabled]="!formGroup.valid">
+    Finalizar Pagamento
+  </ion-button>
 
-  </ion-footer>
+</ion-footer>

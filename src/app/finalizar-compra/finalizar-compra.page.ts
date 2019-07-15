@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Finalizar } from '../model/finalizar';
 import * as firebase from 'firebase';
 import { NavController } from '@ionic/angular';
@@ -35,14 +35,16 @@ export class FinalizarCompraPage implements OnInit {
 
   form() {// <----
     this.formGroup = this.formBuilder.group({
-      nome: [this.finalizar.nome],
-      endereco: [this.finalizar.endereco],
-      bairro: [this.finalizar.bairro],
-      cidade: [this.finalizar.cidade],
-      cep: [this.finalizar.cep],
-      cpf: [this.finalizar.cpf],
-      telefone: [this.finalizar.telefone],
-      email: [this.finalizar.email],
+      nome: [this.finalizar.nome, [Validators.required, Validators.minLength(3)]],
+      endereco: [this.finalizar.endereco, [Validators.required, Validators.minLength(5)]],
+      bairro: [this.finalizar.bairro, [Validators.required, Validators.minLength(3)]],
+      cidade: [this.finalizar.cidade, [Validators.required, Validators.minLength(2)]],
+      cep: [this.finalizar.cep, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      cpf: [this.finalizar.cpf, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      telefone: [this.finalizar.telefone, [Validators.required, Validators.minLength(9)]],
+      email: [this.finalizar.email, [Validators.email, Validators.required]],
+      
+      
     });
   }
 
@@ -59,7 +61,7 @@ export class FinalizarCompraPage implements OnInit {
   subimtForm() {
     console.log(this.formGroup.value)
 
-    console.log('ok');
+  
     let ref = this.firestore.collection('finalizar')
     ref.add(this.formGroup.value)
       .then(() => {
