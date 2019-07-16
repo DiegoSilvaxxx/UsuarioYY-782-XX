@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { PratoVegano } from '../model/pratovegano';
 import { PratoVegetariano } from '../model/pratovegetariano';
 import { Promocao } from '../model/promocao';
+import { Modal } from '../model/modal';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-carrinho',
@@ -15,6 +18,8 @@ import { Promocao } from '../model/promocao';
 export class CarrinhoPage implements OnInit {
 
   pedido: Pedido = new Pedido();
+  total : number = 0;
+  
   constructor(public storageServ: StorageService,
     public router: Router) {
 
@@ -23,7 +28,22 @@ export class CarrinhoPage implements OnInit {
   }
 
   ngOnInit() {
+    this.pedido.itens.forEach(item=>{
+
+      firebase.storage().ref().child(`pratos/${item.prato.id}.jpg`).getDownloadURL().then(url => {
+        item.prato.imagem = url;
+      })
+
+      
+
+      this.total += parseFloat(item.prato.valor);
+
+    })
+
+    console.log(this.pedido);
   }
+  
+ 
   removeCar(prato: Prato) {
     this.storageServ.setRemoveCart(prato);
     this.pedido = this.storageServ.getCart();
@@ -61,6 +81,15 @@ export class CarrinhoPage implements OnInit {
 
   ListaDePratos() {
     this.router.navigate(['/lista-de-pratos']);
+  }
+  viewPrato(prato: Prato) {
+    
+    this.router.navigate(['/view-modal', { 'prato': prato.id }]);
+  }
+
+  viewPromocao(promocao: Promocao) {
+    
+    this.router.navigate(['/view-modal-promocoes', { 'promocao': promocao.id }]);
   }
 
 

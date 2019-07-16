@@ -58,6 +58,7 @@ export class ListaDePratosPage implements OnInit {
 
     let i = new Item();
     i.prato = prato;
+    
     i.quantidade = 1;
 
     if (this.pedido == null) {
@@ -208,6 +209,7 @@ export class ListaDePratosPage implements OnInit {
   }
 
   getList() {
+    
 
     var ref = firebase.firestore().collection("prato");
     ref.get().then(query => {
@@ -216,6 +218,8 @@ export class ListaDePratosPage implements OnInit {
         let c = new Prato();
         c.setDados(doc.data());
         c.id = doc.id;
+
+        console.log( c)
 
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;

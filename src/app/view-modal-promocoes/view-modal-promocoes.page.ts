@@ -48,6 +48,9 @@ export class ViewModalPromocoesPage implements OnInit {
   Home() {
     this.router.navigate(['/lista-de-promocoes']);
   }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
+  }
 
 
   buscaID() {

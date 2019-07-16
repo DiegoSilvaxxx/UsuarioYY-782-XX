@@ -47,6 +47,9 @@ export class ViewModalPage implements OnInit {
   Home() {
     this.router.navigate(['/lista-de-pratos']);
   }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
+  }
   
 
   buscaID(){
