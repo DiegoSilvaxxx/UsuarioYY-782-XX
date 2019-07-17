@@ -47,6 +47,10 @@ export class ViewModalVeganoPage implements OnInit {
   Home() {
     this.router.navigate(['/lista-de-pratos-vegano']);
   }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
+  }
+
 
   buscaID(){
     var ref = firebase.firestore().collection("pratovegano").doc(this.pratoID).get().then(doc => {

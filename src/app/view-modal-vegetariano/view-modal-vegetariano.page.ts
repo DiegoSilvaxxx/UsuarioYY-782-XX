@@ -47,6 +47,10 @@ export class ViewModalVegetarianoPage implements OnInit {
   Home() {
     this.router.navigate(['/lista-de-pratos-vegetariano']);
   }
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
+  }
+
 
   buscaID(){
     var ref = firebase.firestore().collection("pratovegetariano").doc(this.pratoID).get().then(doc => {

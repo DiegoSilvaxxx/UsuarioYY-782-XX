@@ -35,7 +35,7 @@ export class CadastroDeClientePage implements OnInit {
     ref.add(this.formGroup.value)
       .then(() =>{
         console.log('Cadastrado com sucesso');
-        this.router.navigate(['/list']);
+        this.router.navigate(['/cadastroperfil']);
       }).catch(()=>{
         console.log('Erro ao cadastrar');
       })

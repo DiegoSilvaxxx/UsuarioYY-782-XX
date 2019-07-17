@@ -23,22 +23,22 @@ export class HomePage {
     this.fire.auth.signInWithEmailAndPassword(this.email.value,this.senha.value)
       .then(()=>{
         console.log('Logado com sucesso');
-        this.router.navigate(['/list']);
+        this.router.navigate(['/perfil']);
       })
       .catch(()=>{
         console.log('Login Inválido');
       })
   }
+  
+  
 
   cadastrar(){
     this.fire.auth.createUserWithEmailAndPassword(this.email.value,this.senha.value)
     .then(()=> {
       console.log("Cadastrado com sucesso!");
+      this.router.navigate(['/cadastro-de-cliente']);
     }).catch(()=>{
       console.log("Usuário inválido");
     })
   }
-
-
-
 }

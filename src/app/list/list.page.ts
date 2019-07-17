@@ -16,10 +16,10 @@ export class ListPage {
   firestore = firebase.firestore();
 
   usuario: Usuario = new Usuario();
-  
-  id : string;
 
-  
+  id: string;
+
+
   private selectedItem: any;
   private icons = [
     'flask',
@@ -34,16 +34,16 @@ export class ListPage {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor(public navctrl : NavController, 
-              public router : Router,
-              private firebaseauth : AngularFireAuth  ) {
+  constructor(public navctrl: NavController,
+    public router: Router,
+    private firebaseauth: AngularFireAuth) {
 
-                this.firebaseauth.authState.subscribe(obj=>{
-                  this.id = this.firebaseauth.auth.currentUser.uid;
-                  
-                  
-            
-                });
+    this.firebaseauth.authState.subscribe(obj => {
+      this.id = this.firebaseauth.auth.currentUser.uid;
+
+
+
+    });
 
     for (let i = 1; i < 11; i++) {
       this.items.push({
@@ -61,31 +61,34 @@ export class ListPage {
   obterCliente() {
     var ref = firebase.firestore().collection("usuario").doc(this.id);
     ref.get().then(doc => {
-    this.usuario.setDados(doc.data());
-    
-    console.log(this.usuario);  
+      this.usuario.setDados(doc.data());
+
+      console.log(this.usuario);
 
     }).catch((error) => {
       console.log("Error getting document:", error);
-    
+
 
     });
   }
 
-  HomeCm(){
+  HomeCm() {
     this.router.navigate(['/lista-de-pratos']);
   }
 
-  HomeAdm(){
+  HomeAdm() {
     this.router.navigate(['/lista-de-pratos-cm']);
   }
+  Perfil() {
+    this.router.navigate(['/perfil']);
+  }
 
-  cadastrar(){
-    
+  cadastrar() {
+
     this.router.navigate(['/lista-de-clientes', { id: '12' }]);
-   
-     
-   }
+
+
+  }
   // add back when alpha.4 is out
   // navigate(item) {
   //   this.router.navigate(['/list', JSON.stringify(item)]);

@@ -3,7 +3,7 @@
     font-family: Trebuchet ;
     font-size: 20px;
     text-align: center;
-    color: black
+    color: white;
     
   }
  
@@ -11,6 +11,7 @@
     text-align: center;
     font-family: Lucida ;
     font-size: 18px;
+    color: white;
 
   }
   .css{
@@ -20,13 +21,13 @@
    
   }
   .valor{
-    color: brown;
+    color: white;
     text-align: end;
     font-family: Impact;
     font-size: 30px;
   }
   ion-card{
-    background-color: chartreuse;
+    background-color: black;
   }
   ion-title{
     color: black;
@@ -37,3 +38,7 @@
     height: 30px;
     color: blue;
   }
+  ion-button{
+    color: white;
+  }
+  

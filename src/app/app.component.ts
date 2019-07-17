@@ -22,32 +22,38 @@ export class AppComponent {
       url: '/logoff',
       icon: 'md-exit'
     },
-   
+
     {
       title: 'Cardápio',
       url: '/lista-de-pratos',
       icon: 'nutrition'
     },
-  
+
     {
       title: 'Cardápio Vegano',
       url: '/lista-de-pratos-vegano',
       icon: 'nutrition'
     },
-    
+
     {
       title: 'Cardápio Vegetariano',
       url: '/lista-de-pratos-vegetariano',
       icon: 'nutrition'
     },
 
-  
+
     {
       title: 'Carrinho',
       url: '/carrinho',
       icon: 'cart'
     },
-   
+
+    {
+      title: 'Perfil',
+      url: '/perfil',
+      icon: 'person'
+    },
+  
 
   ];
   // 
@@ -71,16 +77,19 @@ export class AppComponent {
     this.firebaseauth.authState
       .subscribe(
         user => {
-          if (user) {
-            this.router.navigate(['/list']);
-          } else {
+          if (!user) {
+
             this.router.navigate(['/home']);
           }
         },
         () => {
-          this.router.navigate(['/list']);
+         // this.router.navigate(['/list']);
         }
       );
 
+  }
+
+ Perfil() {
+    this.router.navigate(['/perfil']);
   }
 }

@@ -53,7 +53,10 @@ const routes: Routes = [
   { path: 'view-modal-vegetariano', loadChildren: './view-modal-vegetariano/view-modal-vegetariano.module#ViewModalVegetarianoPageModule' },
   { path: 'view-modal-promocoes', loadChildren: './view-modal-promocoes/view-modal-promocoes.module#ViewModalPromocoesPageModule' },
  
-  { path: 'finalizar-compra', loadChildren: './finalizar-compra/finalizar-compra.module#FinalizarCompraPageModule' },
+  { path: 'finalizar-compra', loadChildren: './finalizar-compra/finalizar-compra.module#FinalizarCompraPageModule' },  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'perfil-view', loadChildren: './perfil-view/perfil-view.module#PerfilViewPageModule' },
+  { path: 'cadastroperfil', loadChildren: './cadastroperfil/cadastroperfil.module#CadastroperfilPageModule' },
+
 
 
 
