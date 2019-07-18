@@ -219,7 +219,7 @@ export class ListaDePratosPage implements OnInit {
         c.setDados(doc.data());
         c.id = doc.id;
 
-        console.log( c)
+     
 
         let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
           c.imagem = url;

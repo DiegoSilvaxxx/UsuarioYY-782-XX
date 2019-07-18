@@ -32,8 +32,9 @@ export class PerfilViewPage implements OnInit {
     this.firebaseauth.authState.subscribe(obj => {
       this.idUsuario = this.firebaseauth.auth.currentUser.uid;
       this.usuarioEmail = this.firebaseauth.auth.currentUser.email;
-      console.log(this.idUsuario);
-      console.log(this.usuarioEmail);
+
+
+    
 
       let ref = this.firestore.collection('cliente').doc(this.idUsuario)
       ref.get().then(doc => {
@@ -65,15 +66,20 @@ export class PerfilViewPage implements OnInit {
   }
 
   atualizarperfil() {
+    console.log(this.formGroup.value)
+    console.log(this.idUsuario)
+
+
+    
     let ref = this.firestore.collection('perfil')
     ref.doc(this.idUsuario).set(this.formGroup.value)
       .then(() => {
-        this.toast('Atualizado com Sucesso');
-        this.router.navigate(['perfil']);
-        this.loadingController.dismiss();
+        //this.toast('Atualizado com Sucesso');
+        //this.router.navigate(['perfil']);
+        //this.loadingController.dismiss();
       }).catch(() => {
-        this.toast('Erro ao Atualizar')
-      })
+        //this.toast('Erro ao Atualizar')
+      }) 
   }
 
 

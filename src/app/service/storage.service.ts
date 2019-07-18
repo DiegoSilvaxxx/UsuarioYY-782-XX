@@ -21,10 +21,17 @@ export class StorageService {
 
         let str = localStorage.getItem("carrinho");
 
-        if (str != null) {
+        if(str==null || str==""){
+            console.log("ok");
+            let pedido : Pedido = {itens : []};
+            localStorage.setItem("carrinho",JSON.stringify(pedido));
+            return pedido;           
+            
+            
+        }else{
+            console.log("ok 2");
             return JSON.parse(str);
-        } else {
-            return null;
+            
         }
     }
 
@@ -40,6 +47,7 @@ export class StorageService {
 
         localStorage.setItem('carrinho', JSON.stringify(lista));
     }
+    
     setRemoveCartVegano(pratovegano: PratoVegano) {
         let lista: Pedido = this.getCart();
 

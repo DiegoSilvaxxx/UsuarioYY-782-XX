@@ -31,7 +31,7 @@ export class PerfilPage implements OnInit {
 
       this.idUsuario = this.firebaseauth.auth.currentUser.uid;
       this.usuarioEmail = this.firebaseauth.auth.currentUser.email;
-
+      console.log(this.idUsuario)
       this.downloadFoto();
 
       let ref = this.firestore.collection('cliente').doc(this.idUsuario)
@@ -41,7 +41,7 @@ export class PerfilPage implements OnInit {
         console.log(this.perfil);
 
       }).catch(err => {
-        console.log(err)
+        console.log("ERRO: " + err)
       });
 
     });

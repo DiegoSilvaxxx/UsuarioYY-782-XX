@@ -50,7 +50,7 @@ export class ListaDePratosVeganoPage implements OnInit {
     console.log(this.ListaDePratosVegano);
   }
 
-  addCarrinho(pratovegano: PratoVegano) {
+  addCarrinho(prato: PratoVegano) {
 
 
 
@@ -58,24 +58,28 @@ export class ListaDePratosVeganoPage implements OnInit {
     let add = true;
 
     let i = new Item();
-    i.pratovegano = pratovegano;
+    i.prato = prato;
+    
     i.quantidade = 1;
 
     if (this.pedido == null) {
+
       this.pedido = new Pedido();
       this.pedido.itens = [];
+
     } else {
 
 
       this.pedido.itens.forEach(p => {
-        console.log(p)
 
-        if (p.pratovegano !== undefined) {
-          if (p.pratovegano.id == pratovegano.id) {
+
+        if (p.prato !== undefined) {
+
+
+          if (p.prato.id == prato.id) {
             add = false;
           }
         }
-
 
 
       });
@@ -85,8 +89,6 @@ export class ListaDePratosVeganoPage implements OnInit {
     if (add == true) this.pedido.itens.push(i);
 
     this.storageServ.setCart(this.pedido);
-
-
 
   }
 

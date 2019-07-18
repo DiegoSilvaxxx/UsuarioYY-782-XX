@@ -50,7 +50,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     console.log(this.ListaDePratosVegetariano);
   }
 
-  addCarrinho(pratovegetariano: PratoVegetariano) {
+  addCarrinho(prato: PratoVegetariano) {
 
 
 
@@ -58,24 +58,28 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     let add = true;
 
     let i = new Item();
-    i.pratovegetariano = pratovegetariano;
+    i.prato = prato;
+    
     i.quantidade = 1;
 
     if (this.pedido == null) {
+
       this.pedido = new Pedido();
       this.pedido.itens = [];
+
     } else {
 
 
       this.pedido.itens.forEach(p => {
-        console.log(p)
 
-        if (p.pratovegetariano !== undefined) {
-          if (p.pratovegetariano.id == pratovegetariano.id) {
+
+        if (p.prato !== undefined) {
+
+
+          if (p.prato.id == prato.id) {
             add = false;
           }
         }
-
 
 
       });
