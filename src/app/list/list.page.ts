@@ -3,7 +3,7 @@ import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Cliente } from '../model/cliente';
+import { Perfil } from '../model/perfil';
 import { Usuario } from '../model/usuario';
 
 @Component({
@@ -55,10 +55,10 @@ export class ListPage {
   }
 
   ngOnInit() {
-    this.obterCliente();
+    this.obterPerfil();
   }
 
-  obterCliente() {
+  obterPerfil() {
     var ref = firebase.firestore().collection("usuario").doc(this.id);
     ref.get().then(doc => {
       this.usuario.setDados(doc.data());
@@ -85,7 +85,7 @@ export class ListPage {
 
   cadastrar() {
 
-    this.router.navigate(['/lista-de-clientes', { id: '12' }]);
+    this.router.navigate(['/perfil', { id: '12' }]);
 
 
   }

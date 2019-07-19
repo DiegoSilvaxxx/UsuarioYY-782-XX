@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-cadastroperfil',
@@ -11,34 +12,50 @@ import { Router } from '@angular/router';
 })
 export class CadastroperfilPage implements OnInit {
 
-  firestore = firebase.firestore();
-  settings = {timestampsInSnapshots : true};
-  formGroup : FormGroup;
+  idUsuario;
 
-  constructor(public formBuilder : FormBuilder,
-              public rauter : Router) {
+  firestore = firebase.firestore();
+  settings = { timestampsInSnapshots: true };
+  formGroup: FormGroup;
+
+  constructor(public formBuilder: FormBuilder,
+    public router: Router,
+
+    private firebaseauth: AngularFireAuth) {
+
+    this.firebaseauth.authState.subscribe(obj => {
+
+      this.idUsuario = this.firebaseauth.auth.currentUser.uid;
+
+    })
+
+
+
+
+
     this.formGroup = this.formBuilder.group({
-      nome : [''],
-      sobrenome : [''],
-      cel : [''],
-      cidade : [''],
-     
+      nome: [''],
+      sobrenome: [''],
+      cel: [''],
+      cidade: [''],
+
     })
   }
 
   ngOnInit() {
   }
 
-  entrar(){
-    let ref = this.firestore.collection('cadastroperfil')
-    ref.add(this.formGroup.value)
-    .then(()=>{
-      console.log('Entrada do Perfil com sucesso');
-      this.rauter.navigate(['/perfil']);
-    }).catch(err=>{
-      console.log('Erro ao Cadastrar')
-      console.log(err)
-    })
+  entrar() {
+    console.log('ok');
+    let ref = this.firestore.collection('perfil').doc(this.idUsuario)
+    ref.set(this.formGroup.value)
+      .then(() => {
+        console.log('Entrada do Perfil com sucesso');
+        this.router.navigate(['/perfil']);
+      }).catch(() => {
+        console.log('Erro ao Cadastrar')
+
+      })
   }
 
 

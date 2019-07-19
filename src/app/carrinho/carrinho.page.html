@@ -51,7 +51,8 @@
             <ion-card-subtitle>R$ {{pedido?.pratovegano.valor}}</ion-card-subtitle>
 
           </ion-card-header>
-
+        
+          <ion-button color="warning" expand="full" (click)="ViewPratoVegano(pedido?.pratovegano)">+Detalhes</ion-button>
 
           <ion-button color="medium" (click)="removeCarVegano(pedido?.pratovegano)">ExcluirPedido</ion-button>
 
@@ -67,7 +68,7 @@
 
           </ion-card-header>
 
-
+          <ion-button color="warning" expand="full" (click)="ViewPratoVegetariano(pedido?.pratovegetariano)">+Detalhes</ion-button>
           <ion-button color="medium" (click)="removeCarVegetariano(pedido?.pratovegetariano)">ExcluirPedido</ion-button>
 
         </ion-card>

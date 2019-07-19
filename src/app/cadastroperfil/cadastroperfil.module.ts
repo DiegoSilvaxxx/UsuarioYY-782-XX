@@ -20,9 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
     ReactiveFormsModule,
+    RouterModule.forChild(routes),
   ],
   declarations: [CadastroperfilPage]
 })
-export class CadastroperfilPageModule {}
+export class CadastroperfilPageModule { }

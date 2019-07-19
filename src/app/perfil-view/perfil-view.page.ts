@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Perfil } from '../model/perfil';
 import * as firebase from 'firebase';
 import { FormBuilder } from '@angular/forms';
-import { ToastController, LoadingController, NavController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -34,9 +34,10 @@ export class PerfilViewPage implements OnInit {
       this.usuarioEmail = this.firebaseauth.auth.currentUser.email;
 
 
-    
 
-      let ref = this.firestore.collection('cliente').doc(this.idUsuario)
+
+
+      let ref = this.firestore.collection('perfil').doc(this.idUsuario)
       ref.get().then(doc => {
         console.log(doc.data())
 
@@ -53,10 +54,10 @@ export class PerfilViewPage implements OnInit {
 
   form() {
     this.formGroup = this.formBuilder.group({
-      nome: [],
-      sobrenome: [],
-      cel: [],
-      cidade: [],
+      nome: [''],
+      sobrenome: [''],
+      cel: [''],
+      cidade: [''],
 
     });
   }
@@ -70,16 +71,16 @@ export class PerfilViewPage implements OnInit {
     console.log(this.idUsuario)
 
 
-    
-    let ref = this.firestore.collection('perfil')
-    ref.doc(this.idUsuario).set(this.formGroup.value)
+
+    let ref = this.firestore.collection('perfil').doc(this.idUsuario)
+    ref.set(this.formGroup.value)
       .then(() => {
         //this.toast('Atualizado com Sucesso');
-        //this.router.navigate(['perfil']);
+        this.router.navigate(['perfil']);
         //this.loadingController.dismiss();
       }).catch(() => {
         //this.toast('Erro ao Atualizar')
-      }) 
+      })
   }
 
 

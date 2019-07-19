@@ -10,12 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
+
+
   ngOnInit() {
 
   }
-  
+
   idUsuario: string;
-  usuarioEmail:string;
+  usuarioEmail: string;
   perfil: Perfil = new Perfil();
   picture: string = "../../assets/imagens/1.gif";
 
@@ -34,11 +36,12 @@ export class PerfilPage implements OnInit {
       console.log(this.idUsuario)
       this.downloadFoto();
 
-      let ref = this.firestore.collection('cliente').doc(this.idUsuario)
+      let ref = this.firestore.collection('perfil').doc(this.idUsuario)
       ref.get().then(doc => {
         this.perfil.id = doc.id;
         this.perfil.setDados(doc.data());
         console.log(this.perfil);
+
 
       }).catch(err => {
         console.log("ERRO: " + err)
@@ -46,7 +49,7 @@ export class PerfilPage implements OnInit {
 
     });
   }
-  
+
 
   downloadFoto() {
     let ref = firebase.storage().ref()

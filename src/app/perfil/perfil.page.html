@@ -12,11 +12,38 @@
 
 <ion-content>
   <ion-card>
+
+    <ion-toolbar color="dark">
+      <ion-card-title>{{usuarioEmail}}</ion-card-title>
+
+    </ion-toolbar>
+
     <ion-card-header>
       <img src="{{picture}}" class="perfil" />
 
     </ion-card-header>
 
+    <ion-card-subtitle class="nome">{{perfil.nome}}</ion-card-subtitle>
+    
+    <ion-fab vertical="center" horizontal="start" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="bottom">
+          <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+          <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="end">
+          <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+   
+   
     <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="edt()">
 
       <ion-icon name="settings" class="config"></ion-icon>
@@ -27,34 +54,41 @@
 
 
 
-
-      <ion-toolbar color="medium">
-        <ion-card-subtitle>{{usuarioEmail}}</ion-card-subtitle>
-      
-      </ion-toolbar>
-
-    
-
     </ion-card-header>
 
   </ion-card>
- 
-  <ion-card-header>
-      <ion-card-title>{{perfil.nome}}</ion-card-title>
-      <ion-card-subtitle>{{perfil.sobrenome}}</ion-card-subtitle>
-      <ion-card-subtitle>{{perfil.cel}}</ion-card-subtitle>
-      <ion-card-subtitle>{{perfil.cidade}}</ion-card-subtitle>
-  </ion-card-header>
- 
+
+  <ion-card>
+    <ion-card-header>
+      <ion-toolbar color="dark">
+        <ion-card-subtitle class="dado">Dados do Perfil</ion-card-subtitle>
+
+      </ion-toolbar>
+
+
+
+
+
+      <ion-card-subtitle class="t">{{perfil.sobrenome}}</ion-card-subtitle>
+
+      <ion-card-subtitle class="t">{{perfil.cel}}</ion-card-subtitle>
+
+      <ion-card-subtitle class="t">{{perfil.cidade}}</ion-card-subtitle>
+
+
+
+    </ion-card-header>
+  </ion-card>
+
   <ion-card-content>
 
 
-     
-        <ion-button color="purple" fill="outline" (click)="localization()">
-          <ion-icon name="localizer"></ion-icon> Localização
-        </ion-button>
-     
-   
+
+    <ion-button color="purple" fill="outline" (click)="localization()">
+      <ion-icon name="localizer"></ion-icon> Localização
+    </ion-button>
+
+
 
   </ion-card-content>
 

@@ -22,9 +22,7 @@ const routes: Routes = [
     loadChildren: './logoff/logoff.module#LogoffPageModule',
     canActivate: [Auth2Guard]
   },
-  { path: 'lista-de-clientes', loadChildren: './lista-de-clientes/lista-de-clientes.module#ListaDeClientesPageModule' },
-  { path: 'cadastro-de-cliente', loadChildren: './cadastro-de-cliente/cadastro-de-cliente.module#CadastroDeClientePageModule' },
-  { path: 'cliente-view', loadChildren: './cliente-view/cliente-view.module#ClienteViewPageModule' },
+
 
   { path: 'cadastro-de-prato', loadChildren: './cadastro-de-prato/cadastro-de-prato.module#CadastroDePratoPageModule' },
   { path: 'prato-view', loadChildren: './prato-view/prato-view.module#PratoViewPageModule' },
@@ -47,17 +45,17 @@ const routes: Routes = [
   { path: 'lista-de-parcerias', loadChildren: './lista-de-parcerias/lista-de-parcerias.module#ListaDeParceriasPageModule' },
   { path: 'view-parceria', loadChildren: './view-parceria/view-parceria.module#ViewParceriaPageModule' },
   { path: 'cadastro-de-parceiro', loadChildren: './cadastro-de-parceiro/cadastro-de-parceiro.module#CadastroDeParceiroPageModule' },
- 
+
   { path: 'view-modal', loadChildren: './view-modal/view-modal.module#ViewModalPageModule' },
   { path: 'view-modal-vegano', loadChildren: './view-modal-vegano/view-modal-vegano.module#ViewModalVeganoPageModule' },
   { path: 'view-modal-vegetariano', loadChildren: './view-modal-vegetariano/view-modal-vegetariano.module#ViewModalVegetarianoPageModule' },
   { path: 'view-modal-promocoes', loadChildren: './view-modal-promocoes/view-modal-promocoes.module#ViewModalPromocoesPageModule' },
- 
-  { path: 'finalizar-compra', loadChildren: './finalizar-compra/finalizar-compra.module#FinalizarCompraPageModule' },  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+
+  { path: 'finalizar-compra', loadChildren: './finalizar-compra/finalizar-compra.module#FinalizarCompraPageModule' },
+
+  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
   { path: 'perfil-view', loadChildren: './perfil-view/perfil-view.module#PerfilViewPageModule' },
   { path: 'cadastroperfil', loadChildren: './cadastroperfil/cadastroperfil.module#CadastroperfilPageModule' },
-
-
 
 
 

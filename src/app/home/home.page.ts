@@ -36,7 +36,7 @@ export class HomePage {
     this.fire.auth.createUserWithEmailAndPassword(this.email.value,this.senha.value)
     .then(()=> {
       console.log("Cadastrado com sucesso!");
-      this.router.navigate(['/cadastro-de-cliente']);
+      this.router.navigate(['/cadastroperfil']);
     }).catch(()=>{
       console.log("Usuário inválido");
     })

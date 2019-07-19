@@ -28,10 +28,10 @@ text-align: center;
   height: 30px;
 
 }
-ion-card-subtitle{
+ion-card-title{
   color: white;
   font-size: 18px;
-  text-align: center;
+  text-align: start;
 }
 ion-title{
   margin-left: 110px;
@@ -41,6 +41,7 @@ ion-title{
  
   width: 50px;
   height: 30px;
+  color: white;
   
  
 }
@@ -52,4 +53,25 @@ ion-button{
 }
 ion-content{
   background-color: black;
+}
+
+.t{
+  color: black;
+  font-family:  Georgia;
+  margin-left: 30px;
+  font-size: 18px;
+}
+.dado{
+  margin-left: 30px;
+  font-family: Arial;
+  font-size: 18px;
+  color: white;
+}
+.nome{
+
+  color: black;
+  font-family:  Georgia;
+  text-align: center;
+  font-size: 18px;
+
 }
