@@ -15,8 +15,8 @@ import { PratoVegano } from '../model/pratovegano';
 })
 export class ViewModalVeganoPage implements OnInit {
 
-  pratoID : any;
-  pratovegano : PratoVegano = new PratoVegano();
+  pratoID: any;
+  pratovegano: PratoVegano = new PratoVegano();
   id: string;
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
@@ -30,11 +30,9 @@ export class ViewModalVeganoPage implements OnInit {
     public nav: NavController) {// <----
 
     this.pratoID = this.activatedRoute.snapshot.paramMap.get('pratovegano');
-    
+
     // <----
   }
-
- 
 
   ngOnInit() {
    
@@ -52,24 +50,24 @@ export class ViewModalVeganoPage implements OnInit {
   }
 
 
-  buscaID(){
+  buscaID() {
     var ref = firebase.firestore().collection("pratovegano").doc(this.pratoID).get().then(doc => {
 
       if (doc.exists) {
 
 
-        
-          this.pratovegano.setDados(doc.data());
-          this.pratovegano.id = doc.id;
-        
 
-          let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
-            this.pratovegano.imagem = url;
+        this.pratovegano.setDados(doc.data());
+        this.pratovegano.id = doc.id;
+
+
+        let ref = firebase.storage().ref().child(`pratos/${doc.id}.jpg`).getDownloadURL().then(url => {
+          this.pratovegano.imagem = url;
+
+        })
+          .catch(err => {
 
           })
-            .catch(err => {
- 
-            })
 
 
       } else {
@@ -85,7 +83,7 @@ export class ViewModalVeganoPage implements OnInit {
     let imagem = event.srcElement.files[0];
     console.log(imagem.name);
     let ref = firebase.storage().ref()
-      .child(`promo/${this.id}.jpg`);
+      .child(`pratos/${this.id}.jpg`);
 
     ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");

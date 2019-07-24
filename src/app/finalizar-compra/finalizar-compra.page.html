@@ -64,23 +64,28 @@
     </ion-item>
 
     <ion-toolbar color="medium">
-      <ion-title>Modo de Pagamento</ion-title>
+      <ion-title>Formas de Pagamento</ion-title>
     </ion-toolbar>
 
+    
 
-    <ion-item>
-      <ion-label>Depósito</ion-label>
+     <ion-radio-group>
+        <ion-item>
+         
+          <ion-icon name="logo-usd"></ion-icon>
+          <ion-label>Dinheiro</ion-label>
+          <ion-radio slot="end" value="s" checked></ion-radio>
+        </ion-item>
 
-      <ion-checkbox color="success" slot="start"></ion-checkbox>
-
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Cartão de Crédito</ion-label>
-
-      <ion-checkbox color="danger" slot="start"></ion-checkbox>
-
-    </ion-item>
+        <ion-item>
+         
+            <ion-icon name="logo-usd"></ion-icon>
+            <ion-label>Cartão Credito/Debito</ion-label>
+            <ion-radio slot="end" onclick="checked" value="n"></ion-radio>
+          </ion-item>
+    
+       
+      </ion-radio-group>
 
 
   </ion-list>

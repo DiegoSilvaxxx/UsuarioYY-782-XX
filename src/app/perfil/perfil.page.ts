@@ -11,11 +11,6 @@ import { Router } from '@angular/router';
 })
 export class PerfilPage implements OnInit {
 
-
-  ngOnInit() {
-
-  }
-
   idUsuario: string;
   usuarioEmail: string;
   perfil: Perfil = new Perfil();
@@ -48,6 +43,10 @@ export class PerfilPage implements OnInit {
       });
 
     });
+  }
+
+  ngOnInit() {
+
   }
 
 

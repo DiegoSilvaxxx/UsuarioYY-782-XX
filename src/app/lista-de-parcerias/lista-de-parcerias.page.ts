@@ -28,19 +28,19 @@ export class ListaDeParceriasPage implements OnInit {
     public loadingController: LoadingController,
     public storageServ: StorageService) {
 
- 
+
 
   }
 
   ngOnInit() {
     this.getList();
-    console.log(this. ListaDeParcerias);
+    console.log(this.ListaDeParcerias);
   }
 
- 
 
-  ListaDePratos() {
-    this.router.navigate(['/lista-de-pratos']);
+
+  Carrinho() {
+    this.router.navigate(['/carrinho']);
   }
 
   ViewParceria(parceria: Parceria) {

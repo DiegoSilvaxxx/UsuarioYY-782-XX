@@ -85,7 +85,7 @@ export class ViewModalPage implements OnInit {
     let imagem = event.srcElement.files[0];
     console.log(imagem.name);
     let ref = firebase.storage().ref()
-      .child(`promo/${this.id}.jpg`);
+      .child(`pratos/${this.id}.jpg`);
 
     ref.put(imagem).then(url => {
       console.log("Enviado com sucesso!");

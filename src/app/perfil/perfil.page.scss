@@ -10,8 +10,8 @@ input[type='file'] {
   }
 
   .perfil{
-    height: 110px;
-    width: 110px;
+    height: 160px;
+    width: 160px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 50%;
@@ -29,19 +29,19 @@ text-align: center;
 
 }
 ion-card-title{
-  color: white;
+  color: black;
   font-size: 18px;
-  text-align: start;
+  text-align: center;
 }
 ion-title{
-  margin-left: 110px;
+  margin-left: 120px;
 }
 
 .config{
  
   width: 50px;
   height: 30px;
-  color: white;
+  color: black;
   
  
 }
@@ -51,14 +51,12 @@ ion-title{
 ion-button{
   margin-left: 110px;
 }
-ion-content{
-  background-color: black;
-}
+
 
 .t{
   color: black;
-  font-family:  Georgia;
-  margin-left: 30px;
+  font-family: Segoe UI;
+ 
   font-size: 18px;
 }
 .dado{
@@ -74,4 +72,19 @@ ion-content{
   text-align: center;
   font-size: 18px;
 
+}
+.logo{
+  width: 50px;
+  height: 30px;
+}
+ion-item{
+  font-family: Verdana;
+ 
+ margin-right: 20px;
+}
+.cor{
+  background-color: white;
+}
+.dd{
+  margin-left: 20px
 }

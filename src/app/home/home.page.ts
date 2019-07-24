@@ -23,7 +23,7 @@ export class HomePage {
     this.fire.auth.signInWithEmailAndPassword(this.email.value,this.senha.value)
       .then(()=>{
         console.log('Logado com sucesso');
-        this.router.navigate(['/perfil']);
+        this.router.navigate(['/list']);
       })
       .catch(()=>{
         console.log('Login Inválido');

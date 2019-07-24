@@ -5,12 +5,23 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  idUsuario: string;
+  usuarioEmail: string;
+
+  picture: string = "../../assets/imagens/1.gif";
+
+  firestore = firebase.firestore();
+  settings = { timestampsInSnapshots: true }
+
+
   public appPages = [
     {
       title: 'home',
@@ -53,7 +64,7 @@ export class AppComponent {
       url: '/perfil',
       icon: 'person'
     },
-  
+
 
   ];
   // 
@@ -75,21 +86,37 @@ export class AppComponent {
     });
 
     this.firebaseauth.authState
-      .subscribe(
-        user => {
-          if (!user) {
+      .subscribe(obj => {
 
-            this.router.navigate(['/home']);
-          }
-        },
-        () => {
-         // this.router.navigate(['/list']);
-        }
-      );
+        this.idUsuario = this.firebaseauth.auth.currentUser.uid;
+        this.usuarioEmail = this.firebaseauth.auth.currentUser.email;
+        console.log(this.idUsuario)
+        this.downloadFoto();
+      }
 
-  }
 
- Perfil() {
+
+      )
+  };
+
+
+
+  Perfil() {
     this.router.navigate(['/perfil']);
   }
+
+  ngOnInit() {
+
+  }
+
+
+  downloadFoto() {
+    let ref = firebase.storage().ref()
+      .child(`perfil/${this.idUsuario}.jpg`);
+
+    ref.getDownloadURL().then(url => {
+      this.picture = url;
+    })
+  }
+
 }

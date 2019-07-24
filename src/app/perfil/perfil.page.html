@@ -11,69 +11,51 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
 
-    <ion-toolbar color="dark">
-      <ion-card-title>{{usuarioEmail}}</ion-card-title>
+  <ion-card class="cor">
 
-    </ion-toolbar>
 
     <ion-card-header>
+
       <img src="{{picture}}" class="perfil" />
+
+      <ion-card-title>{{usuarioEmail}}</ion-card-title>
 
     </ion-card-header>
 
-    <ion-card-subtitle class="nome">{{perfil.nome}}</ion-card-subtitle>
-    
-    <ion-fab vertical="center" horizontal="start" slot="fixed">
-        <ion-fab-button>
-          <ion-icon name="share"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-          <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
-        </ion-fab-list>
-        <ion-fab-list side="bottom">
-          <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-        </ion-fab-list>
-        <ion-fab-list side="start">
-          <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-        </ion-fab-list>
-        <ion-fab-list side="end">
-          <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-        </ion-fab-list>
-      </ion-fab>
-   
-   
+
+
     <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="edt()">
 
       <ion-icon name="settings" class="config"></ion-icon>
 
     </ion-fab>
 
+
+
+
     <ion-card-header>
 
+      <ion-item>
+        <ion-icon name="person"></ion-icon>
+        <ion-label class="dd">Nome:</ion-label>
+        <ion-card-subtitle class="t">{{perfil.nome}} {{perfil.sobrenome}}</ion-card-subtitle>
+      </ion-item>
 
 
-    </ion-card-header>
-
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-toolbar color="dark">
-        <ion-card-subtitle class="dado">Dados do Perfil</ion-card-subtitle>
-
-      </ion-toolbar>
+      <ion-item>
+        <ion-icon name="call"></ion-icon>
+        <ion-label class="dd">Telefone:</ion-label>
+        <ion-card-subtitle class="t">{{perfil.cel}}</ion-card-subtitle>
+      </ion-item>
 
 
+      <ion-item>
+        <ion-icon name="business"></ion-icon>
+        <ion-label class="dd">Cidade:</ion-label>
+        <ion-card-subtitle class="t">{{perfil.cidade}}</ion-card-subtitle>
+      </ion-item>
 
-
-
-      <ion-card-subtitle class="t">{{perfil.sobrenome}}</ion-card-subtitle>
-
-      <ion-card-subtitle class="t">{{perfil.cel}}</ion-card-subtitle>
-
-      <ion-card-subtitle class="t">{{perfil.cidade}}</ion-card-subtitle>
 
 
 

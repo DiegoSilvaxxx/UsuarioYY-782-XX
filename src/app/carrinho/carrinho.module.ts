@@ -20,9 +20,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-  
     RouterModule.forChild(routes)
   ],
   declarations: [CarrinhoPage]
 })
-export class CarrinhoPageModule {}
+export class CarrinhoPageModule { }

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-icon (click)="Home()" slot="start" name="arrow-back" class="css"></ion-icon>
     <ion-icon slot="end" name="cart" class="Carr" (click)="Carrinho()"></ion-icon>
     <ion-title>Cardápio Promocional</ion-title>
@@ -7,24 +7,36 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
 
-  <ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-card-subtitle>{{promocao.nome}}</ion-card-subtitle>
+
+          </ion-col>
+          <ion-col>
+            <ion-card-subtitle class="valor">{{promocao.valor}}</ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
 
-    <ion-card>
-      <ion-card-header>
-        <img src="{{promocao.imagem}}">
 
-        <ion-card-subtitle>{{promocao.nome}}</ion-card-subtitle>
 
-        <ion-card-title> {{promocao?.ingrediente}}</ion-card-title>
 
-        <ion-card-title>{{promocao?.descricao}}</ion-card-title>
 
-      </ion-card-header>
+      <img src="{{promocao.imagem}}">
 
+
+      <ion-card-title> {{promocao?.ingrediente}}</ion-card-title>
+
+      <ion-card-title>{{promocao?.descricao}}</ion-card-title>
+
+    </ion-card-header>
 
 
       <ion-card-content>

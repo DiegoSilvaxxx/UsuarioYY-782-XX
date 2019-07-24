@@ -7,7 +7,22 @@
           <ion-icon slot="end" name="contact" class="iconeconf" (click)="Perfil()"></ion-icon>
         </ion-toolbar>
       </ion-header>
+
       <ion-content>
+        <ion-card>
+
+
+          <ion-card-header>
+
+
+            <img src="{{picture}}" class="perfil" (click)="Perfil()" />
+
+            <ion-card-title>{{usuarioEmail}}</ion-card-title>
+
+          </ion-card-header>
+
+        </ion-card>
+
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">

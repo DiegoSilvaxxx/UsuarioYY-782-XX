@@ -13,13 +13,31 @@ ion-card-title{
   color: white;
 
 }
-  .css{
-    width: 50px;
-    height: 30px;
-   
-  }
-  .Carr{
-    width: 50px;
-    height: 30px;
-    color: blue;
-  }
+.css{
+  width: 50px;
+  height: 30px;
+  color: black;
+ 
+}
+.valor{
+  color: white;
+  text-align: end;
+  font-family: Impact;
+  font-size: 30px;
+}
+ion-card{
+  background-color: black;
+}
+ion-title{
+  color: black;
+}
+
+.Carr{
+  width: 50px;
+  height: 30px;
+  color: blue;
+}
+
+ion-button{
+  color: white;
+}
