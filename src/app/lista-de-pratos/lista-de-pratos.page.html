@@ -55,7 +55,7 @@
 
 
 
-<ion-content>
+<ion-content padding class="background">
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
@@ -65,25 +65,27 @@
   </ion-fab>
 
 
-  <ion-tabs >
+  <ion-tabs>
     <ion-tab-bar slot="top">
 
-      <ion-tab-button>
+      <ion-card>
+        <ion-tab-button>
 
-        <img src="../../assets/imagens/logobx.png" class="logo">
-        <ion-label>Cardápio</ion-label>
-        <ion-label>baixa-caloria</ion-label>
+          <img src="../../assets/imagens/logobxBranco.png" class="logo">
+          <ion-label>Cardápio</ion-label>
+          <ion-label>baixa-caloria</ion-label>
 
-      </ion-tab-button>
+        </ion-tab-button>
+      </ion-card>
 
       <ion-tab-button (click)="viewPratoVegano()">
         <img src="../../assets/imagens/logovegano.png" class="logo">
-        <ion-label>Cardápio</ion-label>
+        <ion-label class="preto">Cardápio</ion-label>
       </ion-tab-button>
 
       <ion-tab-button (click)="viewPratoVegetariano()">
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
-        <ion-label>Cardápio</ion-label>
+        <ion-label class="preto">Cardápio</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>

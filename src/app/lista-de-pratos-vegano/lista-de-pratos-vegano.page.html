@@ -45,8 +45,8 @@
 
   <ion-row>
 
-    <ion-searchbar color="dark" [ngStyle]="{'display':filtroBox}" #textoBusca animated placeholder="Procurar" (ionChange)="busca()"
-      (ionChange)="presentActionSheet()"></ion-searchbar>
+    <ion-searchbar color="dark" [ngStyle]="{'display':filtroBox}" #textoBusca animated placeholder="Procurar"
+      (ionChange)="busca()" (ionChange)="presentActionSheet()"></ion-searchbar>
   </ion-row>
 
 
@@ -54,7 +54,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content padding class="background">
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
@@ -67,19 +67,21 @@
     <ion-tab-bar slot="top">
       <ion-tab-button (click)="PratoView()">
         <img src="../../assets/imagens/logobx.png" class="logo">
-        <ion-label>Cardápio</ion-label>
+        <ion-label class="preto">Cardápio</ion-label>
       </ion-tab-button>
 
+      <ion-card>
       <ion-tab-button (click)=" ListaDePratos()">
-        <img src="../../assets/imagens/logovegano.png" class="logo">
+        <img src="../../assets/imagens/logoveganoBranco.png" class="logo">
         <ion-label>Cardápio</ion-label>
         <ion-label>VEGANO</ion-label>
 
       </ion-tab-button>
-
+      </ion-card>
+    
       <ion-tab-button (click)="viewPratoVegetariano()">
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
-        <ion-label>Caradápio</ion-label>
+        <ion-label class="preto">Cardápio</ion-label>
       </ion-tab-button>
 
     </ion-tab-bar>

@@ -17,6 +17,8 @@ input[type='file'] {
     border-radius: 50%;
 }
 
+
+
 .tags{
 text-align: center;
 
@@ -29,9 +31,10 @@ text-align: center;
 
 }
 ion-card-title{
-  color: black;
+  color: white;
   font-size: 18px;
   text-align: center;
+ // height: 50px;
 }
 ion-title{
   margin-left: 120px;
@@ -41,7 +44,7 @@ ion-title{
  
   width: 50px;
   height: 30px;
-  color: black;
+  color: white;
   
  
 }
@@ -82,9 +85,14 @@ ion-item{
  
  margin-right: 20px;
 }
-.cor{
-  background-color: white;
-}
+
 .dd{
   margin-left: 20px
+}
+
+ion-content.background{
+ // --ion-background-color:#930;
+ --background: url(../../assets/imagens/menu4.jpg) no-repeat 100% ;
+
+ 
 }
