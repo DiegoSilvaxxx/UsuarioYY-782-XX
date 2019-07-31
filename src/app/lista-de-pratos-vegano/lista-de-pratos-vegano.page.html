@@ -59,7 +59,7 @@
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button>
       <ion-icon name="cart"></ion-icon>
-      <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+      <ion-badge color="danger">{{pedido.itens.length}}</ion-badge>
     </ion-fab-button>
   </ion-fab>
 
@@ -70,15 +70,17 @@
         <ion-label class="preto">Cardápio</ion-label>
       </ion-tab-button>
 
-      <ion-card>
-      <ion-tab-button (click)=" ListaDePratos()">
-        <img src="../../assets/imagens/logoveganoBranco.png" class="logo">
-        <ion-label>Cardápio</ion-label>
-        <ion-label>VEGANO</ion-label>
+      <ion-card-header class="botom">
 
-      </ion-tab-button>
-      </ion-card>
-    
+        <ion-tab-button (click)=" ListaDePratos()">
+          <img src="../../assets/imagens/logoveganoVerde.png" class="logo">
+         
+          <ion-label>VEGANO</ion-label>
+
+        </ion-tab-button>
+
+      </ion-card-header>
+
       <ion-tab-button (click)="viewPratoVegetariano()">
         <img src="../../assets/imagens/logovegetariano.png" class="logo">
         <ion-label class="preto">Cardápio</ion-label>
@@ -91,24 +93,25 @@
   <ion-grid>
     <ion-row>
 
-      <ion-col size="6" *ngFor="let pratovegano of ListaDePratosVegano">
-        <ion-card>
+      <ion-col size="4" *ngFor="let pratovegano of ListaDePratosVegano">
+
+        <ion-card class="fundo">
+          <ion-card-subtitle class="valorconfig">{{pratovegano?.valor}}</ion-card-subtitle>
+
           <ion-card-header>
             <img src="{{pratovegano?.imagem}}" (click)="viewPratoVegano(pratovegano)" class="transp">
-            <ion-card-title class="titleconfig">{{pratovegano?.nome}}</ion-card-title>
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-card-subtitle class="valorconfig">{{pratovegano?.valor}}</ion-card-subtitle>
+
+            <ion-card-title>{{pratovegano?.nome}}</ion-card-title>
+
           </ion-card-header>
 
 
           <div>
-            <ion-button expand="solid" color="danger" (click)="addCarrinho(pratovegano)">
-              <h3>Pedir Prato</h3>
-              <img src="../../assets/imagens/logo3.png" class="css">
+            <ion-button color="danger" (click)="addCarrinho(pratovegano)">
+              <img src="../../assets/imagens/99Branco.png" class="pro" slot="start">
+
             </ion-button>
           </div>
-
 
         </ion-card>
 

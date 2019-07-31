@@ -36,6 +36,7 @@ export class ViewParceriaPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [this.parceria.nome],
       descricao: [this.parceria.descricao],
+      endereco: [this.parceria.endereco],
       valor: [this.parceria.valor],
     });
   }

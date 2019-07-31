@@ -64,7 +64,7 @@ export class AppComponent {
       url: '/perfil',
       icon: 'person'
     },
-
+  
 
   ];
   // 

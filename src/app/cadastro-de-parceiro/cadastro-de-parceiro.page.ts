@@ -23,6 +23,7 @@ export class CadastroDeParceiroPage implements OnInit {
     this.formGroup = this.formBuilder.group({
       nome: [''],
       descricao: [''],
+      endereco: [''],
       valor: [''],
     });
 
