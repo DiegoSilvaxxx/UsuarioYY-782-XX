@@ -11,6 +11,7 @@ import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
+import { Prato } from '../model/prato';
 
 
 @Component({
@@ -50,7 +51,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
     console.log(this.ListaDePratosVegetariano);
   }
 
-  addCarrinho(prato: PratoVegetariano) {
+  addCarrinho(prato: Prato) {
 
 
 
@@ -59,6 +60,7 @@ export class ListaDePratosVegetarianoPage implements OnInit {
 
     let i = new Item();
     i.prato = prato;
+    i.prato.tipo = "Vegetariano";
     
     i.quantidade = 1;
 

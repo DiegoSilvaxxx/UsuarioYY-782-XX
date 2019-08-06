@@ -6,7 +6,7 @@ export class Prato{
     ingrediente : string
     valor : string;
     imagem : string;
-
+    tipo : string;
     constructor(){   
     }
 

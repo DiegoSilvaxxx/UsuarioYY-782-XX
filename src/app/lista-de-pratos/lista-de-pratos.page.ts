@@ -58,6 +58,7 @@ export class ListaDePratosPage implements OnInit {
 
     let i = new Item();
     i.prato = prato;
+    i.prato.tipo = "Prato";
     
     i.quantidade = 1;
 

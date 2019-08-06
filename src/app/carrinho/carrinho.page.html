@@ -24,14 +24,14 @@
 
       <ion-col size="6" *ngFor="let pedido of pedido.itens">
 
-        <ion-card *ngIf="pedido.prato != undefined">
+        <ion-card *ngIf="pedido.prato.tipo == 'Prato'">
           <ion-card-header>
             <img src="{{prato?.imagem}}">
             <ion-card-title class="titleconfig">{{pedido?.prato.nome}}</ion-card-title>
             <ion-card-subtitle>{{pedido?.prato.desrcicao}}</ion-card-subtitle>
             <ion-card-subtitle>R$ {{pedido?.prato.valor}}</ion-card-subtitle>
 
-          </ion-card-header>
+          </ion-card-header>  
 
          
 
@@ -43,35 +43,37 @@
 
         </ion-card>
 
-        <ion-card *ngIf="pedido.pratovegano != undefined">
+        <ion-card *ngIf="pedido.prato.tipo == 'Vegano'">
           <ion-card-header>
-            <img src="{{pratovegano?.imagem}}">
-            <ion-card-title class="titleconfig">{{pedido?.pratovegano.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.pratovegano.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.pratovegano.valor}}</ion-card-subtitle>
+            <img src="{{prato?.imagem}}">
+            <ion-card-title class="titleconfig">{{pedido?.prato.nome}}</ion-card-title>
+            <ion-card-subtitle>{{pedido?.prato.desrcicao}}</ion-card-subtitle>
+            <ion-card-subtitle>R$ {{pedido?.prato.valor}}</ion-card-subtitle>
 
           </ion-card-header>
         
-          <ion-button color="warning" expand="full" (click)="ViewPratoVegano(pedido?.pratovegano)">+Detalhes</ion-button>
+          <ion-button color="warning" expand="full" (click)="ViewPratoVegano(pedido?.prato)">+Detalhes</ion-button>
 
-          <ion-button color="medium" (click)="removeCarVegano(pedido?.pratovegano)">ExcluirPedido</ion-button>
+          <ion-button color="medium" expand="full" (click)="removeCar(pedido?.prato)">ExcluirPedido</ion-button>
 
         </ion-card>
 
 
-        <ion-card *ngIf="pedido.pratovegetariano != undefined">
+        <ion-card *ngIf="pedido.prato.tipo == 'Vegetariano'">
           <ion-card-header>
             <img src="{{pratovegetariano?.imagem}}">
-            <ion-card-title class="titleconfig01">{{pedido?.pratovegetariano.nome}}</ion-card-title>
-            <ion-card-subtitle>{{pedido?.pratovegetariano.desrcicao}}</ion-card-subtitle>
-            <ion-card-subtitle>R$ {{pedido?.pratovegetariano.valor}}</ion-card-subtitle>
+            <ion-card-title class="titleconfig01">{{pedido?.prato.nome}}</ion-card-title>
+            <ion-card-subtitle>{{pedido?.prato.desrcicao}}</ion-card-subtitle>
+            <ion-card-subtitle>R$ {{pedido?.prato.valor}}</ion-card-subtitle>
 
           </ion-card-header>
 
-          <ion-button color="warning" expand="full" (click)="ViewPratoVegetariano(pedido?.pratovegetariano)">+Detalhes</ion-button>
-          <ion-button color="medium" (click)="removeCarVegetariano(pedido?.pratovegetariano)">ExcluirPedido</ion-button>
+          <ion-button color="warning" expand="full" (click)="ViewPratoVegetariano(pedido?.prato)">+Detalhes</ion-button>
+          <ion-button color="medium"  expand="full" (click)="removeCar(pedido?.prato)">ExcluirPedido</ion-button>
 
         </ion-card>
+
+
 
 
         <ion-card *ngIf="pedido.promocao != undefined">

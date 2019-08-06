@@ -10,6 +10,7 @@ import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
 import { ViewChild } from '@angular/core';
+import { Prato } from '../model/prato';
 
 
 
@@ -50,7 +51,7 @@ export class ListaDePratosVeganoPage implements OnInit {
     console.log(this.ListaDePratosVegano);
   }
 
-  addCarrinho(prato: PratoVegano) {
+  addCarrinho(prato: Prato) {
 
 
 
@@ -59,6 +60,7 @@ export class ListaDePratosVeganoPage implements OnInit {
 
     let i = new Item();
     i.prato = prato;
+    i.prato.tipo = "Vegano";
     
     i.quantidade = 1;
 
@@ -228,8 +230,9 @@ export class ListaDePratosVeganoPage implements OnInit {
           .catch(err => {
             this.ListaDePratosVegano.push(c);
           })
-
+          console.log(this.ListaDePratosVegano)
       });
+     
     });
   }
 

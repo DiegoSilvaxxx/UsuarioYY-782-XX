@@ -6,6 +6,7 @@ export class PratoVegano{
     ingrediente : string;
     valor : string;
     imagem : string;
+    tipo : string;
 
     constructor(){   
     }
